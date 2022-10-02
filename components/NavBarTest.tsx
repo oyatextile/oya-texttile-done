@@ -31,13 +31,6 @@ const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const router = useRouter();
-  const [close, setclose] = useState(true);
-  useEffect(() => {
-    if (isOpen) {
-      onClose();
-    }
-  }, [close, setclose]);
   return (
     <Box bg="white" color="blackAlpha.700" px={4} m="0">
       <Flex
