@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -15,6 +15,7 @@ import NextLink from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { leftPaths, rightPaths } from "../data/navdata";
 import Logo from "./logo";
+import { useRouter } from "next/router";
 const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   <Link
     px={{ xl: 2, base: "1" }}
@@ -31,9 +32,15 @@ const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
 
+  useEffect(() => {
+    if (isOpen) {
+      onClose();
+    }
+  }, [router.asPath]);
   return (
-    <Box bg="white" color="blackAlpha.700" px={4} m='0'>
+    <Box bg="white" color="blackAlpha.700" px={4} m="0">
       <Flex
         h={16}
         alignItems={"center"}
@@ -69,7 +76,9 @@ export default function Simple() {
           // }}
           margin={"auto"}
         >
-          <NextLink href="/"><Logo/></NextLink>
+          <NextLink href="/">
+            <Logo />
+          </NextLink>
         </Box>
         <Flex
           alignItems={"center"}
@@ -83,7 +92,7 @@ export default function Simple() {
           ))}
           <LanguageSwitcher />
         </Flex>
-        <Hide above="lg" >
+        <Hide above="lg">
           <LanguageSwitcher />
         </Hide>
       </Flex>
