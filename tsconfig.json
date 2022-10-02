@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/blog/category/[slug].js", "components/Blog/articles.tsx", "components/Blog/card.tsxs", "components/Blog/nav.js", "pages/blog/article/[slug].ts", "components/Blog/seo.js", "pages/_app.ts", "components/contactUs.js","pages/products/bath.tsjs"],
+  "exclude": ["node_modules"]
+}
