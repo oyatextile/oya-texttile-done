@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -32,13 +32,13 @@ const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const router = useRouter();
-
+  // const router = useRouter();
+  const [close, setclose] = useState(true);
   useEffect(() => {
     if (isOpen) {
       onClose();
     }
-  }, [router.asPath]);
+  }, [close, setclose]);
   return (
     <Box bg="white" color="blackAlpha.700" px={4} m="0">
       <Flex
@@ -61,21 +61,11 @@ export default function Simple() {
               <NavLink key={link.label} href={link.path}>
                 {link.label}
               </NavLink>
+              // </button>
             ))}
           </HStack>
         </HStack>
-        <Box
-          color="black"
-          textAlign="center"
-          // position="absolute"
-          // left={{ lg: "55%", base: "50%" }}
-          // top="50%"
-          // transform={{
-          //   base: "translate(-100%, -50%)",
-          //   lg: "translate(-50%, -50%)",
-          // }}
-          margin={"auto"}
-        >
+        <Box color="black" textAlign="center" margin={"auto"}>
           <NextLink href="/">
             <Logo />
           </NextLink>
@@ -101,14 +91,26 @@ export default function Simple() {
         <Box pb={4} display={{ lg: "none" }}>
           <Stack as={"nav"} spacing={4}>
             {leftPaths.map((link) => (
-              <NavLink key={link.path} href={link.path}>
-                {link.label}
-              </NavLink>
+              <Link
+                onClick={() => {
+                  onClose();
+                }}
+              >
+                <NavLink key={link.path} href={link.path}>
+                  {link.label}
+                </NavLink>
+              </Link>
             ))}
             {rightPaths.map((link) => (
-              <NavLink key={link.label} href={link.path}>
-                {link.label}
-              </NavLink>
+              <Link
+                onClick={() => {
+                  onClose();
+                }}
+              >
+                <NavLink key={link.label} href={link.path}>
+                  {link.label}
+                </NavLink>
+              </Link>
             ))}
           </Stack>
         </Box>

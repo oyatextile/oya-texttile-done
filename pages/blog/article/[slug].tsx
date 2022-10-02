@@ -82,7 +82,6 @@ export async function getStaticProps({ params }: any) {
       slug: params.slug,
     },
   });
-  // console.log(data);
   return {
     props: { article: data.post },
     revalidate: 1,

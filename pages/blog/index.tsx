@@ -13,7 +13,6 @@ import Articles from "../../components/Blog/articles";
 import client, { getllPostsByCat } from "../../lib/apollo-client";
 
 const Blog = ({ posts, categories }: any) => {
-  console.log(posts);
   return (
     <Box bg="white" color="black">
       <Heading textAlign="center">Oya Home Blog</Heading>

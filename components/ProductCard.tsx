@@ -56,7 +56,6 @@ const ProductCard = ({
     listOptions: [],
     optionTitle: "",
   });
-  console.log(product.postSlug);
   useEffect(() => {
     const data = product.description;
     setlistDescription({
