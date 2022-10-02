@@ -18,9 +18,10 @@ const Card = ({ article }: any) => {
               height="200px"
               src={article.featuredImage?.node.mediaItemUrl}
             />
-            {article.categories.edges.map((it: any) => {
+            {article.categories.edges.map((it: any,i:any) => {
               return (
                 <Badge
+                  key={i}
                   variant="subtle"
                   colorScheme="green"
                   fontWeight="bold"

@@ -84,24 +84,22 @@ export default function Simple() {
           <Stack as={"nav"} spacing={4}>
             {leftPaths.map((link) => (
               <Link
+                key={link.path}
                 onClick={() => {
                   onClose();
                 }}
               >
-                <NavLink key={link.path} href={link.path}>
-                  {link.label}
-                </NavLink>
+                <NavLink href={link.path}>{link.label}</NavLink>
               </Link>
             ))}
             {rightPaths.map((link) => (
               <Link
+                key={link.label}
                 onClick={() => {
                   onClose();
                 }}
               >
-                <NavLink key={link.label} href={link.path}>
-                  {link.label}
-                </NavLink>
+                <NavLink href={link.path}>{link.label}</NavLink>
               </Link>
             ))}
           </Stack>
