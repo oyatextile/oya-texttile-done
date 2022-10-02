@@ -1,0 +1,7 @@
+cd /home/admin/web/oyalinen.com/project/oya-texttile-done
+yarn export 
+mv out ../../public_html 
+cd out 
+mv * ../ 
+cd .. 
+rm -r out 

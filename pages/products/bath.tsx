@@ -8,7 +8,7 @@ const HeadCat = () => {
   return (
     <Box justifyContent="center" w="md" alignItems="center">
       <Heading textAlign="center"> BATH </Heading>
-      <Text textAlign="center">
+      <Text textAlign="center" px='4'>
         The perfect bathroom, which is exactly what you want with every detail,
         is completely shaped by your design and imagination
       </Text>

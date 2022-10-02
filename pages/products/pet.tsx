@@ -7,7 +7,7 @@ const HeadCat = () => {
   return (
     <Box justifyContent="center" w="md" alignItems="center">
       <Heading textAlign="center"> BATH </Heading>
-      <Text textAlign="center">
+      <Text textAlign="center" px="4">
         The perfect bathroom, which is exactly what you want with every detail,
         is completely shaped by your design and imagination
       </Text>
@@ -16,7 +16,7 @@ const HeadCat = () => {
 };
 
 const Pet: NextPage = ({ body }: any) => {
-  const head =["Dog Towel","Dog Bed"]
+  const head = ["Dog Towel", "Dog Bed"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
       <Center py="12">
@@ -35,21 +35,15 @@ export async function getStaticProps() {
       name: "Dog Towel",
     },
   });
-  const body = [
-    data.productCategory.products.nodes,
-
-  ]
-   var { data } = await client.query({
+  const body = [data.productCategory.products.nodes];
+  var { data } = await client.query({
     query: getAllproductByPage,
     variables: {
       name: "Dog Bed",
     },
   });
-  body.push(
-    data.productCategory.products.nodes
+  body.push(data.productCategory.products.nodes);
 
-  )
-  
   return {
     props: {
       body: body,

@@ -156,10 +156,9 @@ const ProductCard = ({
           color="black"
           w="full"
           flexDirection={{ base: "column", lg: "row" }}
-          borderRadius="none"
+          // borderRadius="none"
         >
-          <ModalCloseButton />
-
+          <ModalCloseButton zIndex={10} />
           <ModalBody p="0">
             <Box
               w={{ md: "md", base: "sm", sm: "sm" }}
@@ -378,16 +377,9 @@ const ProductCard = ({
                   alignItems="center"
                   gap="2"
                 > */}
-              <Link
-                    color="blackAlpha.800"
-                    >
+              <Link color="blackAlpha.800">
                 <NextLink href={product.postSlug}>
-                  <Box
-                    fontSize="sm"
-                    display="flex"
-                    alignItems="center"
-                    gap="2"
-                  >
+                  <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
                   </Box>
