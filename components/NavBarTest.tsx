@@ -15,7 +15,6 @@ import NextLink from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { leftPaths, rightPaths } from "../data/navdata";
 import Logo from "./logo";
-import { useRouter } from "next/router";
 const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   <Link
     px={{ xl: 2, base: "1" }}
