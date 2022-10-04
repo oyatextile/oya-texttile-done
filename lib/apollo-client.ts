@@ -66,6 +66,8 @@ query about($name: ID!) {
     }
   }
 }`;
+
+
 export const getProductBySlug = gql`
 query productpage($name: ID!) {
   product(id: $name, idType: SLUG) {

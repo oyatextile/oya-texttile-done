@@ -89,7 +89,7 @@ export async function getStaticProps() {
   return {
     props: {
       body: body,
-      seo: data.page.page,
+      seo: data.page.seo,
     },
   };
 }
