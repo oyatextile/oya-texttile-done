@@ -61,7 +61,7 @@ export default function Contact() {
       overflow="hidden"
       display="flex"
       flexDirection={{ base: "column", lg: "row" }}
-      h='fit-content'
+      h="fit-content"
     >
       <Box
         p={{ base: "12", sm: "2" }}
@@ -244,7 +244,7 @@ export default function Contact() {
           spacing={6}
           _hover={{}}
           alignSelf="end"
-          py='4'
+          py="4"
           // marginTop={{ base: "0", lg: "12em" }}
         >
           <TransDiv>
