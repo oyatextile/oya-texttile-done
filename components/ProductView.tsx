@@ -225,7 +225,7 @@ function ProductView({
             p="0"
             flexDirection={{ md: "row", base: "column" }}
             justifyContent="start"
-            gap="1"
+            gap=".5"
             py="3"
             marginTop="auto"
             marginBottom="auto"
@@ -234,7 +234,7 @@ function ProductView({
               <Heading
                 textAlign="start"
                 as="h1"
-                fontSize="14"
+                fontSize="12"
                 color="blackAlpha.800"
                 alignSelf="self-start"
                 letterSpacing={3}
@@ -246,7 +246,7 @@ function ProductView({
               <Heading
                 textAlign="start"
                 as="h1"
-                fontSize="14"
+                fontSize="12"
                 color="blackAlpha.800"
                 alignSelf="self-start"
                 letterSpacing={3}
@@ -258,7 +258,7 @@ function ProductView({
               <Heading
                 textAlign="start"
                 as="h1"
-                fontSize="14"
+                fontSize="12"
                 color="blackAlpha.800"
                 alignSelf="self-start"
                 letterSpacing={3}
@@ -273,9 +273,10 @@ function ProductView({
               <Text
                 color="blackAlpha.600"
                 px="4"
+                py='4'
                 flexWrap={"wrap"}
-                fontSize="md"
-                pt="4"
+                fontSize="14"
+                // pt="4"
               >
                 {/* {title} */}
                 {description.descriptionText}
@@ -362,7 +363,7 @@ function ProductView({
             Need more information on waffle product? Get in touch with our Sales
             Enginner.
           </Text>
-          <Box px="8" py="0" fontSize={"12"}>
+          <Flex px="8" py="0" fontSize={"12"} gap='2'>
             <Flex alignItems={"center"} gap="1">
               <span
                 style={{
@@ -385,7 +386,7 @@ function ProductView({
               </span>
               <Text>info@oyatextile.com </Text>
             </Flex>
-          </Box>
+          </Flex>
           {/*  ✆ 0090 554 195 0 195 ✉ info@oyatextile.com */}
           {/* {/* <Link
             fontSize="sm"

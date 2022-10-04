@@ -3,7 +3,9 @@ cd /home/admin/web/oyalinen.com/project/oya-texttile-done
 git pull origin master
 yarn export 
 cp -r out ../../public_html 
-cd ../../public_html/out 
+cd ../../public_html/
+rm -r 404 about/ images/ locales/ blog/ contact/ vercel.svg _next/ career/ inspiration/ products/ 
+cd out/
 mv * ../ 
 cp -r * ../
 cd .. 
