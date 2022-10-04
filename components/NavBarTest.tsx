@@ -32,13 +32,24 @@ const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box bg="white" color="blackAlpha.700" px={4} m="0">
+    <Box
+      bg="white"
+      color="blackAlpha.700"
+      px={4}
+      m="0"
+      pos={'sticky'}
+      boxShadow='sm'
+      top='0'
+      w='full'
+      zIndex={'10'}
+    >
       <Flex
         h={16}
         alignItems={"center"}
         justifyContent="space-between"
         position="relative"
         flexWrap="wrap"
+        align="center"
       >
         <IconButton
           size={"md"}
@@ -57,10 +68,8 @@ export default function Simple() {
             ))}
           </HStack>
         </HStack>
-        <Box color="black" textAlign="center" margin={"auto"}>
-          <NextLink href="/">
-            <Logo />
-          </NextLink>
+        <Box color="black"  w='fit-content'  marginRight={"auto"} marginLeft='auto' >
+          <Logo  index='3'/>
         </Box>
         <Flex
           alignItems={"center"}
@@ -72,10 +81,10 @@ export default function Simple() {
               {link.label}
             </NavLink>
           ))}
-          <LanguageSwitcher />
+          {/* <LanguageSwitcher /> */}
         </Flex>
         <Hide above="lg">
-          <LanguageSwitcher />
+          {/* <LanguageSwitcher /> */}
         </Hide>
       </Flex>
 

@@ -1,4 +1,4 @@
-import { Box, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import React from "react";
 import TabsCategory from "../../components/TabsCategory";
@@ -6,21 +6,47 @@ import client, { getAllproductByPage } from "../../lib/apollo-client";
 
 const HeadCat = () => {
   return (
-    <Box justifyContent="center" w="md" alignItems="center">
-    <Heading textAlign="center"> BEACH </Heading>
-    <Text textAlign="center" px='4'>
-      The perfect bathroom, which is exactly what you want with every detail,
-      is completely shaped by your design and imagination
-    </Text>
-  </Box>
+    <Box justifyContent="center" w="full" alignItems="center">
+      <Show above="md">
+        <Image src="/images/Banner/5.jpg" w="full" />
+      </Show>
+      <Heading textAlign="center" py="4">
+        Beach
+      </Heading>
+      <Text
+        textAlign="center"
+        px="4"
+        fontSize={"14"}
+        py="2"
+        w="fit-content"
+        margin={"auto"}
+        maxW="2xl"
+      >
+        Beach time means joy and happiness so let it be with oya’s beach
+        collection. Happy Holiday!
+      </Text>
+      <Text
+        textAlign="center"
+        px="4"
+        py="2"
+        fontSize={"14"}
+        w="fit-content"
+        margin={"auto"}
+        maxW='4xl'
+      >
+        OYA’s Beach collections for vacation are manufactured with standards, in
+        addition to a competitive price to match your country’s market
+        requirements and needs.
+      </Text>
+    </Box>
   );
 };
 
 const Bath: NextPage = ({ body }: any) => {
-    const head =["All"]
+  const head = ["All"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
-      <Center py="12">
+      <Center pb="12">
         <HeadCat />
       </Center>
       <TabsCategory head={head} body={body} />;
@@ -35,11 +61,8 @@ export async function getStaticProps() {
       name: "All",
     },
   });
-  const body = [
-    data.productCategory.products.nodes,
+  const body = [data.productCategory.products.nodes];
 
-  ]
-   
   return {
     props: {
       body: body,

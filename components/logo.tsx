@@ -1,11 +1,14 @@
-import { Heading, Image } from "@chakra-ui/react";
+import { Heading, Image, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
 import React from "react";
 
-const Logo = () => {
+const Logo = ({ index }: any) => {
   return (
-    <Heading p="0">
-      <Image w='40' h='50px' src="/images/logo/3.png" />
-    </Heading>
+    <Link>
+      <NextLink href="/">
+        <Image w="64" src={`/images/logo/${index}.png`} />
+      </NextLink>
+    </Link>
   );
 };
 

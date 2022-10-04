@@ -1,25 +1,51 @@
-import { Box, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import React from "react";
 import TabsCategory from "../../components/TabsCategory";
 import client, { getAllproductByPage } from "../../lib/apollo-client";
 const HeadCat = () => {
   return (
-    <Box justifyContent="center" w="md" alignItems="center">
-      <Heading textAlign="center"> HOTEL </Heading>
-      <Text textAlign="center" px='4'>
-        The perfect bathroom, which is exactly what you want with every detail,
-        is completely shaped by your design and imagination
+    <Box justifyContent="center" w="full" alignItems="center">
+      <Show above="md">
+        <Image src="/images/Banner/4.jpg" w="full" />
+      </Show>
+      <Heading textAlign="center" py="4">
+        HOTEL
+      </Heading>
+      <Text
+        textAlign="center"
+        px="4"
+        fontSize={"14"}
+        py="2"
+        w="fit-content"
+        margin={"auto"}
+        maxW='4xl'
+      >
+        Hotel’s clients need a great stay experience. OYA’s hotel collection is
+        a suitable choice for each hotel.
+      </Text>
+      <Text
+        textAlign="center"
+        px="4"
+        py="2"
+        fontSize={"14"}
+        w="fit-content"
+        margin={"auto"}
+        maxW="2xl"
+      >
+        OYA’s Hotel collection for all hotel categories are manufactured with
+        standards, in addition to a competitive price to match your country’s
+        market requirements and needs.
       </Text>
     </Box>
   );
 };
 
 const Hotel: NextPage = ({ body }: any) => {
-  const head =["Hospital","Bath","Bed Linen","Protectors"]
+  const head = ["Hospital", "Bath", "Bed Linen", "Protectors"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
-      <Center py="12">
+      <Center pb="6">
         <HeadCat />
       </Center>
       <TabsCategory head={head} body={body} />;
@@ -35,40 +61,28 @@ export async function getStaticProps() {
       name: "Hospital",
     },
   });
-  const body = [
-    data.productCategory.products.nodes,
-
-  ]
-   var { data } = await client.query({
+  const body = [data.productCategory.products.nodes];
+  var { data } = await client.query({
     query: getAllproductByPage,
     variables: {
       name: "BathHotel",
     },
   });
-  body.push(
-    data.productCategory.products.nodes
-
-  )
+  body.push(data.productCategory.products.nodes);
   var { data } = await client.query({
     query: getAllproductByPage,
     variables: {
       name: "Bed Linen",
     },
   });
-  body.push(
-    data.productCategory.products.nodes
-
-  )
+  body.push(data.productCategory.products.nodes);
   var { data } = await client.query({
     query: getAllproductByPage,
     variables: {
       name: "Protectors",
     },
   });
-  body.push(
-    data.productCategory.products.nodes
-
-  )
+  body.push(data.productCategory.products.nodes);
   return {
     props: {
       body: body,

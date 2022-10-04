@@ -6,7 +6,7 @@ import Simple from "../NavBarTest";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Container as='main' maxW="full" bg="white" p="0" h='100vh'>
+    <Container as='main' maxW="full" bg="white" p="0"  pos='relative'>
       {/* <NavBar /> */}
       <Simple />
       <Box w="100%" >{children}</Box>

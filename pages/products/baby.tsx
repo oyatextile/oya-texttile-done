@@ -1,17 +1,42 @@
-import { Box, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import React from "react";
 import TabsCategory from "../../components/TabsCategory";
 
-import { gql } from "@apollo/client";
 import client, { getAllproductByPage } from "../../lib/apollo-client";
 const HeadCat = () => {
   return (
-    <Box justifyContent="center" w="md" alignItems="center">
-      <Heading textAlign="center"> Baby {"&"} kids </Heading>
-      <Text textAlign="center" px='4'>
-        The perfect bathroom, which is exactly what you want with every detail,
-        is completely shaped by your design and imagination
+    <Box justifyContent="center" w="full" alignItems="center">
+      <Show above="md">
+        <Image src="/images/Banner/2.jpg" w="full" />
+      </Show>
+      <Heading textAlign="center" py="4">
+        BABY {"&"} KIDS
+      </Heading>
+      <Text
+        textAlign="center"
+        px="4"
+        fontSize={"14"}
+        py="2"
+        w="fit-content"
+        margin={"auto"}
+        maxW='4xl'
+      >
+        Baby and Kids bathing collection makes bathing more enjoyable and
+        lovely…
+      </Text>
+      <Text
+        textAlign="center"
+        px="4"
+        py="2"
+        fontSize={"14"}
+        w="fit-content"
+        margin={"auto"}
+        maxW="2xl"
+      >
+        OYA’s Bath products for Baby {"&"} Kids are manufactured with standards,
+        in addition to a competitive price to match your country’s market
+        requirements and needs.
       </Text>
     </Box>
   );
@@ -21,7 +46,7 @@ const baby: NextPage = ({ body }: any) => {
   const head = ["Bath", "Bed"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
-      <Center py="12">
+      <Center pb="6">
         <HeadCat />
       </Center>
       <TabsCategory head={head} body={body} />;

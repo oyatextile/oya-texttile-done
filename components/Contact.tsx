@@ -61,6 +61,7 @@ export default function Contact() {
       overflow="hidden"
       display="flex"
       flexDirection={{ base: "column", lg: "row" }}
+      h='fit-content'
     >
       <Box
         p={{ base: "12", sm: "2" }}
@@ -116,18 +117,7 @@ export default function Contact() {
               </Text>
             </Flex>
             {/* 📍 Akcesme Mah, 2622 Sok.    No: 12 Merkezefendi / Denizli Turkey */}
-            <Flex gap="1" w={{ base: "sm", sm: "full" }} h="44">
-              {/* <Image src="/images/myscreen.png" /> */}
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1576.1315204041227!2d29.06386111370987!3d37.80730734162292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c73fe6ed511a67%3A0x76fe7e77ec1e42c3!2sAk%C3%A7e%C5%9Fme%2C%202622.%20Sk.%20No%3A12%2C%2020020%20Denizli%20Merkez%2FDenizli%2C%20Turkey!5e0!3m2!1sen!2sma!4v1664742316506!5m2!1sen!2sma"
-                // width="600"
-                // height="450"
-                // style="border:0;"
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </Flex>
+
             <Flex alignItems={"center"} gap="1" fontSize={"17"}>
               <span
                 style={{
@@ -240,12 +230,22 @@ export default function Contact() {
             </FormControl>
           </VStack>
         </form>
+        <Flex
+          as="iframe"
+          gap="1"
+          w={{ base: "sm", sm: "full" }}
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1576.1315204041227!2d29.06386111370987!3d37.80730734162292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c73fe6ed511a67%3A0x76fe7e77ec1e42c3!2sAk%C3%A7e%C5%9Fme%2C%202622.%20Sk.%20No%3A12%2C%2020020%20Denizli%20Merkez%2FDenizli%2C%20Turkey!5e0!3m2!1sen!2sma!4v1664742316506!5m2!1sen!2sma"
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></Flex>
         <Stack
           direction={"row"}
           spacing={6}
           _hover={{}}
           alignSelf="end"
-          marginTop={{ base: "0", lg: "12em" }}
+          py='4'
+          // marginTop={{ base: "0", lg: "12em" }}
         >
           <TransDiv>
             <SocialButton

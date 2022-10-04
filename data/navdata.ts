@@ -27,19 +27,19 @@ export const leftPaths = [
 export const rightPaths = [
     {
       path: "/blog",
-      label: "Blog",
+      label: "BLOG",
     },
     // INSPIRATION
-    {
-      path: "/inspiration",
-      label: "Inspiration",
-    },
+    // {
+    //   path: "/inspiration",
+    //   label: "Inspiration",
+    // },
     {
       path: "/about",
-      label: "About",
+      label: "ABOUT",
     },
     {
       path: "/contact",
-      label: "Contact",
+      label: "CONTACT",
     },
   ];

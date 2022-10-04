@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       />
 
       <Center>
-        <Box position="absolute" top="20%" zIndex="1" w="fit-content">
+        <Box position="absolute" top="50%" zIndex="1" w="fit-content">
           <Heading
             lineHeight="tall"
             as="h1"

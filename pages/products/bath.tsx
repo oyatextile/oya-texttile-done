@@ -1,4 +1,4 @@
-import { Box, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
 // import type { NextPage } from "next";
 import React from "react";
 import TabsCategory from "../../components/TabsCategory";
@@ -6,21 +6,49 @@ import TabsCategory from "../../components/TabsCategory";
 import client, { getAllproductByPage } from "../../lib/apollo-client";
 const HeadCat = () => {
   return (
-    <Box justifyContent="center" w="md" alignItems="center">
-      <Heading textAlign="center"> BATH </Heading>
-      <Text textAlign="center" px='4'>
-        The perfect bathroom, which is exactly what you want with every detail,
-        is completely shaped by your design and imagination
+    <Box justifyContent="center" w="full" alignItems="center">
+      <Show above="md">
+        <Image src="/images/Banner/1.jpg" w="full" />
+      </Show>
+      <Heading textAlign="center" py="4">
+        {" "}
+        BATH{" "}
+      </Heading>
+      <Text
+        textAlign="center"
+        px="4"
+        fontSize={"14"}
+        py="2"
+        w="fit-content"
+        margin={"auto"}
+        maxW='4xl'
+      >
+        Each family deserves a lovely bathing hours and it would be complete
+        with OYA’s Bath Collection.
+      </Text>
+      <Text
+        textAlign="center"
+        px="4"
+        py="2"
+        fontSize={"14"}
+        w="fit-content"
+        margin={"auto"}
+        maxW='2xl'
+
+      >
+        OYA’s products for bathing are manufactured with standards, in addition
+        to a competitive price to match your country’s market requirements and
+        needs.
       </Text>
     </Box>
   );
 };
 
-const Bath = ({ body }:any) => {
-  const head =["TOWEL","BATHMAT","BATHROBE"]
+const Bath = ({ body }: any) => {
+  const head = ["Towel", "Bathmat", "Bathrobe"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
-      <Center py="12">
+      <Center pb='6'>
         <HeadCat />
       </Center>
       <TabsCategory head={head} body={body} />
@@ -36,30 +64,21 @@ export async function getStaticProps() {
       name: "TOWEL",
     },
   });
-  const body = [
-    data.productCategory.products.nodes,
-
-  ]
-   var { data } = await client.query({
+  const body = [data.productCategory.products.nodes];
+  var { data } = await client.query({
     query: getAllproductByPage,
     variables: {
       name: "BATHMAT",
     },
   });
-  body.push(
-    data.productCategory.products.nodes
-
-  )
+  body.push(data.productCategory.products.nodes);
   var { data } = await client.query({
     query: getAllproductByPage,
     variables: {
       name: "BATHROBE",
     },
   });
-  body.push(
-    data.productCategory.products.nodes
-
-  )
+  body.push(data.productCategory.products.nodes);
   return {
     props: {
       body: body,

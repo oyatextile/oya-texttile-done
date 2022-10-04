@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Contact from "../components/Contact";
 const About: NextPage = () => {
@@ -19,8 +19,9 @@ const About: NextPage = () => {
       >
         Costum-made manufacturer{" "}
       </Heading>
-      <Box margin='auto' w='fit-content'>
+      <Box margin="auto" w="fit-content">
         <Contact />
+       
       </Box>
       <hr />
     </Box>
