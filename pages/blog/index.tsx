@@ -8,13 +8,21 @@ import {
   TabPanel,
   Heading,
 } from "@chakra-ui/react";
+import Head from "next/head";
 import React from "react";
 import Articles from "../../components/Blog/articles";
-import client, { getllPostsByCat } from "../../lib/apollo-client";
+import client, {
+  getllPostsByCat,
+  getSeoForPate,
+} from "../../lib/apollo-client";
 
-const Blog = ({ posts, categories }: any) => {
+const Blog = ({ posts, categories, seo }: any) => {
   return (
     <Box bg="white" color="black">
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment //@ts-ignore
+      <Head>
+        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+      </Head>
       <Heading textAlign="center">Oya Home Blog</Heading>
       <Box w="sm" margin="auto" px="4">
         <Text
@@ -56,6 +64,7 @@ const Blog = ({ posts, categories }: any) => {
           })}
         </TabPanels>
       </Tabs>
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
       {/* </Box> */}
     </Box>
   );
@@ -126,12 +135,18 @@ export async function getStaticProps() {
     },
   });
   body.push(data.category.posts.nodes);
+  var { data } = await client.query({
+    query: getSeoForPate,
+    variables: {
+      name: "/index.php/carrer/",
+    },
+  });
   return {
     props: {
       posts: body,
       categories: head,
+      seo: data.page.seo,
     },
   };
 }
-
 export default Blog;

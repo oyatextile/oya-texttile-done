@@ -1,8 +1,13 @@
 import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import Head from "next/head";
 import React from "react";
+import SeoTags from "../../components/seoTags";
 import TabsCategory from "../../components/TabsCategory";
-import client, { getAllproductByPage } from "../../lib/apollo-client";
+import client, {
+  getAllproductByPage,
+  getSeoForPate,
+} from "../../lib/apollo-client";
 const HeadCat = () => {
   return (
     <Box justifyContent="center" w="full" alignItems="center">
@@ -19,7 +24,7 @@ const HeadCat = () => {
         py="2"
         w="fit-content"
         margin={"auto"}
-        maxW='4xl'
+        maxW="4xl"
       >
         Hotel’s clients need a great stay experience. OYA’s hotel collection is
         a suitable choice for each hotel.
@@ -41,10 +46,17 @@ const HeadCat = () => {
   );
 };
 
-const Hotel: NextPage = ({ body }: any) => {
+const Hotel: NextPage = ({ body, seo }: any) => {
   const head = ["Hospital", "Bath", "Bed Linen", "Protectors"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
+      <Head>
+        {/* <title>Oyahome</title> */}
+        <React.Fragment
+          dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
+        ></React.Fragment>
+      </Head>
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
       <Center pb="6">
         <HeadCat />
       </Center>
@@ -83,9 +95,16 @@ export async function getStaticProps() {
     },
   });
   body.push(data.productCategory.products.nodes);
+  var { data } = await client.query({
+    query: getSeoForPate,
+    variables: {
+      name: "/index.php/hotel/",
+    },
+  });
   return {
     props: {
       body: body,
+      seo: data.page.page,
     },
   };
 }

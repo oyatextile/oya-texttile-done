@@ -2,7 +2,6 @@ import { Box, Heading, Stack } from "@chakra-ui/react";
 import React from "react";
 import ProductView from "../../components/ProductView";
 import client, {
-  getAllproductByPage,
   getProductBySlug,
 } from "../../lib/apollo-client";
 

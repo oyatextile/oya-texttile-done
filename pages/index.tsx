@@ -1,7 +1,14 @@
 import { Box, Center, Heading, Image, VStack } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import Head from "next/head";
+import React from "react";
+import SeoTags from "../components/seoTags";
+import client, { getSeoForPate } from "../lib/apollo-client";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ seo }: any) => {
+  console.log(seo);
+  const content = `${seo.seoTagsHead}`;
+
   return (
     <Box
       h={{ base: "100vh", sm: "fit-content" }}
@@ -9,6 +16,10 @@ const Home: NextPage = () => {
       __css={{}}
       position="relative"
     >
+      <Head>
+        <p dangerouslySetInnerHTML={{ __html: content }}></p>
+      </Head>
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
       <Image
         src="/images/background.jpeg"
         objectFit="cover"
@@ -19,7 +30,6 @@ const Home: NextPage = () => {
           zIndex: "0",
         }}
       />
-
       <Center>
         <Box position="absolute" top="50%" zIndex="1" w="fit-content">
           <Heading
@@ -39,7 +49,7 @@ const Home: NextPage = () => {
             py="4"
             as="h3"
             px="4"
-            margin='auto'
+            margin="auto"
             w="fit-content"
             color="black"
             bg="whiteAlpha.800"
@@ -51,10 +61,22 @@ const Home: NextPage = () => {
           </Heading>
         </Box>
       </Center>
-
-      <Center></Center>
     </Box>
   );
 };
+
+export async function getStaticProps() {
+  var { data } = await client.query({
+    query: getSeoForPate,
+    variables: {
+      name: "/index.php/landing-page/",
+    },
+  });
+  return {
+    props: {
+      seo: data.page.seo,
+    },
+  };
+}
 
 export default Home;

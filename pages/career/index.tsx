@@ -12,25 +12,35 @@ import {
   UnorderedList,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
-const About: NextPage = () => {
+import Head from "next/head";
+import client, { getSeoForPate } from "../../lib/apollo-client";
+const Carrer: NextPage = ({ seo }: any) => {
   return (
-    <Box w="full" bg="white" py={{base:'12',sm:'4'}} display='flex'
-      marginTop='auto'
+    <Box
+      w="full"
+      bg="white"
+      py={{ base: "12", sm: "4" }}
+      display="flex"
+      marginTop="auto"
     >
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment //@ts-ignore
+      <Head>
+        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+      </Head>
       <Stack
-        margin={'auto'}
-        py='12'
-        direction={{base:'column',lg:"row"}}
+        margin={"auto"}
+        py="12"
+        direction={{ base: "column", lg: "row" }}
         // h='xl'
-        w={{lg:"4xl" ,base:'full'}}
+        w={{ lg: "4xl", base: "full" }}
         justifyContent="center"
         spacing="8"
         border={1}
-        boxShadow={{lg:'2xl',base:'none'}}
-        color='black'
+        boxShadow={{ lg: "2xl", base: "none" }}
+        color="black"
       >
-        <Box gap="4" pl='8'>
-          <Heading  py="4">Join a fast-growing company</Heading>
+        <Box gap="4" pl="8">
+          <Heading py="4">Join a fast-growing company</Heading>
           <Box py="12">
             <Text>You’re wanted! If have skills in those fields :</Text>
             <UnorderedList py="4" px="4">
@@ -44,11 +54,30 @@ const About: NextPage = () => {
             <Text>Feel free to send us your Cv : info@oyatextile.com</Text>
           </Box>
         </Box>
-        <Box display='flex' w={{lg:"md",base:'full'}} justifyContent='center'>
-          <Image w={{lg:"md",base:'xl'}} h='xl' src="/images/carrer.jpg" />
+        <Box
+          display="flex"
+          w={{ lg: "md", base: "full" }}
+          justifyContent="center"
+        >
+          <Image w={{ lg: "md", base: "xl" }} h="xl" src="/images/carrer.jpg" />
         </Box>
       </Stack>
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
     </Box>
   );
 };
-export default About;
+
+export async function getStaticProps() {
+  var { data } = await client.query({
+    query: getSeoForPate,
+    variables: {
+      name: "/index.php/carrer/",
+    },
+  });
+  return {
+    props: {
+      seo: data.page.seo,
+    },
+  };
+}
+export default Carrer;

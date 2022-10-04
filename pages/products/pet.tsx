@@ -1,8 +1,13 @@
 import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import Head from "next/head";
 import React from "react";
+import SeoTags from "../../components/seoTags";
 import TabsCategory from "../../components/TabsCategory";
-import client, { getAllproductByPage } from "../../lib/apollo-client";
+import client, {
+  getAllproductByPage,
+  getSeoForPate,
+} from "../../lib/apollo-client";
 const HeadCat = () => {
   return (
     <Box justifyContent="center" w="full" alignItems="center">
@@ -19,7 +24,7 @@ const HeadCat = () => {
         py="2"
         w="fit-content"
         margin={"auto"}
-        maxW='4xl'
+        maxW="4xl"
       >
         Lovely pets has a lovely collection from OYA’s. Our little friends
         deserve more caring…
@@ -40,10 +45,17 @@ const HeadCat = () => {
     </Box>
   );
 };
-const Pet: NextPage = ({ body }: any) => {
+const Pet: NextPage = ({ body, seo }: any) => {
   const head = ["Dog Towel", "Dog Bed"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
+      <Head>
+        {/* <title>Oyahome</title> */}
+        <React.Fragment
+          dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
+        ></React.Fragment>
+      </Head>
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
       <Center pb="6">
         <HeadCat />
       </Center>
@@ -68,10 +80,16 @@ export async function getStaticProps() {
     },
   });
   body.push(data.productCategory.products.nodes);
-
+  var { data } = await client.query({
+    query: getSeoForPate,
+    variables: {
+      name: "/index.php/pet/",
+    },
+  });
   return {
     props: {
       body: body,
+      seo: data.page.page,
     },
   };
 }

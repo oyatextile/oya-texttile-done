@@ -1,9 +1,14 @@
 import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
+import Head from "next/head";
 // import type { NextPage } from "next";
 import React from "react";
+import SeoTags from "../../components/seoTags";
 import TabsCategory from "../../components/TabsCategory";
 
-import client, { getAllproductByPage } from "../../lib/apollo-client";
+import client, {
+  getAllproductByPage,
+  getSeoForPate,
+} from "../../lib/apollo-client";
 const HeadCat = () => {
   return (
     <Box justifyContent="center" w="full" alignItems="center">
@@ -21,7 +26,7 @@ const HeadCat = () => {
         py="2"
         w="fit-content"
         margin={"auto"}
-        maxW='4xl'
+        maxW="4xl"
       >
         Each family deserves a lovely bathing hours and it would be complete
         with OYA’s Bath Collection.
@@ -33,8 +38,7 @@ const HeadCat = () => {
         fontSize={"14"}
         w="fit-content"
         margin={"auto"}
-        maxW='2xl'
-
+        maxW="2xl"
       >
         OYA’s products for bathing are manufactured with standards, in addition
         to a competitive price to match your country’s market requirements and
@@ -44,11 +48,18 @@ const HeadCat = () => {
   );
 };
 
-const Bath = ({ body }: any) => {
+const Bath = ({ body, seo }: any) => {
   const head = ["Towel", "Bathmat", "Bathrobe"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
-      <Center pb='6'>
+      <Head>
+        {/* <title>Oyahome</title> */}
+        <React.Fragment
+          dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
+        ></React.Fragment>
+      </Head>
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
+      <Center pb="6">
         <HeadCat />
       </Center>
       <TabsCategory head={head} body={body} />
@@ -79,9 +90,16 @@ export async function getStaticProps() {
     },
   });
   body.push(data.productCategory.products.nodes);
+  var { data } = await client.query({
+    query: getSeoForPate,
+    variables: {
+      name: "/index.php/baby/",
+    },
+  });
   return {
     props: {
       body: body,
+      seo: data.page.page,
     },
   };
 }

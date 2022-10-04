@@ -1,90 +1,179 @@
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
 import { gql } from "@apollo/client";
-import client from "../../../lib/apollo-client";
-import { Box, Heading, Stack } from "@chakra-ui/react";
+import client, { getProductBySlug } from "../../../lib/apollo-client";
+import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import ProductView from "../../../components/ProductView";
 import Head from "next/head";
-const Article = ({ article }: any) => {
+const Details = ({ children }: any) => {
+  const data = children.split("\n", 1);
+  var title = "";
+  if (data[0].includes("*")) {
+    title = data[0];
+    title = title.replace("*", "");
+    children = children.replace(data[0], "");
+  }
   return (
-    <Box bg="black" color="white">
-      <Stack
-        bgImage={article.featuredImage?.node.mediaItemUrl}
-        w="full"
-        h="md"
-        __css={{
-          backgroundSize: "cover",
-        }}
-        justifyContent="center"
-        alignContent="center"
-      >
-        <Heading color="white" textAlign="center">
-          {article.title}
-        </Heading>
-      </Stack>
+    <Box>
+      <Heading py="4" px="8">
+        {title}
+      </Heading>
+      <Text px="8">{children}</Text>
+    </Box>
+  );
+};
+const Article = ({ body, post, seo }: any) => {
+  if (Object.keys(body).length === 0) {
+    const description = post.postfield.description.split("\n*");
 
-      <Box w="full" display="flex">
-        <Box p="4" margin={"auto"}>
-          <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-            {article.content}
-          </ReactMarkdown>
+    return (
+      <Box bg="white" color="black">
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        <Head>
+          <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+        </Head>
+        <Box maxW={"4xl"} margin="auto" boxShadow={"2xl"} mb="4">
+          <Image
+            src={post.featuredImage.node.mediaItemUrl}
+            w="full"
+            maxH={"xl"}
+            maxW={"4xl"}
+            margin="auto"
+          />
+          <Box>
+            <Heading
+              textAlign={"center"}
+              bg="#299D8C"
+              py="4"
+              color="white"
+              px="4"
+            >
+              {post.title}
+            </Heading>
+          </Box>
+          {description.map((it: string) => {
+            return <Details children={it} />;
+          })}
+
+          <Stack
+            maxW={"4xl"}
+            direction={{ md: "row", base: "column" }}
+            w="fit-content"
+            margin={"auto"}
+            py="4"
+          >
+            <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
+            <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
+          </Stack>
+          <Details title="">
+            There are several important factors to affect the hotel towel’s
+            softness, appearance, feel, longevity, colorfastness, and
+            performance. How to choose the right towels for hotels, healthcare,
+            and spa facilities or What to look for in hotel towels when sourcing
+            the towels for industrial usage? Don’t worry! Oya’s Technical Team
+            created a clear towel buying guide for you. This guide helps you
+            both buying hotel towels from your wholesaler supplies or make a
+            customized fresh production in a manufacturing company such as Oya
+            Textile in Turkey. Here are the tips that you have to check
+            carefully!
+          </Details>
         </Box>
+        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
       </Box>
+    );
+  }
+  return (
+    <Box w="full">
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment //@ts-ignore
+      <Head>
+        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+      </Head>
+      {/* product side */}
+      <ProductView product={body.productfields} content={body.content} />
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
     </Box>
   );
 };
 
 export async function getStaticPaths() {
-  const { data } = await client.query({
+  var { data } = await client.query({
     query: gql`
       query NewQuery {
         posts(first: 1000) {
-          edges {
-            node {
-              slug
-            }
+          nodes {
+            slug
+          }
+        }
+        products(first: 1000) {
+          nodes {
+            slug
           }
         }
       }
     `,
   });
+  const products = data.products.nodes;
+  const dataf = [...products, ...data.posts.nodes];
   return {
-    paths: data.posts.edges.map((article: { node: { slug: any } }) => ({
+    paths: dataf.map((article: { [x: string]: any; node: { slug: any } }) => ({
       params: {
-        slug: article.node.slug,
+        slug: article.slug,
       },
     })),
     fallback: false,
   };
 }
-
-// export async function getStaticPaths() {
-//   return {
-//     paths: Array<string | {params: {[key: string]: string } }>,
-//     fallback: boolean
-//   }
-// }
 export async function getStaticProps({ params }: any) {
-  const { data } = await client.query({
-    query: gql`
-      query NewQuery($slug: ID!) {
-        post(id: $slug, idType: SLUG) {
-          content
-          title
-          featuredImage {
-            node {
-              mediaItemUrl
+  var { data } = await client.query({
+    query: getProductBySlug,
+    variables: {
+      name: params.slug,
+    },
+  });
+  const body = data.product;
+  const seo_s = data.seo;
+
+  if (!body) {
+    var { data } = await client.query({
+      query: gql`
+        query productpage($name: ID!) {
+          post(id: $name, idType: SLUG) {
+            title
+            seo {
+              seoBody
+              seoTagsHead
+            }
+            featuredImage {
+              node {
+                mediaItemUrl
+              }
+            }
+            postfield {
+              leftImage {
+                mediaItemUrl
+              }
+              rightImage {
+                mediaItemUrl
+              }
+              finalDescription
+              description
             }
           }
         }
-      }
-    `,
-    variables: {
-      slug: params.slug,
-    },
-  });
+      `,
+      variables: {
+        name: params.slug,
+      },
+    });
+    return {
+      props: {
+        body: {},
+        seo: data.seo,
+        post: data.post,
+      },
+    };
+  }
   return {
-    props: { article: data.post },
-    revalidate: 1,
+    props: { body: body, seo: seo_s, post: {} },
   };
 }
 

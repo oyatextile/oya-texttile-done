@@ -57,24 +57,24 @@ const ProductCard = ({
     optionTitle: "",
   });
   useEffect(() => {
-    const data = product.description;
+    const data = product?.description;
     setlistDescription({
       listDescription: data
-        .split("\n")
+        ?.split("\n")
         .filter((it: string) => it.includes("✅")),
       descriptionText: data
-        .split("\n")
+        ?.split("\n")
         .filter((it: string) => !it.includes("✅")),
     });
-    const data1 = product.orderProduction;
+    const data1 = product?.orderProduction;
     setlistOptions({
-      listOptions: data1.split("\n").filter((it: string) => it.includes("*")),
-      optionTitle: data1.split("\n").filter((it: string) => !it.includes("*")),
+      listOptions: data1?.split("\n").filter((it: string) => it.includes("*")),
+      optionTitle: data1?.split("\n").filter((it: string) => !it.includes("*")),
     });
-    const data2 = product.customizationOptions;
+    const data2 = product?.customizationOptions;
 
     setcustomizationOptions(
-      data2.split("\n").filter((it: string) => it.includes("*"))
+      data2?.split("\n").filter((it: string) => it.includes("*"))
     );
   }, []);
   const images = parseImages(content);
@@ -97,7 +97,7 @@ const ProductCard = ({
         whileTap={{ scale: 0.9 }}
       >
         <Box position="relative" display="flex" justifyContent="center">
-          <Image src={product.mainImage.mediaItemUrl} fit="contain" w="full" />
+          <Image src={product?.mainImage.mediaItemUrl} fit="contain" w="full" />
           <Tooltip
             hasArrow
             label="More info"
@@ -135,7 +135,7 @@ const ProductCard = ({
           pt="4"
           letterSpacing={3}
         >
-          {product.name}
+          {product?.name}
         </Heading>
       </Box>
 
@@ -292,14 +292,14 @@ const ProductCard = ({
               alignSelf="self-start"
               letterSpacing={3}
             >
-              {product.name}
+              {product?.name}
             </Heading>
             <Text color="blackAlpha.600" fontSize="md" pt="4">
               {/* {title} */}
               {description.descriptionText}
 
               <List spacing={2} pt="4" fontSize="14">
-                {description.listDescription.map((it: string) => {
+                {description.listDescription?.map((it: string) => {
                   if (it)
                     return (
                       <ListItem>
@@ -323,7 +323,7 @@ const ProductCard = ({
             </Heading>
             <Text color="blackAlpha.600" fontSize="14" w="full">
               <List spacing={2} pt="4">
-                {options.listOptions.map((item: string) => {
+                {options.listOptions?.map((item: string) => {
                   if (item)
                     return (
                       <ListItem display="flex">
@@ -350,7 +350,7 @@ const ProductCard = ({
             </Heading>
             <Text color="blackAlpha.600" w="full" fontSize="14">
               <List>
-                {customizationOptions.map((it: string) => {
+                {customizationOptions?.map((it: string) => {
                   if (it)
                     return (
                       <ListItem display="flex">
@@ -377,12 +377,12 @@ const ProductCard = ({
                   gap="2"
                 > */}
               <Link color="blackAlpha.800">
-                <NextLink href={product.postSlug}>
+                <Link href={product?.postSlug} target='_blank'>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
                   </Box>
-                </NextLink>
+                </Link>
               </Link>
 
               {/* </Link> */}

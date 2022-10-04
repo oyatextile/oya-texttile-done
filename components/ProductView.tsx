@@ -49,24 +49,24 @@ function ProductView({
     optionTitle: "",
   });
   useEffect(() => {
-    const data = product.description;
+    const data = product?.description;
     setlistDescription({
       listDescription: data
-        .split("\n")
+        ?.split("\n")
         .filter((it: string) => it.includes("✅")),
       descriptionText: data
-        .split("\n")
+        ?.split("\n")
         .filter((it: string) => !it.includes("✅")),
     });
-    const data1 = product.orderProduction;
+    const data1 = product?.orderProduction;
     setlistOptions({
-      listOptions: data1.split("\n").filter((it: string) => it.includes("*")),
-      optionTitle: data1.split("\n").filter((it: string) => !it.includes("*")),
+      listOptions: data1?.split("\n").filter((it: string) => it.includes("*")),
+      optionTitle: data1?.split("\n").filter((it: string) => !it.includes("*")),
     });
-    const data2 = product.customizationOptions;
+    const data2 = product?.customizationOptions;
 
     setcustomizationOptions(
-      data2.split("\n").filter((it: string) => it.includes("*"))
+      data2?.split("\n").filter((it: string) => it.includes("*"))
     );
   }, []);
   return (
@@ -180,7 +180,6 @@ function ProductView({
               return (
                 <Tab p="0" key={i}>
                   <Image
-                    // src={getStrapiMedia(img)}
                     src={img?.src}
                     w="50px"
                     h="50px"
@@ -204,9 +203,7 @@ function ProductView({
         color={"black"}
         gap="8"
         w={{ base: "full", lg: "50%" }}
-        // w={{ base: 'fit-content', sm: "xs" }}
       >
-        {/* produt name */}
         <Heading
           textAlign="start"
           px="8"
@@ -217,7 +214,7 @@ function ProductView({
           alignSelf="self-start"
           letterSpacing={3}
         >
-          {product.name}
+          {product?.name}
         </Heading>
         <hr />
         <Tabs variant="unstyled" px="4" pt="4">
@@ -273,16 +270,16 @@ function ProductView({
               <Text
                 color="blackAlpha.600"
                 px="4"
-                py='4'
+                py="4"
                 flexWrap={"wrap"}
                 fontSize="14"
                 // pt="4"
               >
                 {/* {title} */}
-                {description.descriptionText}
+                {description?.descriptionText}
 
                 <List spacing={2} pt="4" fontSize="14">
-                  {description.listDescription.map((it: string) => {
+                  {description?.listDescription?.map((it: string) => {
                     if (it)
                       return (
                         <ListItem>
@@ -300,7 +297,7 @@ function ProductView({
             <TabPanel>
               <Text color="blackAlpha.600" fontSize="14">
                 <List spacing={2} pt="4">
-                  {options.listOptions.map((item: string) => {
+                  {options?.listOptions?.map((item: string) => {
                     if (item)
                       return (
                         <ListItem display="flex">
@@ -312,13 +309,15 @@ function ProductView({
                       );
                   })}
                 </List>
-                <Text fontSize="14" py='4'>{options.optionTitle}</Text>
+                <Text fontSize="14" py="4">
+                  {options.optionTitle}
+                </Text>
               </Text>{" "}
             </TabPanel>
             <TabPanel>
               <Text color="blackAlpha.600" fontSize="sm" py="4">
                 <List>
-                  {customizationOptions.map((it: string) => {
+                  {customizationOptions?.map((it: string) => {
                     if (it)
                       return (
                         <ListItem display="flex">
@@ -345,8 +344,8 @@ function ProductView({
           <Box
             as="iframe"
             p="0"
-            width='100%'
-            height={'64'}
+            width="100%"
+            height={"64"}
             src="https://www.youtube.com/embed/6NwW_Y6i_6w"
             title="Serviette Microfibre Chien {'& '}Chat"
             frameBorder="0"
@@ -363,7 +362,7 @@ function ProductView({
             Need more information on waffle product? Get in touch with our Sales
             Enginner.
           </Text>
-          <Flex px="8" py="0" fontSize={"12"} gap='2'>
+          <Flex px="8" py="0" fontSize={"12"} gap="2">
             <Flex alignItems={"center"} gap="1">
               <span
                 style={{
@@ -373,7 +372,7 @@ function ProductView({
               >
                 ✆{" "}
               </span>
-              <Text>0090 554 195 0 195 </Text>
+              <Text>+90 546 207 65 60</Text>
             </Flex>
             <Flex alignItems={"center"} gap="1">
               <span
@@ -387,24 +386,6 @@ function ProductView({
               <Text>info@oyatextile.com </Text>
             </Flex>
           </Flex>
-          {/*  ✆ 0090 554 195 0 195 ✉ info@oyatextile.com */}
-          {/* {/* <Link
-            fontSize="sm"
-            color="blackAlpha.800"
-            display="flex"
-            alignItems="center"
-            gap="2"
-          > */}
-          {/* <Link color="blackAlpha.800">
-            <NextLink href={product.postSlug}>
-              <Box fontSize="sm" display="flex" alignItems="center" gap="2">
-                <BsFillCheckCircleFill />
-                Read more
-              </Box>
-            </NextLink>
-          </Link> */}
-
-          {/* </Link> */}
         </Box>
       </Box>
     </Stack>

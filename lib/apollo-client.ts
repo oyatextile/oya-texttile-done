@@ -32,10 +32,48 @@ query productpage ($name:ID!){
   
 }
 `;
+
+export const getAllproduct = gql`
+query productpage ($name:ID!){
+  productPage(id: $name, idType: NAME)
+  {
+    products{
+      nodes{
+        content
+        productfields{
+          name
+          description
+					customizationOptions
+          orderProduction
+          postSlug
+          mainImage{
+            mediaItemUrl
+          }
+          
+        }
+      }
+    }
+  }
+  
+}
+`;
+export const getSeoForPate = gql`
+query about($name: ID!) {
+  page(id: $name, idType: URI) {
+    seo {
+      seoBody
+      seoTagsHead
+    }
+  }
+}`;
 export const getProductBySlug = gql`
 query productpage($name: ID!) {
   product(id: $name, idType: SLUG) {
     content
+    seo {
+      seoBody
+      seoTagsHead
+    }
     productfields {
       name
       description
