@@ -60,8 +60,7 @@ export default function Contact() {
       justifyContent="center"
       overflow="hidden"
       display="flex"
-      flexDirection={{base:'column',lg:'row'}}
-      // flexWrap="wrap"
+      flexDirection={{ base: "column", lg: "row" }}
     >
       <Box
         p={{ base: "12", sm: "2" }}
@@ -70,7 +69,7 @@ export default function Contact() {
         w={{ base: "fit-content", xs: "xs" }}
         display="flex"
         flexDirection="column"
-        alignItems='center'
+        alignItems="center"
       >
         <Text py="4" px="2" alignSelf="center" color="whiteAlpha.800">
           Fill up the form <br />
@@ -152,7 +151,6 @@ export default function Contact() {
         p="12"
         borderRadius="0"
         w={{ base: "md", sm: "full" }}
-
         // h="full"
         position="relative"
         display="flex"

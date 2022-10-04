@@ -31,10 +31,23 @@ query productpage ($name:ID!){
   }
   
 }
-
-
 `;
-
+export const getProductBySlug = gql`
+query productpage($name: ID!) {
+  product(id: $name, idType: SLUG) {
+    content
+    productfields {
+      name
+      description
+      customizationOptions
+      orderProduction
+      postSlug
+      mainImage {
+        mediaItemUrl
+      }
+    }
+  }
+}`;
 export const getllPostsByCat = gql`
 query productpage($name: ID!) {
   category(id: $name, idType: NAME) {
