@@ -60,7 +60,7 @@ function gtag_report_conversion(url) {
 </script>
 `;
 
-function MainLayout({ children }: { children: React.ReactNode }) {
+function MainLayout({ children }) {
   return (
     <Container as="main" maxW="full" bg="white" p="0" pos="relative">
       <Head>

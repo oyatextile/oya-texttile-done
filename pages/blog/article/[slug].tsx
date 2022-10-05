@@ -22,7 +22,7 @@ const Details = ({ children }: any) => {
     </Box>
   );
 };
-const Article = ({ body, post }: any) => {
+const Article = ({ body ,post}: any) => {
   if (Object.keys(body).length === 0) {
     const description = post.postfield.description.split("\n*");
     console.log("post", description);
@@ -70,7 +70,7 @@ const Article = ({ body, post }: any) => {
       </Box>
     );
   }
-  const page = body?.productPages.nodes[0].name;
+  // const page = body?.productPages.nodes[0].name;
 
   return (
     <Box w="full">
@@ -78,7 +78,7 @@ const Article = ({ body, post }: any) => {
         {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
       </Head>
       {/* product side */}
-      <ProductView product={body.productfields} content={body.content} page={page}/>
+      <ProductView product={body.productfields} content={body.content} />
       {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
     </Box>
   );

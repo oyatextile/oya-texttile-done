@@ -26,11 +26,9 @@ import { parseImages } from "../lib/parseImage";
 function ProductView({
   product,
   content,
-  page,
 }: {
   product: any;
   content: string | null;
-  page: string;
 }) {
   const images = parseImages(content);
   const [description, setlistDescription] = useState<{
@@ -355,7 +353,7 @@ function ProductView({
             color="blackAlpha.800"
             p="4"
             target={'_blank'}
-            href={product?.catalog.mediaItemUrl}
+            href={product?.catalog?.mediaItemUrl}
           >
             <Text color="#289e8d" px="1" fontSize={"md"}>
               ▶
