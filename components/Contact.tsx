@@ -104,7 +104,7 @@ export default function Contact() {
         Submitting...
       </Box>
     );
-  if (error) return `Submission error! ${error.message}`;
+  if (error) return <Box>Submission error! {error.message}<Box/>;
   if (data)
     return (
       <Box w="fit-content" margin={"auto"} textAlign="center" py="4">
