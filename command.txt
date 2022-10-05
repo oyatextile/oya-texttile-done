@@ -1,6 +1,7 @@
 #!/bin/bash
 cd /home/admin/web/oyalinen.com/project/oya-texttile-done
 git pull origin master
+yarn 
 yarn export 
 cp -r out ../../public_html 
 cd ../../public_html/
