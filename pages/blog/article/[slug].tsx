@@ -127,50 +127,50 @@ export async function getStaticProps({ params }: any) {
     },
   });
   const body = data.product;
-  const seo_s = data.seo;
+  // const seo_s = data.seo;
 
-  if (!body) {
-    var { data } = await client.query({
-      query: gql`
-        query productpage($name: ID!) {
-          post(id: $name, idType: SLUG) {
-            title
-            seo {
-              seoBody
-              seoTagsHead
-            }
-            featuredImage {
-              node {
-                mediaItemUrl
-              }
-            }
-            postfield {
-              leftImage {
-                mediaItemUrl
-              }
-              rightImage {
-                mediaItemUrl
-              }
-              finalDescription
-              description
-            }
-          }
-        }
-      `,
-      variables: {
-        name: params.slug,
-      },
-    });
-    return {
-      props: {
-        body: {},
-        seo: data.seo,
-        post: data.post,
-      },
-    };
-  }
+  // if (!body) {
+  //   var { data } = await client.query({
+  //     query: gql`
+  //       query productpage($name: ID!) {
+  //         post(id: $name, idType: SLUG) {
+  //           title
+  //           seo {
+  //             seoBody
+  //             seoTagsHead
+  //           }
+  //           featuredImage {
+  //             node {
+  //               mediaItemUrl
+  //             }
+  //           }
+  //           postfield {
+  //             leftImage {
+  //               mediaItemUrl
+  //             }
+  //             rightImage {
+  //               mediaItemUrl
+  //             }
+  //             finalDescription
+  //             description
+  //           }
+  //         }
+  //       }
+  //     `,
+  //     variables: {
+  //       name: params.slug,
+  //     },
+  //   });
+  //   return {
+  //     props: {
+  //       body: {},
+  //       seo: data.seo,
+  //       post: data.post,
+  //     },
+  //   };
+  // }
   return {
-    props: { body: body, seo: seo_s, post: {} },
+    props: { body: body, post: {} },
   };
 }
 
