@@ -16,7 +16,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 // }
 export const GlobalContext = createContext({});
 const client = new ApolloClient({
-  uri: "http://oyalinen.com/cms/?graphql=true",
+  uri: "http://oyatextile.com/cms/?graphql=true",
   cache: new InMemoryCache(),
 });
 function MyApp({ Component, pageProps }) {
