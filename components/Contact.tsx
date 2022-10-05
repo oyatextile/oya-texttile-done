@@ -12,7 +12,7 @@ import {
   Spinner,
   Heading,
 } from "@chakra-ui/react";
-import SocialButton from "./SocialButton";
+import SocialButton from './SocialButton';
 import {
   FaInstagram,
   FaTwitter,
