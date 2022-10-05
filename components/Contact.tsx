@@ -154,7 +154,18 @@ export default function Contact() {
               >
                 ✆{" "}
               </span>
-              <Text>0090 554 195 0 195 </Text>
+              <Text>+90 554 195 0 195 </Text>
+            </Flex>
+            <Flex alignItems={"center"} gap="1">
+              <span
+                style={{
+                  marginBottom: "4px",
+                  fontSize: "2em",
+                }}
+              >
+                ✆{" "}
+              </span>
+              <Text>+90 554 195 0 195 </Text>
             </Flex>
             <Flex alignItems={"center"} gap="1">
               <span

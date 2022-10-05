@@ -3,8 +3,8 @@ cd /home/admin/web/oyalinen.com/project/oya-texttile-done
 git pull origin master
 yarn 
 yarn export 
-cp -r out /home/admin/web/oyalinen.com/project/oya-texttile-done
-cd /home/admin/web/oyalinen.com/project/oya-texttile-done
+cp -r out /home/admin/web/oyatextile.com/project/oya-texttile-done
+cd /home/admin/web/oyatextile.com/project/oya-texttile-done
 rm -r 404 about/ images/ locales/ blog/ contact/ vercel.svg _next/ career/ inspiration/ products/ 
 cd out/
 mv * ../ 
