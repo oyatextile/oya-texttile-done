@@ -70,15 +70,18 @@ export async function getStaticProps() {
   // "Pet",
   // "Baby",
   const head = [
-    "News",
     "Buying Guide",
+    "News",
+
    
   ];
   var body: any[][] = [];
+  
+
   var { data } = await client.query({
     query: getllPostsByCat,
     variables: {
-      name: "News",
+      name: "Buying Guide",
     },
   });
   body.push(data.category.posts.nodes);
@@ -86,7 +89,7 @@ export async function getStaticProps() {
   var { data } = await client.query({
     query: getllPostsByCat,
     variables: {
-      name: "Buying Guide",
+      name: "News",
     },
   });
   body.push(data.category.posts.nodes);
