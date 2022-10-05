@@ -102,6 +102,7 @@ export default function Footer() {
         direction={{ lg: "row", base: "column" }}
         justifyContent="center"
         alignContent={"center"}
+        alignItems='center'
         spacing="16"
         w="full"
       >
@@ -110,14 +111,14 @@ export default function Footer() {
           <ListSocial />
         </Stack>
         <Stack
-          // align={{ lg: "flex-start", base: "center" }}
           fontSize="12"
-          direction={{ base: "row", md: "column" }}
+          direction={{ base: "row", lg: "column" }}
           justifyContent="center"
+          // alignItems={{base:'start',md:'center'}}
         >
           {leftPaths.map((path, i) => {
             return (
-              <Link key={path.label} px='4'>
+              <Link key={path.label} px='1'>
                 <NextLink href={path.path}>{path.label}</NextLink>
               </Link>
             );
@@ -125,13 +126,14 @@ export default function Footer() {
         </Stack>
         <Stack
           // align={{ lg: 'self-start', base: "center" }}
+          // alignItems={{base:'start',md:'center'}}
           fontSize="12"
-          direction={{ base: "row", md: "column" }}
+          direction={{ base: "row", lg: "column" }}
           justifyContent="center"
         >
           {rightPaths.map((path, i) => {
             return (
-              <Link key={path.label} px='4'>
+              <Link key={path.label} px='1'>
                 <NextLink href={path.path}>{path.label}</NextLink>
               </Link>
             );
