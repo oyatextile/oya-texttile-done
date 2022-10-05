@@ -226,17 +226,17 @@ function ProductView({
               fontSize="12"
               color="blackAlpha.800"
               alignSelf="self-start"
-              letterSpacing={3}
+              letterSpacing={2}
             >
               DESCRIPTION
             </Tab>
             <Tab
               textAlign="start"
               as="h1"
-              fontSize="14"
+              fontSize="12"
               color="blackAlpha.900"
               alignSelf="self-start"
-              letterSpacing={3}
+              letterSpacing={2}
               _selected={{
                 color: "#299D8C",
                 // textDecoration: "underline",
@@ -251,7 +251,7 @@ function ProductView({
               fontSize="12"
               color="blackAlpha.800"
               alignSelf="self-start"
-              letterSpacing={3}
+              letterSpacing={2}
               _selected={{
                 color: "#299D8C",
                 // textDecoration: "underline",
