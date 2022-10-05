@@ -11,17 +11,12 @@ import {
 import Head from "next/head";
 import React from "react";
 import Articles from "../../components/Blog/articles";
-import client, {
-  getllPostsByCat,
-  getSeoForPate,
-} from "../../lib/apollo-client";
+import client, { getllPostsByCat } from "../../lib/apollo-client";
 
 const Blog = ({ posts, categories }: any) => {
   return (
     <Box bg="white" color="black">
-      <Head>
-      </Head>
-      <Heading textAlign="center">Oya Home Blog</Heading>
+      <Heading textAlign="center">Blog</Heading>
       <Box w="sm" margin="auto" px="4">
         <Text
           flexWrap="nowrap"
@@ -30,10 +25,8 @@ const Blog = ({ posts, categories }: any) => {
           fontSize="sm"
           margin="auto"
         >
-          Commodo ut laborum ex laboris aliqua proident sint amet sit laborum
-          id. Occaecat irure adipisicing sit aliqua qui irure minim laborum
-          officia. Enim adipisicing ipsum exercitation tempor et incididunt
-          laboris id aliquip dolore nisi duis. Est nostrud occaecat officia id
+          Find the latest about OYA’s company, products, fairs and textile
+          industry news.
         </Text>
       </Box>
       <Tabs variant="unstyled">
