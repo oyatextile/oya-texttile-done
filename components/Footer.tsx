@@ -124,14 +124,14 @@ export default function Footer() {
           })}
         </Stack>
         <Stack
-          align={{ lg: "flex-start", base: "center" }}
+          // align={{ lg: 'self-start', base: "center" }}
           fontSize="12"
           direction={{ base: "row", md: "column" }}
           justifyContent="center"
         >
           {rightPaths.map((path, i) => {
             return (
-              <Link key={path.label}>
+              <Link key={path.label} px='4'>
                 <NextLink href={path.path}>{path.label}</NextLink>
               </Link>
             );
