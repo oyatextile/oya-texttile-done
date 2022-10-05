@@ -15,7 +15,7 @@ const About: NextPage = () => {
         ></React.Fragment> */}
       </Head>
       {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p> */}
-      <Heading
+      {/* <Heading
         textAlign="center"
         letterSpacing={4}
         fontSize={{ base: "4xl", lg: "7xl" }}
@@ -29,7 +29,7 @@ const About: NextPage = () => {
         py="4"
       >
         Custom-made manufacturer{" "}
-      </Heading>
+      </Heading> */}
       <Box margin="auto" w="fit-content">
         <Contact />
       </Box>
