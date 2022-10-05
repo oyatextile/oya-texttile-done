@@ -205,7 +205,7 @@ function ProductView({
           {product?.name}
         </Heading>
         <hr />
-        <Tabs variant="unstyled" px="4" pt="4">
+        <Tabs variant='line' px="4" pt="4">
           <TabList
             p="0"
             flexDirection={{ md: "row", base: "column" }}
