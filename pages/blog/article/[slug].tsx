@@ -26,8 +26,6 @@ const Article = ({ body, post, seo }: any) => {
 
     return (
       <Box bg="white" color="black">
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        //@ts-ignore
         <Head>
           <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
         </Head>
@@ -50,8 +48,8 @@ const Article = ({ body, post, seo }: any) => {
               {post.title}
             </Heading>
           </Box>
-          {description.map((it: string) => {
-            return <Details children={it} />;
+          {description.map((it: string, i: any) => {
+            return <Details key={i}>{it}</Details>;
           })}
 
           <Stack
@@ -83,7 +81,6 @@ const Article = ({ body, post, seo }: any) => {
   }
   return (
     <Box w="full">
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment //@ts-ignore
       <Head>
         <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
       </Head>

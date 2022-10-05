@@ -11,7 +11,7 @@ import {
   ModalContent,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import DOMPurify from "dompurify";
+// import DOMPurify from "dompurify";
 
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -53,14 +53,14 @@ function ModalPic({ url }: { url: string }) {
 const About: NextPage = ({ seo }: any) => {
   const content = `${seo.seoTagsHead}`;
   const sanitizedData = () => ({
-    __html: DOMPurify.sanitize(content),
+    // __html: DOMPurify.sanitize(content),
   });
 
   return (
     <>
-      <Head
+      {/* <Head
           dangerouslySetInnerHTML={sanitizedData()}>
-      </Head>
+      </Head> */}
       <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
       <VStack bg="white" color="black" w="100%">
         <Box w="full" h="md" display="flex" pos={"relative"}>

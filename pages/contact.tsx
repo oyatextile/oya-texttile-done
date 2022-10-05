@@ -5,16 +5,16 @@ import React from "react";
 import Contact from "../components/Contact";
 import SeoTags from "../components/seoTags";
 import client, { getSeoForPate } from "../lib/apollo-client";
-const About: NextPage = ({ seo }: any) => {
+const About: NextPage = () => {
   return (
     <Box color="black" py="4" bg="white">
       <Head>
         {/* <title>Oyahome</title> */}
-        <React.Fragment
+        {/* <React.Fragment
           dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
-        ></React.Fragment>
+        ></React.Fragment> */}
       </Head>
-      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>
+      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p> */}
       <Heading
         textAlign="center"
         letterSpacing={4}
@@ -38,17 +38,17 @@ const About: NextPage = ({ seo }: any) => {
   );
 };
 
-export async function getStaticProps() {
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/carrer/",
-    },
-  });
-  return {
-    props: {
-      seo: data.page.seo,
-    },
-  };
-}
+// export async function getStaticProps() {
+//   var { data } = await client.query({
+//     query: getSeoForPate,
+//     variables: {
+//       name: "/index.php/carrer/",
+//     },
+//   });
+//   return {
+//     props: {
+//       seo: data.page.seo,
+//     },
+//   };
+// }
 export default About;

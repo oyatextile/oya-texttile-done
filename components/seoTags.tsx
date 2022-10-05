@@ -7,7 +7,7 @@ function SeoTags({ seo }: any) {
     <>
       <Head>
         {/* <title>Oyahome</title> */}
-        <React.Fragment dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}></React.Fragment>
+        {/* <React.Fragment dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}></React.Fragment> */}
       </Head>
       <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>
     </>

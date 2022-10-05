@@ -1,19 +1,16 @@
 import {
-  Container,
   Flex,
   Box,
   Text,
   Button,
   VStack,
-  Wrap,
-  WrapItem,
   FormControl,
   Input,
   Textarea,
-  Image,
   Stack,
   Select,
-  Center,
+  Spinner,
+  Heading,
 } from "@chakra-ui/react";
 import SocialButton from "./SocialButton";
 import {
@@ -24,7 +21,12 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import TransDiv from "./TransDev";
-const StyledInput = ({ label }: { label: string }) => {
+import { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
+import client from "../lib/apollo-client";
+import Link from "next/link";
+
+const StyledInput = ({ label, setInput }: { label: string; setInput: any }) => {
   return (
     <FormControl>
       <Input
@@ -47,11 +49,71 @@ const StyledInput = ({ label }: { label: string }) => {
         _placeholder={{
           color: "black",
         }}
+        onChange={(e) => setInput(e.target.value)}
       />
     </FormControl>
   );
 };
+
+const SUBMIT = gql`
+  mutation submit(
+    $name: String
+    $email: String
+    $phone: String
+    $message: String
+    $country: String
+    $select: String
+  ) {
+    submitForm(
+      input: {
+        formId: 3
+        data: [
+          { id: 9, value: $name }
+          { id: 10, value: $phone }
+          { id: 11, value: $email }
+          { id: 12, value: $country }
+          { id: 13, value: $select }
+          { id: 15, value: $message }
+        ]
+      }
+    ) {
+      errors {
+        fieldId
+        message
+        slug
+      }
+      message
+      success
+    }
+  }
+`;
+
 export default function Contact() {
+  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Phone, setPhone] = useState("");
+  const [Country, setCountry] = useState("");
+  const [Message, setMessage] = useState("");
+  const [Selected, setSelect] = useState("");
+
+  const [submit, { data, loading, error }] = useMutation(SUBMIT);
+  if (loading)
+    return (
+      <Box w="fit-content" margin={"auto"} py="4">
+        <Spinner px="4" />
+        Submitting...
+      </Box>
+    );
+  if (error) return `Submission error! ${error.message}`;
+  if (data)
+    return (
+      <Box w="fit-content" margin={"auto"} textAlign="center" py="4">
+        <Heading py="4">
+          Thanks for contacting us, we will reach you soon !
+        </Heading>
+        <Link href={"/"}>Go back Home</Link>
+      </Box>
+    );
   return (
     <Box
       color="black"
@@ -148,7 +210,7 @@ export default function Contact() {
         justifyContent="center"
         alignContent="center"
       >
-        {/* <Box m={8} color="#0B0E3F"> */}
+        {data?.success}
         <form>
           <VStack spacing={5} justifyContent="center">
             <Stack
@@ -159,8 +221,8 @@ export default function Contact() {
               spacing={4}
               direction={{ base: "column", lg: "row" }}
             >
-              <StyledInput label="Name" />
-              <StyledInput label="Email" />
+              <StyledInput label="Name" setInput={setName} />
+              <StyledInput label="Email" setInput={setEmail} />
             </Stack>
             <Stack
               justifyContent="start"
@@ -170,8 +232,8 @@ export default function Contact() {
               spacing={4}
               direction={{ base: "column", lg: "row" }}
             >
-              <StyledInput label="Phone" />
-              <StyledInput label="Country" />
+              <StyledInput label="Phone" setInput={setPhone} />
+              <StyledInput label="Country" setInput={setCountry} />
             </Stack>
             <FormControl py="4">
               <Select
@@ -189,11 +251,14 @@ export default function Contact() {
                 borderBottom={"1px"}
                 py="0"
                 borderRadius="0"
+                onS={(e: any) => setSelect(e.target.value)}
               >
-                <option>Wholsaler/Retailer</option>
-                <option>E-commerce website</option>
-                <option>Hotel/SPA</option>
-                <option>Textile manufacturer</option>
+                <option value={"Wholsaler/Retailer"}>Wholsaler/Retailer</option>
+                <option value={"E-commerce website"}>E-commerce website</option>
+                <option value={"Hotel/SPA"}>Hotel/SPA</option>
+                <option value={"Textile manufacturer"}>
+                  Textile manufacturer
+                </option>
               </Select>
             </FormControl>
             <FormControl id="message" py="4">
@@ -208,6 +273,7 @@ export default function Contact() {
                 _placeholder={{
                   color: "black",
                 }}
+                onChange={(e) => setMessage(e.target.value)}
                 _hover={{
                   borderRadius: "gray.300",
                 }}
@@ -215,11 +281,30 @@ export default function Contact() {
             </FormControl>
             <FormControl id="submit" float="right" textAlign="end" py="4">
               <Button
-                type="submit"
+                // type="submit"
                 fontSize={"14"}
                 borderRadius={0}
                 variant="solid"
                 bg="#299D8C"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const data = {
+                    name: Name,
+                    email: Email,
+                    message: Message,
+                  };
+                  submit({
+                    variables: {
+                      name: Name,
+                      email: Email,
+                      message: Message,
+                      select: Selected,
+                      phone: Phone,
+                      country: Country,
+                    },
+                  });
+                  console.log("submited", data);
+                }}
                 color="white"
                 _hover={{
                   bg: "#29AD8C",
@@ -230,6 +315,7 @@ export default function Contact() {
             </FormControl>
           </VStack>
         </form>
+
         <Flex
           as="iframe"
           gap="1"

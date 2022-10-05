@@ -19,7 +19,6 @@ import client, {
 const Blog = ({ posts, categories, seo }: any) => {
   return (
     <Box bg="white" color="black">
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment //@ts-ignore
       <Head>
         <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
       </Head>

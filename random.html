@@ -1,0 +1,26 @@
+mutation submit(
+  $name: String, 
+  $email: String, 
+  $phone: String, 
+  $message: String,
+  $country: String, 
+  $select: String,
+  $select2:String) {
+  submitForm(
+    input: {formId: 1, data: [{id: 9, value: $name}, {id: 10, value: $phone}, {id: 11, value: $email}, {id: 12, value: $country},
+      {id: 13, value: $select},
+      {id: 14, value: $select2},
+      {id: 15, value: $message},
+      
+      
+    ]}
+  ) {
+    errors {
+      fieldId
+      message
+      slug
+    }
+    message
+    success
+  }
+}

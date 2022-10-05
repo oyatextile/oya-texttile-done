@@ -9,25 +9,28 @@ import App from "next/app";
 import Head from "next/head";
 import { createContext } from "react";
 import MainLayout from "../components/layouts/MainLayout";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 // if (typeof window !== "undefined") {
 //   window.history.scrollRestoration = "manual";
 // }
 export const GlobalContext = createContext({});
-
-function MyApp({ Component, pageProps })
- {
+const client = new ApolloClient({
+  uri: "http://oyalinen.com/cms/?graphql=true",
+  cache: new InMemoryCache(),
+});
+function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
-      <Head>
-      </Head>
-        <MainLayout>
+      <Head></Head>
+      <MainLayout>
+        <ApolloProvider client={client}>
           <Component {...pageProps} />
-        </MainLayout>
+        </ApolloProvider>
+      </MainLayout>
     </ChakraProvider>
   );
 }
-
 
 export default MyApp;

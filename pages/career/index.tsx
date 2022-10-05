@@ -23,7 +23,6 @@ const Carrer: NextPage = ({ seo }: any) => {
       display="flex"
       marginTop="auto"
     >
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment //@ts-ignore
       <Head>
         <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
       </Head>

@@ -5,9 +5,9 @@ import React from "react";
 import SeoTags from "../components/seoTags";
 import client, { getSeoForPate } from "../lib/apollo-client";
 
-const Home: NextPage = ({ seo }: any) => {
-  console.log(seo);
-  const content = `${seo.seoTagsHead}`;
+const Home: NextPage = () => {
+  // console.log(seo);
+  // const content = `${seo.seoTagsHead}`;
 
   return (
     <Box
@@ -16,10 +16,10 @@ const Home: NextPage = ({ seo }: any) => {
       __css={{}}
       position="relative"
     >
-      <Head>
+      {/* <Head>
         <p dangerouslySetInnerHTML={{ __html: content }}></p>
       </Head>
-      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
+      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "} */}
       <Image
         src="/images/background.jpeg"
         objectFit="cover"
@@ -65,18 +65,18 @@ const Home: NextPage = ({ seo }: any) => {
   );
 };
 
-export async function getStaticProps() {
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/landing-page/",
-    },
-  });
-  return {
-    props: {
-      seo: data.page.seo,
-    },
-  };
-}
+// export async function getStaticProps() {
+//   var { data } = await client.query({
+//     query: getSeoForPate,
+//     variables: {
+//       name: "/index.php/landing-page/",
+//     },
+//   });
+//   return {
+//     props: {
+//       seo: data.page.seo,
+//     },
+//   };
+// }
 
 export default Home;
