@@ -110,14 +110,14 @@ export default function Footer() {
           <ListSocial />
         </Stack>
         <Stack
-          align={{ lg: "flex-start", base: "center" }}
+          // align={{ lg: "flex-start", base: "center" }}
           fontSize="12"
           direction={{ base: "row", md: "column" }}
           justifyContent="center"
         >
           {leftPaths.map((path, i) => {
             return (
-              <Link key={path.label}>
+              <Link key={path.label} px='4'>
                 <NextLink href={path.path}>{path.label}</NextLink>
               </Link>
             );
