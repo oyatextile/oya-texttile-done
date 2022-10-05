@@ -377,12 +377,12 @@ const ProductCard = ({
                   gap="2"
                 > */}
               <Link color="blackAlpha.800">
-                <Link href={product?.postSlug}>
+                <NextLink href={product?.postSlug}>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
                   </Box>
-                </Link>
+                </NextLink>
               </Link>
 
               {/* </Link> */}
