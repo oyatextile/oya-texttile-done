@@ -31,8 +31,17 @@ const innerHTML = `
   src="https://www.facebook.com/tr?id=514828389347808&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130194712-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'UA-130194712-1');
+</script>
 <!-- Global site tag (gtag.js) - Google Ads: 769829654 -->
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-769829654"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
