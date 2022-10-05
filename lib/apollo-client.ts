@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { gql } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://oyalinen.com/cms/?graphql=true",
+  uri: "http://oyatextile.com/cms/?graphql=true",
   cache: new InMemoryCache(),
 });
 
