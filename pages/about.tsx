@@ -50,8 +50,8 @@ function ModalPic({ url }: { url: string }) {
     </>
   );
 }
-const About: NextPage = ({ seo }: any) => {
-  const content = `${seo.seoTagsHead}`;
+const About: NextPage = () => {
+  // const content = `${seo.seoTagsHead}`;
   const sanitizedData = () => ({
     // __html: DOMPurify.sanitize(content),
   });
@@ -61,7 +61,7 @@ const About: NextPage = ({ seo }: any) => {
       {/* <Head
           dangerouslySetInnerHTML={sanitizedData()}>
       </Head> */}
-      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
+      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "} */}
       <VStack bg="white" color="black" w="100%">
         <Box w="full" h="md" display="flex" pos={"relative"}>
           <Image
@@ -183,17 +183,17 @@ const About: NextPage = ({ seo }: any) => {
   );
 };
 
-export async function getStaticProps() {
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/about/",
-    },
-  });
-  return {
-    props: {
-      seo: data.page.seo,
-    },
-  };
-}
+// export async function getStaticProps() {
+  // var { data } = await client.query({
+  //   query: getSeoForPate,
+  //   variables: {
+  //     name: "/index.php/about/",
+  //   },
+  // });
+  // return {
+  //   props: {
+  //     seo: data.page.seo,
+  //   },
+  // };
+// }
 export default About;

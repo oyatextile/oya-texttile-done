@@ -66,17 +66,17 @@ const Carrer: NextPage = ({ seo }: any) => {
   );
 };
 
-export async function getStaticProps() {
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/carrer/",
-    },
-  });
-  return {
-    props: {
-      seo: data.page.seo,
-    },
-  };
-}
+// export async function getStaticProps() {
+//   // var { data } = await client.query({
+//   //   query: getSeoForPate,
+//   //   variables: {
+//   //     name: "/index.php/carrer/",
+//   //   },
+//   // });
+//   // return {
+//   //   props: {
+//   //     seo: data.page.seo,
+//   //   },
+//   // };
+// }
 export default Carrer;
