@@ -4,12 +4,12 @@ import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import ProductView from "../../../components/ProductView";
 import Head from "next/head";
 const Details = ({ children }: any) => {
-  const data = children.split("\n", 1);
+  const data = children?.split("\n", 1)[0];
   var title = "";
-  if (data[0].includes("*")) {
-    title = data[0];
+  if (data?.includes("*")) {
+    title = data;
     title = title.replace("*", "");
-    children = children.replace(data[0], "");
+    children = children.replace(data, "");
   }
   return (
     <Box>
@@ -25,7 +25,7 @@ const Details = ({ children }: any) => {
 const Article = ({ body, post }: any) => {
   if (Object.keys(body).length === 0) {
     const description = post.postfield.description.split("\n*");
-
+    console.log("post", description);
     return (
       <Box bg="white" color="black">
         <Head>
@@ -64,18 +64,7 @@ const Article = ({ body, post }: any) => {
             <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
             <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
           </Stack>
-          <Details title="">
-            There are several important factors to affect the hotel towel’s
-            softness, appearance, feel, longevity, colorfastness, and
-            performance. How to choose the right towels for hotels, healthcare,
-            and spa facilities or What to look for in hotel towels when sourcing
-            the towels for industrial usage? Don’t worry! Oya’s Technical Team
-            created a clear towel buying guide for you. This guide helps you
-            both buying hotel towels from your wholesaler supplies or make a
-            customized fresh production in a manufacturing company such as Oya
-            Textile in Turkey. Here are the tips that you have to check
-            carefully!
-          </Details>
+          <Details title="">{post.finalDescription}</Details>
         </Box>
         {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
       </Box>
@@ -97,9 +86,11 @@ export async function getStaticPaths() {
   var { data } = await client.query({
     query: gql`
       query NewQuery {
-        posts(first: 1000) {
-          nodes {
-            slug
+        category(id: "Buying Guide", idType: NAME) {
+          posts {
+            nodes {
+              slug
+            }
           }
         }
         products(first: 1000) {
@@ -111,8 +102,23 @@ export async function getStaticPaths() {
     `,
   });
   const products = data.products.nodes;
+  const post = data.category.posts.nodes;
+  var { data } = await client.query({
+    query: gql`
+      query NewQuery {
+        category(id: "News", idType: NAME) {
+          posts {
+            nodes {
+              slug
+            }
+          }
+        }
+      }
+    `,
+  });
   // ,
-  const dataf = [...products, ...data.posts.nodes];
+  const News = data.category.posts.nodes;
+  const dataf = [...products, ...post, ...News];
   return {
     paths: dataf.map((article: { [x: string]: any; node: { slug: any } }) => ({
       params: {
@@ -130,12 +136,11 @@ export async function getStaticProps({ params }: any) {
     },
   });
   const body = data.product;
-  // const seo_s = data.seo;
-
   if (!body) {
+    console.log("runnin here");
     var { data } = await client.query({
       query: gql`
-        query productpage($name: ID!) {
+        query getPost($name: ID!) {
           post(id: $name, idType: SLUG) {
             title
 
