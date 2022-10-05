@@ -64,14 +64,15 @@ const Blog = ({ posts, categories }: any) => {
 export async function getStaticProps() {
   // Run API calls in parallel
   //
+  // "Bath & Bed",
+  // "Hotel",
+  // "Beach",
+  // "Pet",
+  // "Baby",
   const head = [
     "News",
     "Buying Guide",
-    "Bath & Bed",
-    "Hotel",
-    "Beach",
-    "Pet",
-    "Baby",
+   
   ];
   var body: any[][] = [];
   var { data } = await client.query({
@@ -90,42 +91,42 @@ export async function getStaticProps() {
   });
   body.push(data.category.posts.nodes);
 
-  var { data } = await client.query({
-    query: getllPostsByCat,
-    variables: {
-      name: "Bath & Bed",
-    },
-  });
-  body.push(data.category.posts.nodes);
+  // var { data } = await client.query({
+  //   query: getllPostsByCat,
+  //   variables: {
+  //     name: "Bath & Bed",
+  //   },
+  // });
+  // body.push(data.category.posts.nodes);
 
-  var { data } = await client.query({
-    query: getllPostsByCat,
-    variables: {
-      name: "Hotel",
-    },
-  });
-  body.push(data.category.posts.nodes);
-  var { data } = await client.query({
-    query: getllPostsByCat,
-    variables: {
-      name: "Beach",
-    },
-  });
-  body.push(data.category.posts.nodes);
-  var { data } = await client.query({
-    query: getllPostsByCat,
-    variables: {
-      name: "Pet",
-    },
-  });
-  body.push(data.category.posts.nodes);
-  var { data } = await client.query({
-    query: getllPostsByCat,
-    variables: {
-      name: "Baby",
-    },
-  });
-  body.push(data.category.posts.nodes);
+  // var { data } = await client.query({
+  //   query: getllPostsByCat,
+  //   variables: {
+  //     name: "Hotel",
+  //   },
+  // });
+  // body.push(data.category.posts.nodes);
+  // var { data } = await client.query({
+  //   query: getllPostsByCat,
+  //   variables: {
+  //     name: "Beach",
+  //   },
+  // });
+  // body.push(data.category.posts.nodes);
+  // var { data } = await client.query({
+  //   query: getllPostsByCat,
+  //   variables: {
+  //     name: "Pet",
+  //   },
+  // });
+  // body.push(data.category.posts.nodes);
+  // var { data } = await client.query({
+  //   query: getllPostsByCat,
+  //   variables: {
+  //     name: "Baby",
+  //   },
+  // });
+  // body.push(data.category.posts.nodes);
   // var { data } = await client.query({
   //   query: getSeoForPate,
   //   variables: {
