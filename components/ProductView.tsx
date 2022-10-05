@@ -26,9 +26,11 @@ import { parseImages } from "../lib/parseImage";
 function ProductView({
   product,
   content,
+  page,
 }: {
   product: any;
   content: string | null;
+  page: string;
 }) {
   const images = parseImages(content);
   const [description, setlistDescription] = useState<{
@@ -94,8 +96,6 @@ function ProductView({
           display="flex"
           flexDir="column"
           justifyContent="flex-start"
-          //   h="full"
-          //   w='fit-content'
         >
           <TabPanels>
             {images &&
@@ -151,16 +151,6 @@ function ProductView({
                             >
                               <MinusIcon />
                             </Button>
-                            {/* <Button
-                              onClick={() => resetTransform()}
-                              h="30px"
-                              w="30px"
-                              p="1"
-                              color="#299D8C"
-                              variant="ghost"
-                            >
-
-                            </Button> */}
                           </Box>
                         </React.Fragment>
                       )}
@@ -217,7 +207,7 @@ function ProductView({
           {product?.name}
         </Heading>
         <hr />
-        <Tabs variant="unstyled" px="4" pt="4">
+        <Tabs variant="line" px="4" pt="4">
           <TabList
             p="0"
             flexDirection={{ md: "row", base: "column" }}
@@ -227,41 +217,50 @@ function ProductView({
             marginTop="auto"
             marginBottom="auto"
           >
-            <Tab>
-              <Heading
-                textAlign="start"
-                as="h1"
-                fontSize="12"
-                color="blackAlpha.800"
-                alignSelf="self-start"
-                letterSpacing={3}
-              >
-                Description
-              </Heading>
+            <Tab
+              _selected={{
+                color: "#299D8C",
+                textDecoration: "underline",
+                textUnderlineOffset: "10px",
+              }}
+              textAlign="start"
+              as="h1"
+              fontSize="12"
+              color="blackAlpha.800"
+              alignSelf="self-start"
+              letterSpacing={3}
+            >
+              DESCRIPTION
             </Tab>
-            <Tab>
-              <Heading
-                textAlign="start"
-                as="h1"
-                fontSize="12"
-                color="blackAlpha.800"
-                alignSelf="self-start"
-                letterSpacing={3}
-              >
-                Order {"&"} Production
-              </Heading>
+            <Tab
+              textAlign="start"
+              as="h1"
+              fontSize="14"
+              color="blackAlpha.900"
+              alignSelf="self-start"
+              letterSpacing={3}
+              _selected={{
+                color: "#299D8C",
+                textDecoration: "underline",
+                textUnderlineOffset: "10px",
+              }}
+            >
+              ORDER {"&"} PRODUCTION
             </Tab>
-            <Tab>
-              <Heading
-                textAlign="start"
-                as="h1"
-                fontSize="12"
-                color="blackAlpha.800"
-                alignSelf="self-start"
-                letterSpacing={3}
-              >
-                Customization options
-              </Heading>
+            <Tab
+              textAlign="start"
+              as="h1"
+              fontSize="12"
+              color="blackAlpha.800"
+              alignSelf="self-start"
+              letterSpacing={3}
+              _selected={{
+                color: "#299D8C",
+                textDecoration: "underline",
+                textUnderlineOffset: "10px",
+              }}
+            >
+              CUSTOMIZATION OPTIONS
             </Tab>
           </TabList>
 
@@ -273,9 +272,7 @@ function ProductView({
                 py="4"
                 flexWrap={"wrap"}
                 fontSize="14"
-                // pt="4"
               >
-                {/* {title} */}
                 {description?.descriptionText}
 
                 <List spacing={2} pt="4" fontSize="14">
@@ -341,24 +338,31 @@ function ProductView({
           //   py="6"
           px="6"
         >
-          <Box
-            as="iframe"
-            p="0"
-            width="100%"
-            height={"64"}
-            src="https://www.youtube.com/embed/6NwW_Y6i_6w"
-            title="Serviette Microfibre Chien {'& '}Chat"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></Box>
-          <Link display={"flex"} color="blackAlpha.800" p="4">
+            <Box
+              as="iframe"
+              p="0"
+              width="100%"
+              height={"64"}
+              src={product?.videoSrc}
+              title={product?.videoTitle}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></Box>
+
+          <Link
+            display={"flex"}
+            color="blackAlpha.800"
+            p="4"
+            target={'_blank'}
+            href={product?.catalog.mediaItemUrl}
+          >
             <Text color="#289e8d" px="1" fontSize={"md"}>
               ▶
             </Text>
-            Download Waffle Bathrobe Catalog
+            Download {product?.name} Catalog
           </Link>
-          <Text px="4" fontSize={"sm"}>
+          <Text px="4" fontSize={"sm"}>«
             Need more information on waffle product? Get in touch with our Sales
             Enginner.
           </Text>

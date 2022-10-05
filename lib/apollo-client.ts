@@ -75,8 +75,17 @@ export const getProductBySlug = gql`
 query productpage($name: ID!) {
   product(id: $name, idType: SLUG) {
     content
-   
+    productPages{
+    	nodes{
+        name
+      }
+    }
     productfields {
+      videoSrc
+      videoTitle
+      catalog{
+        mediaItemUrl
+      }
       name
       description
       customizationOptions

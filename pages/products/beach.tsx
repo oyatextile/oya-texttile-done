@@ -28,7 +28,7 @@ const HeadCat = () => {
         maxW="2xl"
       >
         Beach time means joy and happiness so let it be with oya’s beach
-        collection. Happy Holiday!
+        collection.
       </Text>
       <Text
         textAlign="center"

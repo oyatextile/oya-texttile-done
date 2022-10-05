@@ -70,13 +70,15 @@ const Article = ({ body, post }: any) => {
       </Box>
     );
   }
+  const page = body?.productPages.nodes[0].name;
+
   return (
     <Box w="full">
       <Head>
         {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
       </Head>
       {/* product side */}
-      <ProductView product={body.productfields} content={body.content} />
+      <ProductView product={body.productfields} content={body.content} page={page}/>
       {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
     </Box>
   );

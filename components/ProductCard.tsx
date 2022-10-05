@@ -377,7 +377,7 @@ const ProductCard = ({
                   gap="2"
                 > */}
               <Link color="blackAlpha.800">
-                <Link href={product?.postSlug} target='_blank'>
+                <Link href={product?.postSlug}>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
