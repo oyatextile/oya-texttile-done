@@ -27,7 +27,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import NextLink from "next/link";
-import { parseImages } from "../lib/parseImage";
+import { parseImages, parseSrc } from "../lib/parseImage";
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
@@ -192,7 +192,7 @@ const ProductCard = ({
                                     w={{ md: "md", base: "sm" }}
                                     h="full"
                                     fit="cover"
-                                    src={img.src}
+                                    src={parseSrc(img.src)}
                                     alt="product image"
                                     // cursor='e-resize'
                                     _hover={{

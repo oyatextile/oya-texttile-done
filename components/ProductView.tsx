@@ -21,7 +21,7 @@ import NextLink from "next/link";
 import React, { useEffect, useState } from "react";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
-import { parseImages } from "../lib/parseImage";
+import { parseImages, parseSrc } from "../lib/parseImage";
 
 function ProductView({
   product,
@@ -112,7 +112,7 @@ function ProductView({
                               //   w="full"
                               h="full"
                               fit="cover"
-                              src={img.src}
+                              src={parseSrc(img.src)}
                               alt="product image"
                               // cursor='e-resize'
                               _hover={{
@@ -168,7 +168,7 @@ function ProductView({
               return (
                 <Tab p="0" key={i}>
                   <Image
-                    src={img?.src}
+                    src={parseSrc(img.src)}
                     w="50px"
                     h="50px"
                     __css={{
@@ -205,7 +205,7 @@ function ProductView({
           {product?.name}
         </Heading>
         <hr />
-        <Tabs variant='unstyled' px="4" pt="4">
+        <Tabs variant="unstyled" px="4" pt="4">
           <TabList
             p="0"
             flexDirection={{ md: "row", base: "column" }}
@@ -336,23 +336,23 @@ function ProductView({
           //   py="6"
           px="6"
         >
-            <Box
-              as="iframe"
-              p="0"
-              width="100%"
-              height={"64"}
-              src={product?.videoSrc}
-              title={product?.videoTitle}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></Box>
+          <Box
+            as="iframe"
+            p="0"
+            width="100%"
+            height={"64"}
+            src={product?.videoSrc}
+            title={product?.videoTitle}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></Box>
 
           <Link
             display={"flex"}
             color="blackAlpha.800"
             p="4"
-            target={'_blank'}
+            target={"_blank"}
             href={product?.catalog?.mediaItemUrl}
           >
             <Text color="#289e8d" px="1" fontSize={"md"}>
@@ -360,9 +360,9 @@ function ProductView({
             </Text>
             Download {product?.name} Catalog
           </Link>
-          <Text px="4" fontSize={"sm"}>«
-            Need more information on waffle product? Get in touch with our Sales
-            Enginner.
+          <Text px="4" fontSize={"sm"}>
+            « Need more information on waffle product? Get in touch with our
+            Sales Enginner.
           </Text>
           <Flex px="8" py="0" fontSize={"12"} gap="2">
             <Flex alignItems={"center"} gap="1">
