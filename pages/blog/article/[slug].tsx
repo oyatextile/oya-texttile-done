@@ -22,7 +22,7 @@ const Details = ({ children }: any) => {
     </Box>
   );
 };
-const Article = ({ body ,post}: any) => {
+const Article = ({ body, post }: any) => {
   if (Object.keys(body).length === 0) {
     const description = post.postfield.description.split("\n*");
     console.log("post", description);
@@ -64,7 +64,11 @@ const Article = ({ body ,post}: any) => {
             <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
             <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
           </Stack>
-          <Details title="">{post.finalDescription}</Details>
+          <Box>
+            <Text px="8" pb="4">
+              {post.postfield.finalDescription}
+            </Text>
+          </Box>
         </Box>
         {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
       </Box>

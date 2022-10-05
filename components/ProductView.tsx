@@ -364,7 +364,7 @@ function ProductView({
             « Need more information on waffle product? Get in touch with our
             Sales Enginner.
           </Text>
-          <Flex px="8" py="0" fontSize={"12"} gap="2">
+          <Flex px="8" py="0" fontSize={"12"} gap="2" direction={{base:'column',sm:'row'}}>
             <Flex alignItems={"center"} gap="1">
               <span
                 style={{
