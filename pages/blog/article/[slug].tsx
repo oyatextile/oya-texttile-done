@@ -95,11 +95,7 @@ export async function getStaticPaths() {
   var { data } = await client.query({
     query: gql`
       query NewQuery {
-        posts(first: 1000) {
-          nodes {
-            slug
-          }
-        }
+        
         products(first: 1000) {
           nodes {
             slug
@@ -109,7 +105,8 @@ export async function getStaticPaths() {
     `,
   });
   const products = data.products.nodes;
-  const dataf = [...products, ...data.posts.nodes];
+  // , ...data.posts.nodes
+  const dataf = [...products];
   return {
     paths: dataf.map((article: { [x: string]: any; node: { slug: any } }) => ({
       params: {
