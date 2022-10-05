@@ -259,7 +259,7 @@ const ProductCard = ({
                       <Tab p="0" key={i}>
                         <Image
                           // src={getStrapiMedia(img)}
-                          src={img?.src}
+                          src={parseSrc(img.src)}
                           w="50px"
                           h="50px"
                           __css={{
