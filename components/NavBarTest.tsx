@@ -9,6 +9,7 @@ import {
   Stack,
   Collapse,
   Hide,
+  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
@@ -37,11 +38,11 @@ export default function Simple() {
       color="blackAlpha.700"
       px={4}
       m="0"
-      pos={'sticky'}
-      boxShadow='sm'
-      top='0'
-      w='full'
-      zIndex={'10'}
+      pos={"sticky"}
+      boxShadow="sm"
+      top="0"
+      w="full"
+      zIndex={"10"}
     >
       <Flex
         h={16}
@@ -68,8 +69,20 @@ export default function Simple() {
             ))}
           </HStack>
         </HStack>
-        <Box color="black"  w='fit-content'  marginRight={"auto"} marginLeft='auto' >
-          <Logo  index='3'/>
+        <Box
+          color="black"
+          w="fit-content"
+          marginRight={"auto"}
+          marginLeft="auto"
+        >
+          <Link>
+            <NextLink href="/">
+              <Image
+                w="64"
+                src="http://oyalinen.com/cms/wp-content/uploads/2022/10/3.png"
+              />
+            </NextLink>
+          </Link>{" "}
         </Box>
         <Flex
           alignItems={"center"}
@@ -83,9 +96,7 @@ export default function Simple() {
           ))}
           {/* <LanguageSwitcher /> */}
         </Flex>
-        <Hide above="lg">
-          {/* <LanguageSwitcher /> */}
-        </Hide>
+        <Hide above="lg">{/* <LanguageSwitcher /> */}</Hide>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
