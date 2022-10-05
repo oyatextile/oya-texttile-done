@@ -16,7 +16,7 @@ import client, { getllPostsByCat } from "../../lib/apollo-client";
 const Blog = ({ posts, categories }: any) => {
   return (
     <Box bg="white" color="black">
-      <Heading textAlign="center">Blog</Heading>
+      <Heading textAlign="center" py='4'>Blog</Heading>
       <Box w="sm" margin="auto" px="4">
         <Text
           flexWrap="nowrap"
