@@ -20,73 +20,73 @@ const Details = ({ children }: any) => {
     </Box>
   );
 };
-const Article = ({ body, post, seo }: any) => {
-  if (Object.keys(body).length === 0) {
-    const description = post.postfield.description.split("\n*");
+const Article = ({ body, post }: any) => {
+  // if (Object.keys(body).length === 0) {
+  //   const description = post.postfield.description.split("\n*");
 
-    return (
-      <Box bg="white" color="black">
-        <Head>
-          <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
-        </Head>
-        <Box maxW={"4xl"} margin="auto" boxShadow={"2xl"} mb="4">
-          <Image
-            src={post.featuredImage.node.mediaItemUrl}
-            w="full"
-            maxH={"xl"}
-            maxW={"4xl"}
-            margin="auto"
-          />
-          <Box>
-            <Heading
-              textAlign={"center"}
-              bg="#299D8C"
-              py="4"
-              color="white"
-              px="4"
-            >
-              {post.title}
-            </Heading>
-          </Box>
-          {description.map((it: string, i: any) => {
-            return <Details key={i}>{it}</Details>;
-          })}
+  //   return (
+  //     <Box bg="white" color="black">
+  //       <Head>
+  //         <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+  //       </Head>
+  //       <Box maxW={"4xl"} margin="auto" boxShadow={"2xl"} mb="4">
+  //         <Image
+  //           src={post.featuredImage.node.mediaItemUrl}
+  //           w="full"
+  //           maxH={"xl"}
+  //           maxW={"4xl"}
+  //           margin="auto"
+  //         />
+  //         <Box>
+  //           <Heading
+  //             textAlign={"center"}
+  //             bg="#299D8C"
+  //             py="4"
+  //             color="white"
+  //             px="4"
+  //           >
+  //             {post.title}
+  //           </Heading>
+  //         </Box>
+  //         {description.map((it: string, i: any) => {
+  //           return <Details key={i}>{it}</Details>;
+  //         })}
 
-          <Stack
-            maxW={"4xl"}
-            direction={{ md: "row", base: "column" }}
-            w="fit-content"
-            margin={"auto"}
-            py="4"
-          >
-            <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
-            <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
-          </Stack>
-          <Details title="">
-            There are several important factors to affect the hotel towel’s
-            softness, appearance, feel, longevity, colorfastness, and
-            performance. How to choose the right towels for hotels, healthcare,
-            and spa facilities or What to look for in hotel towels when sourcing
-            the towels for industrial usage? Don’t worry! Oya’s Technical Team
-            created a clear towel buying guide for you. This guide helps you
-            both buying hotel towels from your wholesaler supplies or make a
-            customized fresh production in a manufacturing company such as Oya
-            Textile in Turkey. Here are the tips that you have to check
-            carefully!
-          </Details>
-        </Box>
-        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
-      </Box>
-    );
-  }
+  //         <Stack
+  //           maxW={"4xl"}
+  //           direction={{ md: "row", base: "column" }}
+  //           w="fit-content"
+  //           margin={"auto"}
+  //           py="4"
+  //         >
+  //           <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
+  //           <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
+  //         </Stack>
+  //         <Details title="">
+  //           There are several important factors to affect the hotel towel’s
+  //           softness, appearance, feel, longevity, colorfastness, and
+  //           performance. How to choose the right towels for hotels, healthcare,
+  //           and spa facilities or What to look for in hotel towels when sourcing
+  //           the towels for industrial usage? Don’t worry! Oya’s Technical Team
+  //           created a clear towel buying guide for you. This guide helps you
+  //           both buying hotel towels from your wholesaler supplies or make a
+  //           customized fresh production in a manufacturing company such as Oya
+  //           Textile in Turkey. Here are the tips that you have to check
+  //           carefully!
+  //         </Details>
+  //       </Box>
+  //       <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+  //     </Box>
+  //   );
+  // }
   return (
     <Box w="full">
       <Head>
-        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+        {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
       </Head>
       {/* product side */}
       <ProductView product={body.productfields} content={body.content} />
-      <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
     </Box>
   );
 };
@@ -95,7 +95,6 @@ export async function getStaticPaths() {
   var { data } = await client.query({
     query: gql`
       query NewQuery {
-        
         products(first: 1000) {
           nodes {
             slug
