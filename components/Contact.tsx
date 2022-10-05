@@ -251,7 +251,7 @@ export default function Contact() {
                 borderBottom={"1px"}
                 py="0"
                 borderRadius="0"
-                onS={(e: any) => setSelect(e.target.value)}
+                onChange={(e: any) => setSelect(e.target.value)}
               >
                 <option value={"Wholsaler/Retailer"}>Wholsaler/Retailer</option>
                 <option value={"E-commerce website"}>E-commerce website</option>
