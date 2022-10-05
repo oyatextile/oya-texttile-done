@@ -79,7 +79,7 @@ export default function Simple() {
             <NextLink href="/">
               <Image
                 w="64"
-                src="http://oyalinen.com/cms/wp-content/uploads/2022/10/3.png"
+                src="http://oyatextile.com/cms/wp-content/uploads/2022/10/3.png"
               />
             </NextLink>
           </Link>{" "}
