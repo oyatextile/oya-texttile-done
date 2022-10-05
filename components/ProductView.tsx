@@ -218,8 +218,8 @@ function ProductView({
             <Tab
               _selected={{
                 color: "#299D8C",
-                textDecoration: "underline",
-                textUnderlineOffset: "10px",
+                // textDecoration: "underline",
+                // textUnderlineOffset: "10px",
               }}
               textAlign="start"
               as="h1"
@@ -239,8 +239,8 @@ function ProductView({
               letterSpacing={3}
               _selected={{
                 color: "#299D8C",
-                textDecoration: "underline",
-                textUnderlineOffset: "10px",
+                // textDecoration: "underline",
+                // textUnderlineOffset: "10px",
               }}
             >
               ORDER {"&"} PRODUCTION
@@ -254,8 +254,8 @@ function ProductView({
               letterSpacing={3}
               _selected={{
                 color: "#299D8C",
-                textDecoration: "underline",
-                textUnderlineOffset: "10px",
+                // textDecoration: "underline",
+                // textUnderlineOffset: "10px",
               }}
             >
               CUSTOMIZATION OPTIONS
