@@ -104,7 +104,7 @@ export default function Contact() {
         Submitting...
       </Box>
     );
-  if (error) return <Box>Submission error! {error.message}<Box/>;
+  if (error) return <Box>Submission error! {error.message}</Box>;
   if (data)
     return (
       <Box w="fit-content" margin={"auto"} textAlign="center" py="4">
@@ -381,8 +381,6 @@ export default function Contact() {
       {/* </WrapItem> */}
       {/* </Wrap> */}
     </Box>
-    // </Box>
-    // </Flex>
-    // </Container>
+   
   );
 }
