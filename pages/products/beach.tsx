@@ -74,16 +74,16 @@ export async function getStaticProps() {
     },
   });
   const body = [data.productCategory.products.nodes];
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/beach/",
-    },
-  });
+  // var { data } = await client.query({
+  //   query: getSeoForPate,
+  //   variables: {
+  //     name: "/index.php/beach/",
+  //   },
+  // });
   return {
     props: {
       body: body,
-      seo: data.page.seo,
+      // seo: data.page.seo,
     },
   };
 }

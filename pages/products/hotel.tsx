@@ -95,16 +95,16 @@ export async function getStaticProps() {
     },
   });
   body.push(data.productCategory.products.nodes);
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/hotel/",
-    },
-  });
+  // var { data } = await client.query({
+  //   query: getSeoForPate,
+  //   variables: {
+  //     name: "/index.php/hotel/",
+  //   },
+  // });
   return {
     props: {
       body: body,
-      seo: data.page.seo,
+      // seo: data.page.seo,
     },
   };
 }

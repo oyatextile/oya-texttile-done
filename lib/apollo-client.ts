@@ -67,15 +67,15 @@ query about($name: ID!) {
   }
 }`;
 
-
+// seo {
+//   seoBody
+//   seoTagsHead
+// }
 export const getProductBySlug = gql`
 query productpage($name: ID!) {
   product(id: $name, idType: SLUG) {
     content
-    seo {
-      seoBody
-      seoTagsHead
-    }
+   
     productfields {
       name
       description

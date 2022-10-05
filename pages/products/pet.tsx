@@ -80,16 +80,16 @@ export async function getStaticProps() {
     },
   });
   body.push(data.productCategory.products.nodes);
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/pet/",
-    },
-  });
+  // var { data } = await client.query({
+  //   query: getSeoForPate,
+  //   variables: {
+  //     name: "/index.php/pet/",
+  //   },
+  // });
   return {
     props: {
       body: body,
-      seo: data.page.seo,
+      // seo: data.page.seo,
     },
   };
 }

@@ -16,11 +16,10 @@ import client, {
   getSeoForPate,
 } from "../../lib/apollo-client";
 
-const Blog = ({ posts, categories, seo }: any) => {
+const Blog = ({ posts, categories }: any) => {
   return (
     <Box bg="white" color="black">
       <Head>
-        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
       </Head>
       <Heading textAlign="center">Oya Home Blog</Heading>
       <Box w="sm" margin="auto" px="4">
@@ -63,7 +62,7 @@ const Blog = ({ posts, categories, seo }: any) => {
           })}
         </TabPanels>
       </Tabs>
-      <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
       {/* </Box> */}
     </Box>
   );
@@ -134,17 +133,17 @@ export async function getStaticProps() {
     },
   });
   body.push(data.category.posts.nodes);
-  var { data } = await client.query({
-    query: getSeoForPate,
-    variables: {
-      name: "/index.php/carrer/",
-    },
-  });
+  // var { data } = await client.query({
+  //   query: getSeoForPate,
+  //   variables: {
+  //     name: "/index.php/carrer/",
+  //   },
+  // });
   return {
     props: {
       posts: body,
       categories: head,
-      seo: data.page.seo,
+      // seo: data.page.seo,
     },
   };
 }
