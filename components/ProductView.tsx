@@ -205,7 +205,7 @@ function ProductView({
           {product?.name}
         </Heading>
         <hr />
-        <Tabs variant='line' px="4" pt="4">
+        <Tabs variant='line' px="4" pt="4" colorScheme={'#299D8C'}>
           <TabList
             p="0"
             flexDirection={{ md: "row", base: "column" }}
@@ -216,11 +216,11 @@ function ProductView({
             marginBottom="auto"
           >
             <Tab
-              _selected={{
-                color: "#299D8C",
+              // _selected={{
+                // color: "#299D8C",
                 // textDecoration: "underline",
                 // textUnderlineOffset: "10px",
-              }}
+              // }}
               textAlign="start"
               as="h1"
               fontSize="12"
@@ -237,11 +237,11 @@ function ProductView({
               color="blackAlpha.900"
               alignSelf="self-start"
               letterSpacing={2}
-              _selected={{
-                color: "#299D8C",
+              // _selected={{
+                // color: "#299D8C",
                 // textDecoration: "underline",
                 // textUnderlineOffset: "10px",
-              }}
+              // }}
             >
               ORDER {"&"} PRODUCTION
             </Tab>
@@ -252,11 +252,11 @@ function ProductView({
               color="blackAlpha.800"
               alignSelf="self-start"
               letterSpacing={2}
-              _selected={{
-                color: "#299D8C",
+              // _selected={{
+                // color: "#299D8C",
                 // textDecoration: "underline",
                 // textUnderlineOffset: "10px",
-              }}
+              // }}
             >
               CUSTOMIZATION OPTIONS
             </Tab>
