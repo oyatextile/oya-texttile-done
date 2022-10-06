@@ -369,23 +369,16 @@ const ProductCard = ({
               marginTop="auto"
               py="6"
             >
-              {/* <Link
-                  fontSize="sm"
-                  color="blackAlpha.800"
-                  display="flex"
-                  alignItems="center"
-                  gap="2"
-                > */}
-              <Link color="blackAlpha.800">
+              {/* tmp */}
+              {/* <Link color="blackAlpha.800">
                 <NextLink href={product?.postSlug}>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
                   </Box>
                 </NextLink>
-              </Link>
+              </Link> */}
 
-              {/* </Link> */}
             </Box>
           </ModalFooter>
         </ModalContent>
