@@ -37,8 +37,20 @@ const TabsCategory = ({
   head = head.filter(unique);
   return (
     <Box boxSize="full">
-      <Tabs variant="line" px="4" pt="4" colorScheme={"#299D8C"}>
-        <TabList justifyContent="center" cursor='pointer'>
+      <Tabs
+        variant="line"
+        px="4"
+        pt="4"
+        colorScheme={"#299D8C"}
+        w="fit-content"
+        margin={"auto"}
+      >
+        <TabList
+          justifyContent="center"
+          cursor="pointer"
+          w="fit-content"
+          margin={"auto"}
+        >
           {head.map((item, i) => {
             return <Tab key={`${item}-${i}`}>{item}</Tab>;
           })}
