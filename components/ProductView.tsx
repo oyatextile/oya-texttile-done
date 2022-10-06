@@ -196,6 +196,7 @@ function ProductView({
           textAlign="start"
           px="8"
           as="h1"
+          py="4"
           fontSize={{ base: "xl", lg: "4xl" }}
           pt="5"
           color="blackAlpha.800"
