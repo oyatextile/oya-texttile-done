@@ -83,13 +83,14 @@ const Article = ({ body, post }) => {
   return (
     <Box w="full">
       <Head>
-        {/* <HTMLRenderer html={`${body.seo_head.title}`} /> */}
         <title>{body.seo_head.title}</title>
         <meta name="keywords" content={body.seo_head.keywords} />
       </Head>
       {/* product side */}
       <ProductView product={body.productfields} content={body.content} />
-      <HTMLRenderer html={body.seo_body.content} />
+      <Box display={"none"}>
+        <HTMLRenderer html={body.seo_body.content} />
+      </Box>
     </Box>
   );
 };
@@ -170,10 +171,6 @@ export async function getStaticProps({ params }) {
             postfield {
               leftImage {
                 mediaItemUrl
-              }
-              seo {
-                seoBody
-                seoHead
               }
               rightImage {
                 mediaItemUrl

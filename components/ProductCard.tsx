@@ -376,14 +376,14 @@ const ProductCard = ({
                   alignItems="center"
                   gap="2"
                 > */}
-              <Link color="blackAlpha.800">
+              {/* <Link color="blackAlpha.800">
                 <NextLink href={product?.postSlug}>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
                   </Box>
                 </NextLink>
-              </Link>
+              </Link> */}
 
               {/* </Link> */}
             </Box>
