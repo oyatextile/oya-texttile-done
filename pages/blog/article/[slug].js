@@ -74,7 +74,9 @@ const Article = ({ body, post }) => {
             </Text>
           </Box>
         </Box>
-        <HTMLRenderer html={post.seo_body.content} />
+        <Box display={"none"}>
+          <HTMLRenderer html={post.seo_body.content} />
+        </Box>
       </Box>
     );
   }
