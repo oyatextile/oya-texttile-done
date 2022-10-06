@@ -7,14 +7,12 @@ import Simple from "../NavBarTest";
 import HTMLRenderer from "react-html-renderer";
 
 const innerHTML = `
+<title>empty seo product</title>
 <link rel="icon" type="image/x-icon" href="/images/oyatextile.gif" />
 <meta name="facebook-domain-verification" content="fqb5zdsjhryy9gkj89jg5m1qtjad1l"/>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
-<!-- Facebook Pixel Code -->
 <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

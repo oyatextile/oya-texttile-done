@@ -10,20 +10,28 @@ import {
   ModalOverlay,
   ModalContent,
   ModalCloseButton,
-} from "@chakra-ui/react";
-// import DOMPurify from "dompurify";
-
+} from "@chakra-ui/react";  
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import SeoTags from "../components/seoTags";
-import client, { getSeoForPate } from "../lib/apollo-client";
 
 function ModalPic({ url }: { url: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Box onClick={onOpen} boxShadow={{ base: "2xl", sm: "none" }}>
+        <Head>
+          <title>
+            Get a quote for home, hotel and pet products from reputable
+          </title>
+          <meta
+            name="keywords"
+            content="Get a quote for home, hotel and pet products from
+        reputable manufacturer. products are manufactured with standards,
+        market-matching quality, low MOQ competitive prices from lovely sales
+        team."
+          />
+        </Head>
         <Image
           h="sm"
           marginLeft="auto"
@@ -183,17 +191,4 @@ const About: NextPage = () => {
   );
 };
 
-// export async function getStaticProps() {
-  // var { data } = await client.query({
-  //   query: getSeoForPate,
-  //   variables: {
-  //     name: "/index.php/about/",
-  //   },
-  // });
-  // return {
-  //   props: {
-  //     seo: data.page.seo,
-  //   },
-  // };
-// }
 export default About;

@@ -1,14 +1,11 @@
 import { Box, Center, Heading, Image, VStack } from "@chakra-ui/react";
-import type { NextPage } from "next";
+// import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import SeoTags from "../components/seoTags";
 import client, { getSeoForPate } from "../lib/apollo-client";
+import HTMLRenderer from "react-html-renderer";
 
-const Home: NextPage = () => {
-  // console.log(seo);
-  // const content = `${seo.seoTagsHead}`;
-
+const Home = () => {
   return (
     <Box
       h={{ base: "100vh", sm: "fit-content" }}
@@ -16,10 +13,20 @@ const Home: NextPage = () => {
       __css={{}}
       position="relative"
     >
-      {/* <Head>
-        <p dangerouslySetInnerHTML={{ __html: content }}></p>
+      <Head>
+        <title>
+          {" "}
+          Get a quote for home, hotel and pet products from reputable
+        </title>
+        <meta
+          name="keywords"
+          content="Get a quote for home, hotel and pet products from
+        reputable manufacturer. products are manufactured with standards,
+        market-matching quality, low MOQ competitive prices from lovely sales
+        team."
+        />
+        {/* <HTMLRenderer html={""} /> */}
       </Head>
-      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "} */}
       <Image
         src="/images/background.jpeg"
         objectFit="cover"
@@ -43,8 +50,6 @@ const Home: NextPage = () => {
           >
             Custom-Made Textile Manufacturer
           </Heading>
-          {/* </Box>
-        <Box position="absolute" top="30%" zIndex="1" w="fit-content" py='1'> */}
           <Heading
             py="4"
             as="h3"
@@ -61,22 +66,9 @@ const Home: NextPage = () => {
           </Heading>
         </Box>
       </Center>
+      {/* <HTMLRenderer html={seo.seoBody} /> */}
     </Box>
   );
 };
-
-// export async function getStaticProps() {
-//   var { data } = await client.query({
-//     query: getSeoForPate,
-//     variables: {
-//       name: "/index.php/landing-page/",
-//     },
-//   });
-//   return {
-//     props: {
-//       seo: data.page.seo,
-//     },
-//   };
-// }
 
 export default Home;

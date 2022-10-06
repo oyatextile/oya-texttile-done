@@ -1,8 +1,6 @@
 import { Box, Center, Heading, Image, Show, Text } from "@chakra-ui/react";
 import Head from "next/head";
-// import type { NextPage } from "next";
 import React from "react";
-import SeoTags from "../../components/seoTags";
 import TabsCategory from "../../components/TabsCategory";
 
 import client, {
@@ -12,6 +10,18 @@ import client, {
 const HeadCat = () => {
   return (
     <Box justifyContent="center" w="full" alignItems="center">
+      <Head>
+        <title>
+          Get a quote for home, hotel and pet products from reputable
+        </title>
+        <meta
+          name="keywords"
+          content="Get a quote for home, hotel and pet products from
+          reputable manufacturer. products are manufactured with standards,
+          market-matching quality, low MOQ competitive prices from lovely sales
+          team."
+        />
+      </Head>
       <Show above="md">
         <Image src="/images/Banner/1.jpg" w="full" />
       </Show>
@@ -55,7 +65,7 @@ const Bath = ({ body, seo }: any) => {
       <Head>
         {/* <title>Oyahome</title> */}
         <React.Fragment
-          // dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
+        // dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
         ></React.Fragment>
       </Head>
       <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}

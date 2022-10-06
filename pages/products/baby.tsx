@@ -12,6 +12,18 @@ import client, {
 const HeadCat = () => {
   return (
     <Box justifyContent="center" w="full" alignItems="center">
+      <Head>
+        <title>
+            Get a quote for home, hotel and pet products from reputable
+          </title>
+          <meta
+            name="keywords"
+            content="Get a quote for home, hotel and pet products from
+          reputable manufacturer. products are manufactured with standards,
+          market-matching quality, low MOQ competitive prices from lovely sales
+          team."
+          />
+      </Head>
       <Show above="md">
         <Image src="/images/Banner/2.jpg" w="full" />
       </Show>
@@ -54,7 +66,7 @@ const baby: NextPage = ({ body, seo }: any) => {
       <Head>
         {/* <title>Oyahome</title> */}
         <React.Fragment
-          // dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
+        // dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
         ></React.Fragment>
       </Head>
       <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}

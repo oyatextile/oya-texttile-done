@@ -205,22 +205,18 @@ function ProductView({
           {product?.name}
         </Heading>
         <hr />
-        <Tabs variant='line' px="4" pt="4" colorScheme={'#299D8C'}>
+        <Tabs variant='line' px="4" pt="4" colorScheme={'#299D8C'} cursor='pointer'>
           <TabList
             p="0"
             flexDirection={{ md: "row", base: "column" }}
             justifyContent="start"
-            gap=".5"
+            gap={{md:".5",base:'4'}}
             py="3"
             marginTop="auto"
             marginBottom="auto"
           >
             <Tab
-              // _selected={{
-                // color: "#299D8C",
-                // textDecoration: "underline",
-                // textUnderlineOffset: "10px",
-              // }}
+             
               textAlign="start"
               as="h1"
               fontSize="12"

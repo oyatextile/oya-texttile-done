@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://oyatextile.com
+
+# Sitemaps
+Sitemap: https://oyatextile.com/sitemap.xml

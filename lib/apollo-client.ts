@@ -62,7 +62,7 @@ query about($name: ID!) {
   page(id: $name, idType: URI) {
     seo {
       seoBody
-      seoTagsHead
+      seoHead
     }
   }
 }`;
@@ -79,6 +79,13 @@ query productpage($name: ID!) {
     	nodes{
         name
       }
+    }
+    seo_head{
+      title
+      keywords
+    }
+    seo_body {
+      content
     }
     productfields {
       videoSrc

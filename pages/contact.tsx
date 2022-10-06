@@ -9,27 +9,18 @@ const About: NextPage = () => {
   return (
     <Box color="black" py="4" bg="white">
       <Head>
-        {/* <title>Oyahome</title> */}
-        {/* <React.Fragment
-          dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
-        ></React.Fragment> */}
+        <title>
+          Get a quote for home, hotel and pet products from reputable
+        </title>
+        <meta
+          name="keywords"
+          content="Get a quote for home, hotel and pet products from
+        reputable manufacturer. products are manufactured with standards,
+        market-matching quality, low MOQ competitive prices from lovely sales
+        team."
+        />
       </Head>
-      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p> */}
-      {/* <Heading
-        textAlign="center"
-        letterSpacing={4}
-        fontSize={{ base: "4xl", lg: "7xl" }}
-      >
-        OYA Ev Tekstili{" "}
-      </Heading>
-      <Heading
-        textAlign="center"
-        letterSpacing={4}
-        fontSize={{ base: "sm", lg: "xl" }}
-        py="4"
-      >
-        Custom-made manufacturer{" "}
-      </Heading> */}
+
       <Box margin="auto" w="fit-content">
         <Contact />
       </Box>
@@ -37,18 +28,4 @@ const About: NextPage = () => {
     </Box>
   );
 };
-
-// export async function getStaticProps() {
-//   var { data } = await client.query({
-//     query: getSeoForPate,
-//     variables: {
-//       name: "/index.php/carrer/",
-//     },
-//   });
-//   return {
-//     props: {
-//       seo: data.page.seo,
-//     },
-//   };
-// }
 export default About;

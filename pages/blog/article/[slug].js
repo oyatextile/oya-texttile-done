@@ -3,7 +3,8 @@ import client, { getProductBySlug } from "../../../lib/apollo-client";
 import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import ProductView from "../../../components/ProductView";
 import Head from "next/head";
-const Details = ({ children }: any) => {
+import HTMLRenderer from "react-html-renderer";
+const Details = ({ children }) => {
   const data = children?.split("\n", 1)[0];
   var title = "";
   if (data?.includes("*")) {
@@ -22,15 +23,18 @@ const Details = ({ children }: any) => {
     </Box>
   );
 };
-const Article = ({ body, post }: any) => {
+const Article = ({ body, post }) => {
   if (Object.keys(body).length === 0) {
     const description = post.postfield.description.split("\n*");
     console.log("post", description);
     return (
       <Box bg="white" color="black">
         <Head>
-          {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
+          {/* <HTMLRenderer html={`${body.seo_head.title}`} /> */}
+          <title>{post.seo_head.title}</title>
+          <meta name="keywords" content={post.seo_head.keywords} />
         </Head>
+
         <Box maxW={"4xl"} margin="auto" boxShadow={"2xl"} mb="4">
           <Image
             src={post.featuredImage.node.mediaItemUrl}
@@ -50,7 +54,7 @@ const Article = ({ body, post }: any) => {
               {post.title}
             </Heading>
           </Box>
-          {description.map((it: string, i: any) => {
+          {description.map((it, i) => {
             return <Details key={i}>{it}</Details>;
           })}
 
@@ -70,20 +74,22 @@ const Article = ({ body, post }: any) => {
             </Text>
           </Box>
         </Box>
-        {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
+        <HTMLRenderer html={post.seo_body.content} />
       </Box>
     );
   }
-  // const page = body?.productPages.nodes[0].name;
+  // console.log(body.seo.seoHead);
 
   return (
     <Box w="full">
       <Head>
-        {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
+        {/* <HTMLRenderer html={`${body.seo_head.title}`} /> */}
+        <title>{body.seo_head.title}</title>
+        <meta name="keywords" content={body.seo_head.keywords} />
       </Head>
       {/* product side */}
       <ProductView product={body.productfields} content={body.content} />
-      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
+      <HTMLRenderer html={body.seo_body.content} />
     </Box>
   );
 };
@@ -126,7 +132,7 @@ export async function getStaticPaths() {
   const News = data.category.posts.nodes;
   const dataf = [...products, ...post, ...News];
   return {
-    paths: dataf.map((article: { [x: string]: any; node: { slug: any } }) => ({
+    paths: dataf.map((article) => ({
       params: {
         slug: article.slug,
       },
@@ -134,7 +140,7 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({ params }) {
   var { data } = await client.query({
     query: getProductBySlug,
     variables: {
@@ -149,7 +155,13 @@ export async function getStaticProps({ params }: any) {
         query getPost($name: ID!) {
           post(id: $name, idType: SLUG) {
             title
-
+            seo_head {
+              title
+              keywords
+            }
+            seo_body {
+              content
+            }
             featuredImage {
               node {
                 mediaItemUrl
@@ -158,6 +170,10 @@ export async function getStaticProps({ params }: any) {
             postfield {
               leftImage {
                 mediaItemUrl
+              }
+              seo {
+                seoBody
+                seoHead
               }
               rightImage {
                 mediaItemUrl
@@ -172,6 +188,8 @@ export async function getStaticProps({ params }: any) {
         name: params.slug,
       },
     });
+    const post = data.post;
+
     return {
       props: {
         body: {},

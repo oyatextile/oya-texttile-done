@@ -13,11 +13,12 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
-import LanguageSwitcher from "./LanguageSwitcher";
+// import LanguageSwitcher from "./LanguageSwitcher";
 import { leftPaths, rightPaths } from "../data/navdata";
 import Logo from "./logo";
 const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   <Link
+    cursor="pointer"
     px={{ xl: 2, base: "1" }}
     py={1}
     _hover={{

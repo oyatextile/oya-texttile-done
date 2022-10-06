@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/blog/category/[slug].js", "components/Blog/articles.tsx", "components/Blog/card.tsxs", "components/Blog/nav.js", "pages/blog/article/[slug].ts", "components/Blog/seo.js", "pages/_app.ts", "components/contactUs.js","pages/products/bath.tsjs", "components/layouts/MainLayout.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/blog/category/[slug].js", "components/Blog/articles.tsx", "components/Blog/card.tsxs", "components/Blog/nav.js", "pages/blog/article/[slug].ts", "components/Blog/seo.js", "pages/_app.ts", "components/contactUs.js","pages/products/bath.tsjs", "components/layouts/MainLayout.js", "components/next-sitemap.config.js", "pages/index.js", "pages/blog/article/[slug].js"],
   "exclude": ["node_modules"]
 }

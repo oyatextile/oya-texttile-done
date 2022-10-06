@@ -16,7 +16,21 @@ import client, { getllPostsByCat } from "../../lib/apollo-client";
 const Blog = ({ posts, categories }: any) => {
   return (
     <Box bg="white" color="black">
-      <Heading textAlign="center" py='4'>Blog</Heading>
+      <Head>
+        <title>
+          Get a quote for home, hotel and pet products from reputable
+        </title>
+        <meta
+          name="keywords"
+          content="Get a quote for home, hotel and pet products from
+        reputable manufacturer. products are manufactured with standards,
+        market-matching quality, low MOQ competitive prices from lovely sales
+        team."
+        />
+      </Head>
+      <Heading textAlign="center" py="4">
+        Blog
+      </Heading>
       <Box w="sm" margin="auto" px="4">
         <Text
           flexWrap="nowrap"
@@ -69,14 +83,8 @@ export async function getStaticProps() {
   // "Beach",
   // "Pet",
   // "Baby",
-  const head = [
-    "Buying Guide",
-    "News",
-
-   
-  ];
+  const head = ["Buying Guide", "News"];
   var body: any[][] = [];
-  
 
   var { data } = await client.query({
     query: getllPostsByCat,

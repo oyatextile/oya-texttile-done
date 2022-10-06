@@ -4,16 +4,12 @@ import {
   Stack,
   Image,
   Text,
-  VStack,
-  Center,
-  Container,
-  List,
   ListItem,
   UnorderedList,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import client, { getSeoForPate } from "../../lib/apollo-client";
+
 const Carrer: NextPage = ({ seo }: any) => {
   return (
     <Box
@@ -24,7 +20,17 @@ const Carrer: NextPage = ({ seo }: any) => {
       marginTop="auto"
     >
       <Head>
-        <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p>
+        <title>
+          {" "}
+          Get a quote for home, hotel and pet products from reputable
+        </title>
+        <meta
+          name="keywords"
+          content="Get a quote for home, hotel and pet products from
+        reputable manufacturer. products are manufactured with standards,
+        market-matching quality, low MOQ competitive prices from lovely sales
+        team."
+        />{" "}
       </Head>
       <Stack
         margin={"auto"}
