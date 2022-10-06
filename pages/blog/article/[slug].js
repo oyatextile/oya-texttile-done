@@ -26,12 +26,11 @@ const Details = ({ children }) => {
 const Article = ({ body, post }) => {
   if (Object.keys(body).length === 0) {
     const description = post.postfield.description.split("\n*");
-    console.log("post", description);
     return (
       <Box bg="white" color="black">
         <Head>
-          {/* <HTMLRenderer html={`${body.seo_head.title}`} /> */}
           <title>{post.seo_head.title}</title>
+          <meta name="description" content={post.seo_head.description} />
           <meta name="keywords" content={post.seo_head.keywords} />
         </Head>
 
@@ -161,6 +160,7 @@ export async function getStaticProps({ params }) {
             seo_head {
               title
               keywords
+              description
             }
             seo_body {
               content

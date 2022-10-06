@@ -62,13 +62,6 @@ const Bath = ({ body, seo }: any) => {
   const head = ["Towel", "Bathmat", "Bathrobe"];
   return (
     <Box justifyContent="center" alignItems="center" bg="white" color="black">
-      <Head>
-        {/* <title>Oyahome</title> */}
-        <React.Fragment
-        // dangerouslySetInnerHTML={{ __html: seo.seoTagsHead }}
-        ></React.Fragment>
-      </Head>
-      <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "}
       <Center pb="6">
         <HeadCat />
       </Center>

@@ -21,7 +21,7 @@ const Blog = ({ posts, categories }: any) => {
           Get a quote for home, hotel and pet products from reputable
         </title>
         <meta
-          name="keywords"
+          name="description"
           content="Get a quote for home, hotel and pet products from
         reputable manufacturer. products are manufactured with standards,
         market-matching quality, low MOQ competitive prices from lovely sales

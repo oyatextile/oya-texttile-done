@@ -83,6 +83,7 @@ query productpage($name: ID!) {
     seo_head{
       title
       keywords
+      description
     }
     seo_body {
       content
