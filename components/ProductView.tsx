@@ -205,18 +205,24 @@ function ProductView({
           {product?.name}
         </Heading>
         <hr />
-        <Tabs variant='line' px="4" pt="4" colorScheme={'#299D8C'} cursor='pointer'>
+        <Tabs
+          variant="line"
+          px="4"
+          pt="4"
+          colorScheme={"#299D8C"}
+          cursor="pointer"
+        >
           <TabList
             p="0"
             flexDirection={{ md: "row", base: "column" }}
             justifyContent="start"
-            gap={{md:".5",base:'4'}}
+            gap={{ md: ".5", base: "4" }}
             py="3"
+            w="fit-content"
             marginTop="auto"
             marginBottom="auto"
           >
             <Tab
-             
               textAlign="start"
               as="h1"
               fontSize="12"
@@ -234,9 +240,9 @@ function ProductView({
               alignSelf="self-start"
               letterSpacing={2}
               // _selected={{
-                // color: "#299D8C",
-                // textDecoration: "underline",
-                // textUnderlineOffset: "10px",
+              // color: "#299D8C",
+              // textDecoration: "underline",
+              // textUnderlineOffset: "10px",
               // }}
             >
               ORDER {"&"} PRODUCTION
@@ -249,9 +255,9 @@ function ProductView({
               alignSelf="self-start"
               letterSpacing={2}
               // _selected={{
-                // color: "#299D8C",
-                // textDecoration: "underline",
-                // textUnderlineOffset: "10px",
+              // color: "#299D8C",
+              // textDecoration: "underline",
+              // textUnderlineOffset: "10px",
               // }}
             >
               CUSTOMIZATION OPTIONS
@@ -360,7 +366,13 @@ function ProductView({
             « Need more information on waffle product? Get in touch with our
             Sales Enginner.
           </Text>
-          <Flex px="8" py="0" fontSize={"12"} gap="2" direction={{base:'column',sm:'row'}}>
+          <Flex
+            px="8"
+            py="0"
+            fontSize={"12"}
+            gap="2"
+            direction={{ base: "column", sm: "row" }}
+          >
             <Flex alignItems={"center"} gap="1">
               <span
                 style={{
