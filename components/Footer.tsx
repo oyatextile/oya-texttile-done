@@ -96,13 +96,13 @@ const ListSocial = () => {
 };
 export default function Footer() {
   return (
-    <Box bg="white" color="black" py="8">
+    <Box bg="white" color="black" py="8" pt="4">
       <Divider />
       <Stack
         direction={{ lg: "row", base: "column" }}
         justifyContent="center"
         alignContent={"center"}
-        alignItems='center'
+        alignItems="center"
         spacing="16"
         w="full"
       >
@@ -118,22 +118,20 @@ export default function Footer() {
         >
           {leftPaths.map((path, i) => {
             return (
-              <Link key={path.label} px='1'>
+              <Link key={path.label} px="1">
                 <NextLink href={path.path}>{path.label}</NextLink>
               </Link>
             );
           })}
         </Stack>
         <Stack
-          // align={{ lg: 'self-start', base: "center" }}
-          // alignItems={{base:'start',md:'center'}}
           fontSize="12"
           direction={{ base: "row", lg: "column" }}
           justifyContent="center"
         >
           {rightPaths.map((path, i) => {
             return (
-              <Link key={path.label} px='1'>
+              <Link key={path.label} px="1">
                 <NextLink href={path.path}>{path.label}</NextLink>
               </Link>
             );
