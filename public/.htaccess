@@ -1,4 +1,13 @@
-Redirect 301 /en https://www.oyatextile.com/
-Redirect 301 /fr https://www.oyatextile.com/
-Redirect 301 /ar https://www.oyatextile.com/
-Redirect 301 /tr https://www.oyatextile.com/
+Redirect 301 ^/en/ https://www.oyatextile.com/
+Redirect 301 ^/fr/ https://www.oyatextile.com/
+Redirect 301 ^/ar/ https://www.oyatextile.com/
+Redirect 301 ^/tr/ https://www.oyatextile.com/
+
+<!-- new syntax -->
+
+RewriteEngine On
+
+RewriteRule ^en/?$ https://www.oyatextile.com/
+RewriteRule ^fr/?$ https://www.oyatextile.com/
+RewriteRule ^ar/?$ https://www.oyatextile.com/
+RewriteRule ^tr/?$ https://www.oyatextile.com/
