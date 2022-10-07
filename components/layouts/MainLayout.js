@@ -7,7 +7,6 @@ import Simple from "../NavBarTest";
 import HTMLRenderer from "react-html-renderer";
 
 const innerHTML = `
-<title>empty seo product</title>
 <link rel="icon" type="image/x-icon" href="/images/oyatextile.gif" />
 <meta name="facebook-domain-verification" content="fqb5zdsjhryy9gkj89jg5m1qtjad1l"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">

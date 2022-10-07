@@ -4,8 +4,13 @@ Redirect 301 ^/ar/ https://www.oyatextile.com/
 Redirect 301 ^/tr/ https://www.oyatextile.com/
 
 <!-- new syntax -->
+<!-- redirect http to https  -->
 
 RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.\*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
 
 RewriteRule ^en/?$ https://www.oyatextile.com/
 RewriteRule ^fr/?$ https://www.oyatextile.com/
