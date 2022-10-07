@@ -1,10 +1,6 @@
-import { Box, Center, Heading, Image, VStack } from "@chakra-ui/react";
-// import type { NextPage } from "next";
+import { Box, Center, Heading, Image } from "@chakra-ui/react";
 import Head from "next/head";
 import React from "react";
-import client, { getSeoForPate } from "../lib/apollo-client";
-import HTMLRenderer from "react-html-renderer";
-
 const Home = () => {
   return (
     <Box
@@ -15,8 +11,7 @@ const Home = () => {
     >
       <Head>
         <title>
-          {" "}
-          Get a quote for home, hotel and pet products from reputable
+          OYA TEXTILE - Custom- Made Textile Manufacturer & Exporters
         </title>
         <meta
           name="description"
@@ -25,7 +20,6 @@ const Home = () => {
         market-matching quality, low MOQ competitive prices from lovely sales
         team."
         />
-        {/* <HTMLRenderer html={""} /> */}
       </Head>
       <Image
         src="/images/background.jpeg"

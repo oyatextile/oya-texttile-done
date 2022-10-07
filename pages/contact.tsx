@@ -9,15 +9,14 @@ const About: NextPage = () => {
   return (
     <Box color="black" py="4" bg="white">
       <Head>
-        <title>
-          Get a quote for home, hotel and pet products from reputable
-        </title>
+        <title>OYA TEXTILE- We're at your service! </title>
         <meta
           name="description"
-          content="Get a quote for home, hotel and pet products from
-        reputable manufacturer. products are manufactured with standards,
-        market-matching quality, low MOQ competitive prices from lovely sales
-        team."
+          content="Reach us now and get information within a business day. info@oyatextile.com | +90 546 207 65 60 | 90 554 195 0 195"
+        />
+        <meta
+          name="keywords"
+          content="Turkish manufacturer, exporter, Turkey, Denizli"
         />
       </Head>
 

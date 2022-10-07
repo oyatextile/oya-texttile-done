@@ -11,7 +11,6 @@ const innerHTML = `
 <meta name="facebook-domain-verification" content="fqb5zdsjhryy9gkj89jg5m1qtjad1l"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
 <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/admin/web/oyalinen.com/project/oya-texttile-done
+cd /project/oya-texttile-done
 git pull origin master
 yarn 
 yarn export 
@@ -8,7 +8,6 @@ cd /home/admin/web/oyatextile.com/public_html
 rm -r 404 about/ images/ locales/ blog/ contact/  _next/ career/ inspiration/ products/ /test
 cd out/
 mv * ../ 
-cp -r * ../
 cd .. 
 rm -r out 
 

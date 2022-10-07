@@ -10,7 +10,7 @@ import {
   ModalOverlay,
   ModalContent,
   ModalCloseButton,
-} from "@chakra-ui/react";  
+} from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
@@ -20,18 +20,6 @@ function ModalPic({ url }: { url: string }) {
   return (
     <>
       <Box onClick={onOpen} boxShadow={{ base: "2xl", sm: "none" }}>
-        <Head>
-          <title>
-            Get a quote for home, hotel and pet products from reputable
-          </title>
-          <meta
-            name="description"
-            content="Get a quote for home, hotel and pet products from
-        reputable manufacturer. products are manufactured with standards,
-        market-matching quality, low MOQ competitive prices from lovely sales
-        team."
-          />
-        </Head>
         <Image
           h="sm"
           marginLeft="auto"
@@ -45,13 +33,7 @@ function ModalPic({ url }: { url: string }) {
         <ModalContent bg="white">
           <ModalCloseButton color="black" bg="white" />
           <Box onClick={onOpen} boxShadow="2xl" w="full" p="4">
-            <Image
-              w="lg"
-              // h="x"
-              marginLeft="auto"
-              marginRight="auto"
-              src={url}
-            />
+            <Image w="lg" marginLeft="auto" marginRight="auto" src={url} />
           </Box>
         </ModalContent>
       </Modal>
@@ -59,18 +41,20 @@ function ModalPic({ url }: { url: string }) {
   );
 }
 const About: NextPage = () => {
-  // const content = `${seo.seoTagsHead}`;
-  const sanitizedData = () => ({
-    // __html: DOMPurify.sanitize(content),
-  });
-
   return (
     <>
-      {/* <Head
-          dangerouslySetInnerHTML={sanitizedData()}>
-      </Head> */}
-      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoBody }}></p>{" "} */}
       <VStack bg="white" color="black" w="100%">
+        <Head>
+          <title>OYA Textile - Oya Ev Tekstili ve tic.ltd.şti. </title>
+          <meta
+            name="description"
+            content="A reputed Turkish manufacturer and exporter of home, hotel, and pet textile with a significant experience in the field of Textile."
+          />
+          <meta
+            name="keywords"
+            content="Turkish manufacturer, exporter, home, hotel, pet, bed, textile, Turkey, Denizli"
+          />
+        </Head>
         <Box w="full" h="md" display="flex" pos={"relative"}>
           <Image
             src={"/images/about.jpg"}

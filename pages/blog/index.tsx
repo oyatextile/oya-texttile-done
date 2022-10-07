@@ -17,15 +17,14 @@ const Blog = ({ posts, categories }: any) => {
   return (
     <Box bg="white" color="black">
       <Head>
-        <title>
-          Get a quote for home, hotel and pet products from reputable
-        </title>
+        <title>OYA TEXTILE - Learn more about Textile field! </title>
         <meta
           name="description"
-          content="Get a quote for home, hotel and pet products from
-        reputable manufacturer. products are manufactured with standards,
-        market-matching quality, low MOQ competitive prices from lovely sales
-        team."
+          content="Find the latest about OYA’s company, products, fairs and textile industry news."
+        />
+        <meta
+          name="keywords"
+          content="oya textile, textile fairs, textile news"
         />
       </Head>
       <Heading textAlign="center" py="4">
