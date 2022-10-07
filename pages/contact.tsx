@@ -3,8 +3,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 import Contact from "../components/Contact";
-import SeoTags from "../components/seoTags";
-import client, { getSeoForPate } from "../lib/apollo-client";
 const About: NextPage = () => {
   return (
     <Box color="black" py="4" bg="white">
