@@ -9,7 +9,7 @@ const About: NextPage = () => {
   return (
     <Box color="black" py="4" bg="white">
       <Head>
-        <title>OYA TEXTILE- We're at your service! </title>
+        <title>OYA TEXTILE- We{"'"}re at your service! </title>
         <meta
           name="description"
           content="Reach us now and get information within a business day. info@oyatextile.com | +90 546 207 65 60 | 90 554 195 0 195"
