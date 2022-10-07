@@ -15,7 +15,6 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import NextLink from "next/link";
 // import LanguageSwitcher from "./LanguageSwitcher";
 import { leftPaths, rightPaths } from "../data/navdata";
-import Logo from "./logo";
 const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   <Link
     cursor="pointer"
@@ -37,6 +36,7 @@ export default function Simple() {
     <Box
       bg="white"
       color="blackAlpha.700"
+      // position={'relative'}
       px={4}
       m="0"
       pos={"sticky"}
@@ -70,21 +70,25 @@ export default function Simple() {
             ))}
           </HStack>
         </HStack>
-        <Box
+        <Link
           color="black"
           w="fit-content"
+          // position={"absolute"}
+          // zIndex='100'
           marginRight={"auto"}
+          // left={"50%"}
+          // right={'50%'}
           marginLeft="auto"
+         
+          // translateX={"-50%"}
         >
-          <Link>
-            <NextLink href="/">
-              <Image
-                w="64"
-                src="http://oyatextile.com/cms/wp-content/uploads/2022/10/3.png"
-              />
-            </NextLink>
-          </Link>{" "}
-        </Box>
+          <NextLink href="/">
+            <Image
+              w="64"
+              src="http://oyatextile.com/cms/wp-content/uploads/2022/10/3.png"
+            />
+          </NextLink>
+        </Link>{" "}
         <Flex
           alignItems={"center"}
           display={{ base: "none", lg: "flex" }}
