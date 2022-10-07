@@ -1,13 +1,4 @@
-import {
-  Box,
-  Container,
-  Link,
-  SimpleGrid,
-  Stack,
-  Text,
-  Divider,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Link, Stack, Text, Divider, Image } from "@chakra-ui/react";
 import {
   FaInstagram,
   FaTwitter,
@@ -60,9 +51,7 @@ const ListSocial = () => {
       <TransDiv>
         <SocialButton
           label={"YouTube"}
-          href={
-            "https://www.youtube.com/channel/UCaFjHW4MOhyVwvLbYoMoGIQhttp:/youtube.com"
-          }
+          href={"https://www.youtube.com/channel/UCaFjHW4MOhyVwvLbYoMoGIQ"}
         >
           <FaYoutube fill="#299D8C" />
         </SocialButton>

@@ -23,13 +23,21 @@ import {
 import TransDiv from "./TransDev";
 import { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
-import client from "../lib/apollo-client";
 import Link from "next/link";
 
-const StyledInput = ({ label, setInput }: { label: string; setInput: any }) => {
+const StyledInput = ({
+  label,
+  setInput,
+  autoFocus,
+}: {
+  label: string;
+  setInput: any;
+  autoFocus: boolean;
+}) => {
   return (
     <FormControl>
       <Input
+        autoFocus={autoFocus}
         p="1"
         fontSize="14"
         bg="white"
@@ -189,8 +197,6 @@ export default function Contact() {
                 Akcesme Mah, 2622 Sok. No: 12 Merkezefendi / Denizli Turkey
               </Text>
             </Flex>
-            {/* 📍 Akcesme Mah, 2622 Sok.    No: 12 Merkezefendi / Denizli Turkey */}
-
             <Flex alignItems={"center"} gap="1" fontSize={"17"}>
               <span
                 style={{
@@ -215,7 +221,6 @@ export default function Contact() {
         overflow={"hidden"}
         borderRadius="0"
         w={{ base: "sm", md: "fit-content" }}
-        // h="full"
         position="relative"
         display="flex"
         flexDirection="column"
@@ -233,8 +238,12 @@ export default function Contact() {
               spacing={4}
               direction={{ base: "column", lg: "row" }}
             >
-              <StyledInput label="Name" setInput={setName} />
-              <StyledInput label="Email" setInput={setEmail} />
+              <StyledInput autoFocus={true} label="Name" setInput={setName} />
+              <StyledInput
+                autoFocus={false}
+                label="Email"
+                setInput={setEmail}
+              />
             </Stack>
             <Stack
               justifyContent="start"
@@ -244,8 +253,16 @@ export default function Contact() {
               spacing={4}
               direction={{ base: "column", lg: "row" }}
             >
-              <StyledInput label="Phone" setInput={setPhone} />
-              <StyledInput label="Country" setInput={setCountry} />
+              <StyledInput
+                autoFocus={false}
+                label="Phone"
+                setInput={setPhone}
+              />
+              <StyledInput
+                autoFocus={false}
+                label="Country"
+                setInput={setCountry}
+              />
             </Stack>
             <FormControl py="4">
               <Select
@@ -293,7 +310,6 @@ export default function Contact() {
             </FormControl>
             <FormControl id="submit" float="right" textAlign="end" py="4">
               <Button
-                // type="submit"
                 fontSize={"14"}
                 borderRadius={0}
                 variant="solid"
@@ -337,14 +353,7 @@ export default function Contact() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></Flex>
-        <Stack
-          direction={"row"}
-          spacing={6}
-          _hover={{}}
-          alignSelf="end"
-          py="4"
-          // marginTop={{ base: "0", lg: "12em" }}
-        >
+        <Stack direction={"row"} spacing={6} _hover={{}} alignSelf="end" py="4">
           <TransDiv>
             <SocialButton
               label={"Twitter"}
@@ -356,9 +365,7 @@ export default function Contact() {
           <TransDiv>
             <SocialButton
               label={"YouTube"}
-              href={
-                "https://www.youtube.com/channel/UCaFjHW4MOhyVwvLbYoMoGIQhttp:/youtube.com"
-              }
+              href={"https://www.youtube.com/channel/UCaFjHW4MOhyVwvLbYoMoGIQ"}
             >
               <FaYoutube fill="#299D8C" />
             </SocialButton>
