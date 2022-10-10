@@ -11,14 +11,12 @@ const Home = () => {
     >
       <Head>
         <title>
-          OYA TEXTILE - Custom- Made Textile Manufacturer & Exporters
+          Get a quote for home, hotel and pet textile turkey manufacturer.
         </title>
         <meta
           name="description"
-          content="Get a quote for home, hotel and pet products from
-        reputable manufacturer. products are manufactured with standards,
-        market-matching quality, low MOQ competitive prices from lovely sales
-        team."
+          content="Get a quote for home, hotel and pet textile from turkey manufacturer. 
+          producing with standards, market-matching quality, low MOQ and competitive prices"
         />
       </Head>
       <Image
