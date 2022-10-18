@@ -4,7 +4,6 @@ import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import ProductView from "../../../components/ProductView";
 import Head from "next/head";
 import HTMLRenderer from "react-html-renderer";
-import { useEffect, useState } from "react";
 // const Details = ({ children }) => {
 //   const data = children?.split("\n", 1)[0];
 //   var title = "";
@@ -27,12 +26,11 @@ import { useEffect, useState } from "react";
 const Article = ({ body, post }) => {
   if (Object.keys(body).length === 0) {
     // const description = post.postfield.descriptionFirst.split("\n*");
-    const [content, setcontent] = useState("");
-    useEffect(() => {
       const data = post?.content;
+      let content ='';
       if (data) {
         data.replace("\n", "");
-        setcontent(data);
+        content=data;
       }
     }, []);
 
