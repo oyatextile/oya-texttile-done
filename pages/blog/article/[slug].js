@@ -4,28 +4,38 @@ import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import ProductView from "../../../components/ProductView";
 import Head from "next/head";
 import HTMLRenderer from "react-html-renderer";
-const Details = ({ children }) => {
-  const data = children?.split("\n", 1)[0];
-  var title = "";
-  if (data?.includes("*")) {
-    title = data;
-    title = title.replace("*", "");
-    children = children.replace(data, "");
-  }
-  return (
-    <Box>
-      <Heading py="4" px="8">
-        {title}
-      </Heading>
-      <Text px="8" pb="4">
-        {children}
-      </Text>
-    </Box>
-  );
-};
+import { useEffect, useState } from "react";
+// const Details = ({ children }) => {
+//   const data = children?.split("\n", 1)[0];
+//   var title = "";
+//   if (data?.includes("*")) {
+//     title = data;
+//     title = title.replace("*", "");
+//     children = children.replace(data, "");
+//   }
+//   return (
+//     <Box>
+//       <Heading py="2" px="8">
+//         {title}
+//       </Heading>
+//       <Text px="8" pb="2">
+//         {children}
+//       </Text>
+//     </Box>
+//   );
+// };
 const Article = ({ body, post }) => {
   if (Object.keys(body).length === 0) {
-    const description = post.postfield.description.split("\n*");
+    // const description = post.postfield.descriptionFirst.split("\n*");
+    const [content, setcontent] = useState("");
+    useEffect(() => {
+      const data = post?.content;
+      if (data) {
+        data.replace("\n", "");
+        setcontent(data);
+      }
+    }, []);
+
     return (
       <Box bg="white" color="black">
         <Head>
@@ -36,7 +46,7 @@ const Article = ({ body, post }) => {
 
         <Box maxW={"4xl"} margin="auto" boxShadow={"2xl"} mb="4">
           <Image
-            src={post.featuredImage.node.mediaItemUrl}
+            src={post.featuredImage?.node.mediaItemUrl}
             w="full"
             maxH={"xl"}
             maxW={"4xl"}
@@ -53,7 +63,10 @@ const Article = ({ body, post }) => {
               {post.title}
             </Heading>
           </Box>
-          {description.map((it, i) => {
+          <Box px='8' py='4'>
+            <HTMLRenderer html={content} />
+          </Box>
+          {/* {description.map((it, i) => {
             return <Details key={i}>{it}</Details>;
           })}
 
@@ -71,7 +84,7 @@ const Article = ({ body, post }) => {
             <Text px="8" pb="4">
               {post.postfield.finalDescription}
             </Text>
-          </Box>
+          </Box> */}
         </Box>
         <Box display={"none"}>
           <HTMLRenderer html={post.seo_body.content} />
@@ -162,6 +175,7 @@ export async function getStaticProps({ params }) {
               keywords
               description
             }
+            content
             seo_body {
               content
             }
@@ -169,16 +183,6 @@ export async function getStaticProps({ params }) {
               node {
                 mediaItemUrl
               }
-            }
-            postfield {
-              leftImage {
-                mediaItemUrl
-              }
-              rightImage {
-                mediaItemUrl
-              }
-              finalDescription
-              description
             }
           }
         }
