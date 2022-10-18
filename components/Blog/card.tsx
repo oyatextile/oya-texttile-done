@@ -34,7 +34,9 @@ const Card = ({ article }: any) => {
               );
             })}
 
-            <Text fontSize="lg" px="4">
+            <Text fontSize="lg" px="4" __css={{
+                flexWrap:'wrap'
+              }}>
               {article.title}
             </Text>
           </Box>
