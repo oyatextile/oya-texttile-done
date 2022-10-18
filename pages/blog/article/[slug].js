@@ -24,15 +24,14 @@ import HTMLRenderer from "react-html-renderer";
 //   );
 // };
 const Article = ({ body, post }) => {
+  let content ='';
   if (Object.keys(body).length === 0) {
     // const description = post.postfield.descriptionFirst.split("\n*");
       const data = post?.content;
-      let content ='';
       if (data) {
-        data.replace("\n", "");
-        content=data;
+        data.replace("\n", "")
+        content=data
       }
-    }, []);
 
     return (
       <Box bg="white" color="black">
