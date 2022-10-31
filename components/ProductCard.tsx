@@ -370,14 +370,14 @@ const ProductCard = ({
               py="6"
             >
               {/* tmp */}
-              {/* <Link color="blackAlpha.800">
+              <Link color="blackAlpha.800">
                 <NextLink href={product?.postSlug}>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
                   </Box>
                 </NextLink>
-              </Link> */}
+              </Link>
 
             </Box>
           </ModalFooter>
