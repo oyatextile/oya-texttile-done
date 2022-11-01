@@ -383,7 +383,7 @@ const ProductCard = ({
               >
                 <NextLink href={product?.postSlug}>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
-                    <BsFillCheckCircleFill />
+                    {/* <BsFillCheckCircleFill /> */}
                     Read more
                   </Box>
                 </NextLink>
