@@ -41,8 +41,9 @@ const Article = ({ body, post }) => {
           <meta name="keywords" content={post.seo_head.keywords} />
         </Head>
 
-        <Box maxW={"4xl"} margin="auto" boxShadow={"2xl"} mb="4">
+        <Box maxW={"4xl"} margin="auto"  mb="4">
           <Image
+            alt='main post image'
             src={post.featuredImage?.node.mediaItemUrl}
             w="full"
             maxH={"xl"}
@@ -83,7 +84,8 @@ const Article = ({ body, post }) => {
             </Text>
           </Box> */}
         </Box>
-        <Box display={"none"}>
+        <Box display={"none"}        
+        >
           <HTMLRenderer html={post.seo_body.content} />
         </Box>
       </Box>

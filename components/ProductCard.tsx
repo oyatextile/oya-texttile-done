@@ -97,7 +97,9 @@ const ProductCard = ({
         whileTap={{ scale: 0.9 }}
       >
         <Box position="relative" display="flex" justifyContent="center">
-          <Image src={product?.mainImage.mediaItemUrl} fit="contain" w="full" />
+          <Image
+            alt='product main image'
+            src={product?.mainImage.mediaItemUrl} fit="contain" w="full" />
           <Tooltip
             hasArrow
             label="More info"
@@ -144,7 +146,7 @@ const ProductCard = ({
         onClose={onClose}
         size={{ lg: "4xl", md: "md", base: "sm" }}
         isOpen={isOpen}
-        // onClose={onClose}
+      // onClose={onClose}
       >
         <ModalOverlay
           bg="blackAlpha.200"
@@ -155,7 +157,7 @@ const ProductCard = ({
           color="black"
           w="full"
           flexDirection={{ base: "column", lg: "row" }}
-          // borderRadius="none"
+        // borderRadius="none"
         >
           <ModalCloseButton zIndex={10} />
           <ModalBody p="0">
@@ -198,7 +200,7 @@ const ProductCard = ({
                                     _hover={{
                                       cursor: "zoom-out",
                                     }}
-                                    // src={getStrapiMedia(img)}
+                                  // src={getStrapiMedia(img)}
                                   />
                                 </TransformComponent>
                                 <Box
@@ -259,6 +261,7 @@ const ProductCard = ({
                       <Tab p="0" key={i}>
                         <Image
                           // src={getStrapiMedia(img)}
+                          alt='product image'
                           src={parseSrc(img.src)}
                           w="50px"
                           h="50px"
@@ -369,16 +372,22 @@ const ProductCard = ({
               marginTop="auto"
               py="6"
             >
-              {/* tmp */}
-              <Link color="blackAlpha.800">
+              <Button bg={'#3ea394'} color='white'
+                p="4"
+                border={'1'}
+                _hover={{
+                  color: '#3ea394',
+                  bg: 'white',
+                  border: '1px solid'
+                }}
+              >
                 <NextLink href={product?.postSlug}>
                   <Box fontSize="sm" display="flex" alignItems="center" gap="2">
                     <BsFillCheckCircleFill />
                     Read more
                   </Box>
                 </NextLink>
-              </Link>
-
+              </Button>
             </Box>
           </ModalFooter>
         </ModalContent>

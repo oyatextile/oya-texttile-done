@@ -99,7 +99,8 @@ function ProductView({
             {images &&
               images.map((img: any, i: any) => {
                 return (
-                  <TabPanel p="0" key={i} w="fit-content" margin={"auto"}>
+                  <TabPanel p="0" key={i} w="fit-content" margin={"auto"}
+                   cursor='zoom-in'>
                     <TransformWrapper
                       initialScale={1}
                       initialPositionX={0}
@@ -110,6 +111,7 @@ function ProductView({
                           <TransformComponent>
                             <Image
                               //   w="full"
+                              
                               h="full"
                               fit="cover"
                               src={parseSrc(img.src)}
@@ -169,6 +171,7 @@ function ProductView({
                 <Tab p="0" key={i}>
                   <Image
                     src={parseSrc(img.src)}
+                    alt='product images'
                     w="50px"
                     h="50px"
                     __css={{
@@ -273,6 +276,7 @@ function ProductView({
                 py="4"
                 flexWrap={"wrap"}
                 fontSize="14"
+                maxW='md'
               >
                 {description?.descriptionText}
 
@@ -293,7 +297,7 @@ function ProductView({
               </Text>
             </TabPanel>
             <TabPanel>
-              <Text color="blackAlpha.600" fontSize="14">
+              <Text color="blackAlpha.600" fontSize="14" maxW={'md'}>
                 <List spacing={2} pt="4">
                   {options?.listOptions?.map((item: string) => {
                     if (item)
@@ -307,7 +311,7 @@ function ProductView({
                       );
                   })}
                 </List>
-                <Text fontSize="14" py="4">
+                <Text fontSize="14" py="4" maxW={'md'}>
                   {options.optionTitle}
                 </Text>
               </Text>{" "}
@@ -342,8 +346,11 @@ function ProductView({
           <Box
             as="iframe"
             p="0"
+            minH='0px'
             width="100%"
-            height={"64"}
+            maxH='64'
+            // height={"100%"}
+
             src={product?.videoSrc}
             title={product?.videoTitle}
             frameBorder="0"
@@ -351,21 +358,38 @@ function ProductView({
             allowFullScreen
           ></Box>
 
+          <Button bg={'#3ea394'} color='white'
+            p="4"
+            border={'1'}
+            _hover={{
+              color:'#3ea394',
+              bg:'white',
+              border:'1px solid'
+            }}
+          >
           <Link
             display={"flex"}
-            color="blackAlpha.800"
-            p="4"
+            // color="blackAlpha.800"
             target={"_blank"}
+            _hover={{
+              textDecor:'none',
+              bg:'transparent'
+            }}
             href={product?.catalog?.mediaItemUrl}
           >
-            <Text color="#289e8d" px="1" fontSize={"md"}>
+            <Text  px="1" fontSize={"md"}>
               ▶
             </Text>
             Download {product?.name} Catalog
           </Link>
-          <Text px="4" fontSize={"sm"}>
-            « Need more information on waffle product? Get in touch with our
-            Sales Enginner.
+          </Button>
+          <Text py="4" fontSize={"sm"}>
+            « Need more information on  {product?.name}? 
+              <NextLink href={'/contact'}>
+              <Link  px='2' textDecor={'underline'}>
+            Get in touch with our
+            Sales Enginner.</Link>
+              </NextLink>
           </Text>
           <Flex
             px="8"
@@ -374,7 +398,7 @@ function ProductView({
             gap="2"
             direction={{ base: "column", sm: "row" }}
           >
-            <Flex alignItems={"center"} gap="1">
+            {/* <Flex alignItems={"center"} gap="1">
               <span
                 style={{
                   marginBottom: "4px",
@@ -395,7 +419,7 @@ function ProductView({
                 ✉{" "}
               </span>
               <Text>info@oyatextile.com </Text>
-            </Flex>
+            </Flex> */}
           </Flex>
         </Box>
       </Box>
