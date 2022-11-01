@@ -370,6 +370,7 @@ function ProductView({
           <Link
             display={"flex"}
             // color="blackAlpha.800"
+            alignItems='center'
             target={"_blank"}
             _hover={{
               textDecor:'none',
