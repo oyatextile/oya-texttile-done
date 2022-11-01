@@ -181,7 +181,7 @@ const ProductCard = ({
                   {images &&
                     images.map((img: any, i: any) => {
                       return (
-                        <TabPanel p="0" key={i}>
+                        <TabPanel p="0" key={i}   cursor='zoom-in'>
                           <TransformWrapper
                             initialScale={1}
                             initialPositionX={0}
