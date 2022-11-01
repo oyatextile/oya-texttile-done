@@ -21,8 +21,37 @@ const theme = extendTheme({
       h3 : {
         padding: '1em 0',
         fontSize: 'x-large',
-        color:' #3ea394'
-      }
+        color:' #3ea394',
+        fontWith:'bold'
+      },
+      h1 : {
+        padding: '1em 0',
+        fontSize: '1.5em',
+        color:' #3ea394',
+        fontWith:'bold'
+
+      },
+      h4 : {
+        padding: '1em 0',
+        fontSize: 'larger',
+        color:' #3ea394',
+        fontWith:'bold'
+
+      },
+      h5 : {
+        padding: '1em 0',
+        fontSize: 'large',
+        color:' #3ea394',
+        fontWith:'bold'
+
+      },
+      h6 : {
+        padding: '1em 0',
+        fontSize: 'large',
+        color:' #3ea394',
+        fontWith:'bold'
+
+      },
     },
   },
   
