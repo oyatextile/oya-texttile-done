@@ -16,7 +16,7 @@ const theme = extendTheme({
         lineHeight: 'tall',
       },
       p:{
-        padding:'.5em 0'
+        // padding:'.5em 0'
       },
       h3 : {
         padding: '1em 0',

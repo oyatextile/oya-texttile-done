@@ -100,7 +100,7 @@ function ProductView({
               images.map((img: any, i: any) => {
                 return (
                   <TabPanel p="0" key={i} w="fit-content" margin={"auto"}
-                   cursor='zoom-in'>
+                    cursor='zoom-in'>
                     <TransformWrapper
                       initialScale={1}
                       initialPositionX={0}
@@ -111,7 +111,7 @@ function ProductView({
                           <TransformComponent>
                             <Image
                               //   w="full"
-                              
+
                               h="full"
                               fit="cover"
                               src={parseSrc(img.src)}
@@ -120,7 +120,7 @@ function ProductView({
                               _hover={{
                                 cursor: "zoom-out",
                               }}
-                              // src={getStrapiMedia(img)}
+                            // src={getStrapiMedia(img)}
                             />
                           </TransformComponent>
                           <Box
@@ -243,11 +243,11 @@ function ProductView({
               color="blackAlpha.900"
               alignSelf="self-start"
               letterSpacing={2}
-              // _selected={{
-              // color: "#299D8C",
-              // textDecoration: "underline",
-              // textUnderlineOffset: "10px",
-              // }}
+            // _selected={{
+            // color: "#299D8C",
+            // textDecoration: "underline",
+            // textUnderlineOffset: "10px",
+            // }}
             >
               ORDER {"&"} PRODUCTION
             </Tab>
@@ -258,11 +258,11 @@ function ProductView({
               color="blackAlpha.800"
               alignSelf="self-start"
               letterSpacing={2}
-              // _selected={{
-              // color: "#299D8C",
-              // textDecoration: "underline",
-              // textUnderlineOffset: "10px",
-              // }}
+            // _selected={{
+            // color: "#299D8C",
+            // textDecoration: "underline",
+            // textUnderlineOffset: "10px",
+            // }}
             >
               CUSTOMIZATION OPTIONS
             </Tab>
@@ -284,7 +284,7 @@ function ProductView({
                   {description?.listDescription?.map((it: string) => {
                     if (it)
                       return (
-                        <ListItem>
+                        <ListItem display="flex" alignItems='center'>
                           <ListIcon
                             as={BsFillCheckCircleFill}
                             color="#289e8d"
@@ -302,7 +302,7 @@ function ProductView({
                   {options?.listOptions?.map((item: string) => {
                     if (item)
                       return (
-                        <ListItem display="flex">
+                        <ListItem display="flex" alignItems='center'>
                           <Text color="#289e8d" px="1">
                             ▶{" "}
                           </Text>
@@ -322,7 +322,9 @@ function ProductView({
                   {customizationOptions?.map((it: string) => {
                     if (it)
                       return (
-                        <ListItem display="flex">
+                        <ListItem display="flex"
+                          alignItems='center'
+                        >
                           <Text color="#289e8d" px="1" fontSize={"md"}>
                             ■{" "}
                           </Text>
@@ -360,35 +362,35 @@ function ProductView({
             p="4"
             border={'1'}
             _hover={{
-              color:'#3ea394',
-              bg:'white',
-              border:'1px solid'
+              color: '#3ea394',
+              bg: 'white',
+              border: '1px solid'
             }}
           >
-          <Link
-            display={"flex"}
-            // color="blackAlpha.800"
-            alignItems='center'
-            target={"_blank"}
-            _hover={{
-              textDecor:'none',
-              bg:'transparent'
-            }}
-            href={product?.catalog?.mediaItemUrl}
-          >
-            <Text  px="1" fontSize={"md"}>
-              ▶
-            </Text>
-            Download {product?.name} Catalog
-          </Link>
+            <Link
+              display={"flex"}
+              // color="blackAlpha.800"
+              alignItems='center'
+              target={"_blank"}
+              _hover={{
+                textDecor: 'none',
+                bg: 'transparent'
+              }}
+              href={product?.catalog?.mediaItemUrl}
+            >
+              <Text px="1" fontSize={"md"}>
+                ▶
+              </Text>
+              Download {product?.name} Catalog
+            </Link>
           </Button>
           <Text py="4" fontSize={"sm"}>
-            « Need more information on  {product?.name}? 
-              <NextLink href={'/contact'}>
-              <Link  px='2' textDecor={'underline'}>
-            Get in touch with our
-            Sales Enginner.</Link>
-              </NextLink>
+            « Need more information on  {product?.name}?
+            <NextLink href={'/contact'}>
+              <Link px='2' textDecor={'underline'}>
+                Get in touch with our
+                Sales Enginner.</Link>
+            </NextLink>
           </Text>
           <Flex
             px="8"
