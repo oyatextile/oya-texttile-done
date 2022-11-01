@@ -347,8 +347,8 @@ function ProductView({
         >
           <Box
             as="iframe"
-            p="0"
             width="100%"
+            maxW={'lg'}
             maxH='64'
             height={"64"}
             src={product?.videoSrc}
@@ -356,6 +356,7 @@ function ProductView({
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            py='4'
           ></Box>
 
           <Button bg={'#3ea394'} color='white'
