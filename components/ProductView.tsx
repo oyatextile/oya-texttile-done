@@ -346,11 +346,9 @@ function ProductView({
           <Box
             as="iframe"
             p="0"
-            minH='0px'
             width="100%"
             maxH='64'
-            // height={"100%"}
-
+            height={"64"}
             src={product?.videoSrc}
             title={product?.videoTitle}
             frameBorder="0"
