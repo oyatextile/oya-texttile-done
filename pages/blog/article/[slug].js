@@ -174,7 +174,7 @@ export async function getStaticProps({ params }) {
             seo_head {
               title
               keywords
-              description
+              seoDescription
             }
             content
             seo_body {
