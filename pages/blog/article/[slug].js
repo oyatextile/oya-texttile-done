@@ -98,6 +98,8 @@ const Article = ({ body, post }) => {
       <Head>
         <title>{body.seo_head.title}</title>
         <meta name="keywords" content={body.seo_head.keywords} />
+        <meta name="description" content={body.seo_head.seoDescription} />
+
       </Head>
       {/* product side */}
       <ProductView product={body.productfields} content={body.content} />
