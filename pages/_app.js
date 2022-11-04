@@ -4,7 +4,7 @@ import "@fontsource/poppins"; // Defaults to weight 400.
 import Fonts from "../components/Font";
 import App from "next/app";
 
-// import './article.css'
+import '../styles/global.css'
 
 import Head from "next/head";
 import { createContext } from "react";

@@ -43,7 +43,7 @@ export default function Simple() {
       boxShadow="sm"
       top="0"
       w="full"
-      zIndex={"10"}
+      zIndex={"50"}
     >
       <Flex
         h={16}

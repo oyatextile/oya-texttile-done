@@ -1,32 +1,13 @@
 import { gql } from "@apollo/client";
 import client, { getProductBySlug } from "../../../lib/apollo-client";
-import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Heading, Image } from "@chakra-ui/react";
 import ProductView from "../../../components/ProductView";
 import Head from "next/head";
 import HTMLRenderer from "react-html-renderer";
-// const Details = ({ children }) => {
-//   const data = children?.split("\n", 1)[0];
-//   var title = "";
-//   if (data?.includes("*")) {
-//     title = data;
-//     title = title.replace("*", "");
-//     children = children.replace(data, "");
-//   }
-//   return (
-//     <Box>
-//       <Heading py="2" px="8">
-//         {title}
-//       </Heading>
-//       <Text px="8" pb="2">
-//         {children}
-//       </Text>
-//     </Box>
-//   );
-// };
+
 const Article = ({ body, post }) => {
   let content ='';
   if (Object.keys(body).length === 0) {
-    // const description = post.postfield.descriptionFirst.split("\n*");
       const data = post?.content;
       if (data) {
         data.replace("\n", "")
@@ -64,25 +45,6 @@ const Article = ({ body, post }) => {
           <Box px='8' py='4'>
             <HTMLRenderer html={content} />
           </Box>
-          {/* {description.map((it, i) => {
-            return <Details key={i}>{it}</Details>;
-          })}
-
-          <Stack
-            maxW={"4xl"}
-            direction={{ md: "row", base: "column" }}
-            w="fit-content"
-            margin={"auto"}
-            py="4"
-          >
-            <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
-            <Image src={post.featuredImage.node.mediaItemUrl} w="sm" />
-          </Stack>
-          <Box>
-            <Text px="8" pb="4">
-              {post.postfield.finalDescription}
-            </Text>
-          </Box> */}
         </Box>
         <Box display={"none"}        
         >
@@ -91,8 +53,6 @@ const Article = ({ body, post }) => {
       </Box>
     );
   }
-  // console.log(body.seo.seoHead);
-
   return (
     <Box w="full">
       <Head>
@@ -165,7 +125,6 @@ export async function getStaticProps({ params }) {
   });
   const body = data.product;
   if (!body) {
-    console.log("runnin here");
     var { data } = await client.query({
       query: gql`
         query getPost($name: ID!) {

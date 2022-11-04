@@ -1,0 +1,18 @@
+.react-transform-wrapper{
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+}
+
+
+ div.css-1fhvxdm::-webkit-scrollbar {
+    display: none !important;
+  }
+  #__next > main > div.css-8atqhb > div > div > div.css-18nfijy::-webkit-scrollbar {
+    display: none;
+  }
+  @media only screen and (min-width: 1000px) {
+  #__next > main > div.css-12ou35x > div.css-18djtky > a{
+    translate:-26%;
+  }
+}

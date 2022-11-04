@@ -61,7 +61,7 @@ const theme = extendTheme({
       baseStyle: {
         color: mode('black', 'green.100'),
         _hover:{
-            color:'green.400'
+            color:'green.400',
         }
       }
     }
