@@ -8,13 +8,14 @@ import HTMLRenderer from "react-html-renderer";
 
 const Article = ({ article ,product}) => {
   return (
-    <Box w="full">
+    <Box w="full" px='8'>
       <Head>
         <title>{product.seo_head.title}</title>
         <meta name="keywords" content={product.seo_head.keywords} />
         <meta name="description" content={product.seo_head.seoDescription} />
       </Head>
       <Stack
+        
         direction={{base:'column',lg:'row'}}
         display={'flex'} justifyContent='center' spacing={'8'} w='full' h={{base:'unset',lg:'4xl'}}>
       <ProductImagePreview content={product.content}/>

@@ -70,43 +70,6 @@ function ProductPage({
             py="4"
           ></Box>
           <DescriptionRendrer  description={article.articleFeild.description}/>
-         
-          <Text py="2" fontSize={"sm"}>
-            « Need more information on {product?.name}?
-            <NextLink href={"/contact"}>
-              <Link px="2" textDecor={"underline"}>
-                Get in touch with our Sales Enginner.
-              </Link>
-            </NextLink>
-          </Text>
-          <Button
-            bg={"#3ea394"}
-            color="white"
-            px="4"
-            border={"1"}
-            _hover={{
-              color: "#3ea394",
-              bg: "white",
-              border: "1px solid",
-            }}
-          >
-            <Link
-              display={"flex"}
-              alignItems="center"
-              target={"_blank"}
-              _hover={{
-                textDecor: "none",
-                bg: "transparent",
-              }}
-              href={product?.catalog?.mediaItemUrl}
-            >
-              <Text px="1" fontSize={"md"}>
-                ▶
-              </Text>
-              Download {product?.name} Catalog
-            </Link>
-          </Button>
-         
         </Box>
     </Box>
   );
