@@ -120,7 +120,7 @@ const About: NextPage = () => {
         >
           <Box display={"flex"} flexDirection="row">
             <Box>
-              <Image h="150" w="64" src="/images/oeko.jpg" />
+              <Image h="150" w="64" src="/images/certification/2.jpeg" />
             </Box>
             <Box>
               <Image h="150px" src="/images/iso.jpg" />
@@ -145,7 +145,7 @@ const About: NextPage = () => {
           justifyContent="center"
           spacing={4}
         >
-          <ModalPic url="/images/certification/1.jpeg" />
+          {/* <ModalPic url="/images/certification/1.jpeg" /> */}
           <ModalPic url="/images/certification/2.jpeg" />
           <ModalPic url="/images/certification/3.jpeg" />
           <ModalPic url="/images/certification/4.jpeg" />
