@@ -44,7 +44,7 @@ const NewPage = ({ article, product }) => {
           mb="4"
           w="40%"
         />
-        <Box pos="relative" ml="4">
+        <Box pos="relative" ml="8">
           <div className="left-bar"></div>
           <Stack maxW={"6xl"} spacing={8} mr="4">
             <Image
