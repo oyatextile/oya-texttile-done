@@ -56,7 +56,9 @@ const NewPage = ({ article, product }) => {
               description={article.articleFeild.description}
             />
             <ProductSlider images={images} />
-
+            <Image
+              src={article.articleFeild?.slidsheet?.mediaItemUrl}
+            />
             <Box>
               <Button
                 bg={"#3ea394"}

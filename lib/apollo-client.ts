@@ -135,6 +135,9 @@ export const findArticle = gql`
         coverImage{
           mediaItemUrl
         }
+        slidsheet{
+          mediaItemUrl
+        }
         catalog{
           mediaItemUrl
         }
