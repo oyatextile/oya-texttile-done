@@ -13,9 +13,9 @@ function ProductSlider({ images }: any) {
       maxW={"6xl"}
       w="full"
     >
-      {images.map((image: string | undefined) => {
+      {images.map((image: string | undefined,id: React.Key | null | undefined) => {
         // @ts-ignore
-        return <Image src={parseSrc(image?.src)} />;
+        return <Image key={id} src={parseSrc(image?.src)} />;
       })}
     </Stack>
   );
