@@ -11,10 +11,10 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import DescriptionRendrer from "../components/DescriptionRendrer";
-import ProductSlider from "../components/ProductSlider";
-import client, { findArticle } from "../lib/apollo-client";
-import { parseImages } from "../lib/parseImage";
+import DescriptionRendrer from "../../components/DescriptionRendrer";
+import ProductSlider from "../../components/ProductSlider";
+import client, { findArticle } from "../../lib/apollo-client";
+import { parseImages } from "../../lib/parseImage";
 
 const NewPage = ({ article, product }) => {
   const [description, setdescription] = useState("");
