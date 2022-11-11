@@ -6,15 +6,18 @@ const DescriptionRendrer = ({description}:{
     description:string
 }) => {
     const css = `<style>
-    body {
-        line-height: 1.5;
-        white-space: pre-wrap;
+    /* cspell:disable-file */
+    /* webkit printing magic: print all background colors */
+    html {
+        -webkit-print-color-adjust: exact;
     }
-    
+    * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+    }
     a,
     a.visited {
         color: inherit;
-        // text-decoration: underline;
     }
     
     .pdf-relative-link-path {
@@ -651,10 +654,41 @@ const DescriptionRendrer = ({description}:{
     }
         
     </style>`
+    const js =`
+    <script>
+	console.log("running")
+	window.onload = () => {
+	var videos = document.getElementsByClassName("source");
+	for (var i = 0; i < videos.length; i++) {
+		var source = videos[i].getElementsByTagName("a");
+		if (source[0].href.includes("youtube")) {
+			var videoObject = document.createElement('iframe');
+			videoObject.src = source[0].href.replace("watch?v=", "embed/");
+			videos[i].style.padding = "0";
+			videoObject.style.width = "100%";
+			videoObject.style.height ="400px"
+			videos[i].append(videoObject);
+			source[0].remove();
+		} else {
+			var videoObject = document.createElement('video');
+			videos[i].style.padding = "0";
+			videoObject.src = source[0].href;
+			videoObject.controls = true;
+			videoObject.style.width = "100%";
+			videoObject.style.height ="400px"
+			videos[i].append(videoObject);
+			source[0].remove();
+		}
+	}
+}
+</script>
+    `
   return (
     <Box pb='4'>
         <HTMLRenderer html={css} />
         <HTMLRenderer html={description} />
+        {/* <HTMLRenderer html={js} /> */}
+
     </Box>
   )
 }

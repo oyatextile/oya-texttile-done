@@ -131,8 +131,10 @@ export const findArticle = gql`
   query findArticle($name: ID!) {
     article(id: $name, idType: SLUG) {
       articleFeild {
-        video
         description
+        catalog{
+        mediaItemUrl
+      }
       }
     }
     product(id: $name, idType: SLUG) {

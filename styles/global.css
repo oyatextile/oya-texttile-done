@@ -16,3 +16,25 @@
     translate:-26%;
   }
 }
+
+.left-bar{
+  position: absolute;
+  right: 0;
+width: 14px;
+height: 100%;
+background: #289E8C;
+}
+
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scroll-bar{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* global */
+
+
+
+
