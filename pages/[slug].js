@@ -1,5 +1,14 @@
 import { gql } from "@apollo/client";
-import { Box, Button, Divider, Heading, Image, Link, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Divider,
+  Heading,
+  Image,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import DescriptionRendrer from "../components/DescriptionRendrer";
@@ -29,7 +38,7 @@ const NewPage = ({ article, product }) => {
         <Heading p="4">{product.productfields.name}</Heading>
         <Divider
           orientation="horizontal"
-          bg='#3ea394'
+          bg="#3ea394"
           border={".5px"}
           borderColor="#3ea394"
           mb="4"
@@ -38,7 +47,10 @@ const NewPage = ({ article, product }) => {
         <Box pos="relative" ml="4">
           <div className="left-bar"></div>
           <Stack maxW={"6xl"} spacing={8} mr="4">
-            <Image src="/images/1.jpg" maxW={"xl"} />
+            <Image
+              src={article.articleFeild.coverImage.mediaItemUrl}
+              maxW={"xl"}
+            />
             <Box>{description}</Box>
             <DescriptionRendrer
               description={article.articleFeild.description}

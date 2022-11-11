@@ -132,9 +132,12 @@ export const findArticle = gql`
     article(id: $name, idType: SLUG) {
       articleFeild {
         description
+        coverImage{
+          mediaItemUrl
+        }
         catalog{
-        mediaItemUrl
-      }
+          mediaItemUrl
+        }
       }
     }
     product(id: $name, idType: SLUG) {
