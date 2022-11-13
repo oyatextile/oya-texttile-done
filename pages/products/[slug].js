@@ -48,6 +48,7 @@ const NewPage = ({ article, product }) => {
           <div className="left-bar"></div>
           <Stack maxW={"6xl"} spacing={8} mr="4">
             <Image
+              alt="cover image"
               src={article.articleFeild.coverImage.mediaItemUrl}
               maxW={"xl"}
             />
@@ -56,45 +57,45 @@ const NewPage = ({ article, product }) => {
               description={article.articleFeild.description}
             />
             <ProductSlider images={images} />
-            <Image
-              src={article.articleFeild?.slidsheet?.mediaItemUrl}
-            />
+            {article.articleFeild?.slidsheet?.mediaItemUrl && (
+              <Image
+                alt="slidsheet"
+                src={article.articleFeild?.slidsheet?.mediaItemUrl}
+              />
+            )}
+
             <Box>
-              <Button
-                bg={"#3ea394"}
-                color="white"
-                p="4"
-                border={"1"}
-                _hover={{
-                  color: "#3ea394",
-                  bg: "white",
-                  border: "1px solid",
-                }}
-              >
-                <Link
-                  display={"flex"}
-                  // color="blackAlpha.800"
-                  alignItems="center"
-                  target={"_blank"}
+              {article?.articleFeild.catalog?.mediaItemUrl && (
+                <Button
+                  bg={"#3ea394"}
+                  color="white"
+                  p="4"
+                  border={"1"}
                   _hover={{
-                    textDecor: "none",
-                    bg: "transparent",
+                    color: "#3ea394",
+                    bg: "white",
+                    border: "1px solid",
                   }}
-                  href={article?.articleFeild.catalog?.mediaItemUrl}
                 >
-                  <Text px="1" fontSize={"md"}>
-                    ▶
-                  </Text>
-                  Download {product?.productfields.name} Catalog
-                </Link>
-              </Button>
+                  <Link
+                    display={"flex"}
+                    // color="blackAlpha.800"
+                    alignItems="center"
+                    target={"_blank"}
+                    _hover={{
+                      textDecor: "none",
+                      bg: "transparent",
+                    }}
+                    href={article?.articleFeild.catalog?.mediaItemUrl}
+                  >
+                    <Text px="1" fontSize={"md"}>
+                      ▶
+                    </Text>
+                    Download {product?.productfields.name} Catalog
+                  </Link>
+                </Button>
+              )}
             </Box>
-            {/* <Box>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type Contact us
-            </Box> */}
           </Stack>
         </Box>
       </Box>
