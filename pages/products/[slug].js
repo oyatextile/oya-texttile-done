@@ -52,7 +52,7 @@ const NewPage = ({ article, product }) => {
               src={article.articleFeild.coverImage.mediaItemUrl}
               maxW={"xl"}
             />
-            <Box>{description}</Box>
+            <Box maxW='600px' >{description}</Box>
             <DescriptionRendrer
               description={article.articleFeild.description}
             />
