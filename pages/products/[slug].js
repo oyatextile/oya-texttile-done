@@ -34,7 +34,7 @@ const NewPage = ({ article, product }) => {
         <meta name="keywords" content={product.seo_head.keywords} />
         <meta name="description" content={product.seo_head.seoDescription} />
       </Head>
-      <Box maxW={"7xl"} mx="auto">
+      <Box maxW={"7xl"} mx="auto" ml='4'>
         <Heading p="4">{product.productfields.name}</Heading>
         <Divider
           orientation="horizontal"
@@ -42,6 +42,7 @@ const NewPage = ({ article, product }) => {
           border={".5px"}
           borderColor="#3ea394"
           mb="4"
+          ml='4'
           w="40%"
         />
         <Box pos="relative" ml="8">
@@ -50,7 +51,7 @@ const NewPage = ({ article, product }) => {
             <Image
               alt="cover image"
               src={article.articleFeild.coverImage.mediaItemUrl}
-              maxW={"xl"}
+              // maxW={"xl"}
             />
             <Box maxW='600px' >{description}</Box>
             <DescriptionRendrer
