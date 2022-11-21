@@ -67,11 +67,13 @@ const NewPage = ({ article, product }) => {
               />
             )}
 
-            <Box>
+            <Box w='full' display={'flex'} justifyContent='center'>
+            <Box maxW={'4xl'} mx='auto' w='full'>
               {article?.articleFeild.catalog?.mediaItemUrl && (
                 <Button
-                  bg={"#3ea394"}
+                bg={"#3ea394"}
                   color="white"
+                  fontSize={'small'}
                   p="4"
                   border={"1"}
                   _hover={{
@@ -98,6 +100,7 @@ const NewPage = ({ article, product }) => {
                   </Link>
                 </Button>
               )}
+            </Box>
             </Box>
           </Stack>
         </Box>
