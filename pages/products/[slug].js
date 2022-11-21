@@ -34,7 +34,7 @@ const NewPage = ({ article, product }) => {
         <meta name="keywords" content={product.seo_head.keywords} />
         <meta name="description" content={product.seo_head.seoDescription} />
       </Head>
-      <Box maxW={"7xl"} mx="auto" ml='4'>
+      <Box maxW={"7xl"} mx="auto">
         <Heading p="4">{product.productfields.name}</Heading>
         <Divider
           orientation="horizontal"
