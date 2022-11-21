@@ -34,17 +34,19 @@ const NewPage = ({ article, product }) => {
         <meta name="keywords" content={product.seo_head.keywords} />
         <meta name="description" content={product.seo_head.seoDescription} />
       </Head>
-      <Box maxW={"7xl"} mx="auto">
-        <Heading p="4">{product.productfields.name}</Heading>
+      <Box maxW={"6xl"} mx="auto">
+        <Box mx='4'>
+        <Heading py="4" px='2'>{product.productfields.name}</Heading>
         <Divider
           orientation="horizontal"
           bg="#3ea394"
           border={".5px"}
           borderColor="#3ea394"
-          mb="4"
-          mx='4'
+          mx='2'
+          mb='4'
           w="100%"
         />
+        </Box>
         <Box pos="relative" ml="8">
           {/* <div className="left-bar"></div> */}
           <Stack maxW={"6xl"} spacing={8} mr="4">
