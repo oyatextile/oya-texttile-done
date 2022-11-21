@@ -43,7 +43,7 @@ const NewPage = ({ article, product }) => {
           borderColor="#3ea394"
           mb="4"
           ml='4'
-          w="40%"
+          w="100%"
         />
         <Box pos="relative" ml="8">
           {/* <div className="left-bar"></div> */}
