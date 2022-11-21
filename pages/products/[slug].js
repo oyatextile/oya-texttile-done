@@ -42,7 +42,7 @@ const NewPage = ({ article, product }) => {
           border={".5px"}
           borderColor="#3ea394"
           mb="4"
-          ml='4'
+          mx='4'
           w="100%"
         />
         <Box pos="relative" ml="8">
