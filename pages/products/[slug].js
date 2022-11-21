@@ -57,7 +57,7 @@ const NewPage = ({ article, product }) => {
             <DescriptionRendrer
               description={article.articleFeild.description}
             />
-            <ProductSlider images={images} />
+            {/* <ProductSlider images={images} /> */}
             {article.articleFeild?.slidsheet?.mediaItemUrl && (
               <Image
                 alt="slidsheet"
@@ -65,7 +65,7 @@ const NewPage = ({ article, product }) => {
               />
             )}
 
-            {/* <Box>
+            <Box>
               {article?.articleFeild.catalog?.mediaItemUrl && (
                 <Button
                   bg={"#3ea394"}
@@ -96,7 +96,7 @@ const NewPage = ({ article, product }) => {
                   </Link>
                 </Button>
               )}
-            </Box> */}
+            </Box>
           </Stack>
         </Box>
       </Box>
