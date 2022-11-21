@@ -53,7 +53,7 @@ const NewPage = ({ article, product }) => {
               src={article.articleFeild.coverImage.mediaItemUrl}
               // maxW={"xl"}
             />
-            <Box maxW='600px' >{description}</Box>
+            {/* <Box maxW='600px' >{description}</Box> */}
             <DescriptionRendrer
               description={article.articleFeild.description}
             />
@@ -65,7 +65,7 @@ const NewPage = ({ article, product }) => {
               />
             )}
 
-            <Box>
+            {/* <Box>
               {article?.articleFeild.catalog?.mediaItemUrl && (
                 <Button
                   bg={"#3ea394"}
@@ -96,7 +96,7 @@ const NewPage = ({ article, product }) => {
                   </Link>
                 </Button>
               )}
-            </Box>
+            </Box> */}
           </Stack>
         </Box>
       </Box>
