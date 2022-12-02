@@ -24,6 +24,7 @@ const DescriptionRendrer = ({ description }: { description: string }) => {
     }
     h2{
         color:#269e8a;
+        padding:0 1em
     }
     h1,
     h2,
