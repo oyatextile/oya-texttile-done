@@ -59,7 +59,7 @@ const ListSocial = () => {
       <TransDiv>
         <SocialButton
           label={"Instagram"}
-          href={"https://www.instagram.com/oyaevtekstili/"}
+          href={"https://www.instagram.com/oyatextile/"}
         >
           <FaInstagram fill="#299D8C" />
         </SocialButton>
@@ -67,7 +67,7 @@ const ListSocial = () => {
       <TransDiv>
         <SocialButton
           label={"Facebook"}
-          href={"https://web.facebook.com/oyahomehoteltextile/?_rdc=1&_rdr"}
+          href={"https://web.facebook.com/oyatextilecompany"}
         >
           <FaFacebook fill="#299D8C" />
         </SocialButton>
