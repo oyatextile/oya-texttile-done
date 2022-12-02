@@ -12,20 +12,20 @@ import {
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import DescriptionRendrer from "../../components/DescriptionRendrer";
-import ProductSlider from "../../components/ProductSlider";
+// import ProductSlider from "../../components/ProductSlider";
 import client, { findArticle } from "../../lib/apollo-client";
 import { parseImages } from "../../lib/parseImage";
 
 const NewPage = ({ article, product }) => {
-  const [description, setdescription] = useState("");
+  // const [description, setdescription] = useState("");
   const images = parseImages(product.content);
-  useEffect(() => {
-    setdescription(
-      product.productfields.description
-        ?.split("\n")
-        .filter((it) => !it.includes("✅"))
-    );
-  }, []);
+  // useEffect(() => {
+  //   setdescription(
+  //     product.productfields.description
+  //       ?.split("\n")
+  //       .filter((it) => !it.includes("✅"))
+  //   );
+  // }, []);
 
   return (
     <Box maxW="100%" __css={{}} position="relative">
@@ -36,7 +36,7 @@ const NewPage = ({ article, product }) => {
       </Head>
       <Box maxW={"6xl"} mx="auto">
         <Box mx='4'>
-        <Heading py="4" px='2'>{product.productfields.name}</Heading>
+        <Heading as={'h1'} py="4" px='2'>{product.productfields.name}</Heading>
         <Divider
           orientation="horizontal"
           bg="#3ea394"

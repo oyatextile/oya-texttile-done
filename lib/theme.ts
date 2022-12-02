@@ -27,7 +27,6 @@ const theme = extendTheme({
       h1 : {
         padding: '1em 0',
         fontSize: '1.5em',
-        color:' #3ea394',
         fontWith:'bold'
 
       },

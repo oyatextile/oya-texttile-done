@@ -22,7 +22,9 @@ const DescriptionRendrer = ({ description }: { description: string }) => {
         font-size: 80%;
         color: #444;
     }
-    
+    h2{
+        color:#269e8a;
+    }
     h1,
     h2,
     h3 {
