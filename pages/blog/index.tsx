@@ -11,6 +11,7 @@ import {
 import Head from "next/head";
 import React from "react";
 import Articles from "../../components/Blog/articles";
+import Fairs from "../../components/Fairs";
 import client, { getllPostsByCat } from "../../lib/apollo-client";
 
 const Blog = ({ posts, categories }: any) => {
@@ -57,6 +58,11 @@ const Blog = ({ posts, categories }: any) => {
               );
             }
           )}
+          <Tab
+           _selected={{ color: "#299D8C" }}
+           fontSize={{ base: "14" }}>
+            News
+          </Tab>
         </TabList>
         <TabPanels w="4xl" overflow="hidden">
           {posts.map((post: any) => {
@@ -66,23 +72,17 @@ const Blog = ({ posts, categories }: any) => {
               </TabPanel>
             );
           })}
+          <TabPanel>
+            <Fairs/>
+          </TabPanel>
         </TabPanels>
       </Tabs>
-      {/* <p dangerouslySetInnerHTML={{ __html: seo?.seoTagsHead }}></p> */}
-      {/* </Box> */}
     </Box>
   );
 };
 
 export async function getStaticProps() {
-  // Run API calls in parallel
-  //
-  // "Bath & Bed",
-  // "Hotel",
-  // "Beach",
-  // "Pet",
-  // "Baby",
-  const head = ["Buying Guide", "News"];
+  const head = ["Buying Guide"];//, "News"
   var body: any[][] = [];
 
   var { data } = await client.query({
@@ -93,61 +93,18 @@ export async function getStaticProps() {
   });
   body.push(data.category.posts.nodes);
 
-  var { data } = await client.query({
-    query: getllPostsByCat,
-    variables: {
-      name: "News",
-    },
-  });
-  body.push(data.category.posts.nodes);
-
   // var { data } = await client.query({
   //   query: getllPostsByCat,
   //   variables: {
-  //     name: "Bath & Bed",
+  //     name: "News",
   //   },
   // });
   // body.push(data.category.posts.nodes);
 
-  // var { data } = await client.query({
-  //   query: getllPostsByCat,
-  //   variables: {
-  //     name: "Hotel",
-  //   },
-  // });
-  // body.push(data.category.posts.nodes);
-  // var { data } = await client.query({
-  //   query: getllPostsByCat,
-  //   variables: {
-  //     name: "Beach",
-  //   },
-  // });
-  // body.push(data.category.posts.nodes);
-  // var { data } = await client.query({
-  //   query: getllPostsByCat,
-  //   variables: {
-  //     name: "Pet",
-  //   },
-  // });
-  // body.push(data.category.posts.nodes);
-  // var { data } = await client.query({
-  //   query: getllPostsByCat,
-  //   variables: {
-  //     name: "Baby",
-  //   },
-  // });
-  // body.push(data.category.posts.nodes);
-  // var { data } = await client.query({
-  //   query: getSeoForPate,
-  //   variables: {
-  //     name: "/index.php/carrer/",
-  //   },
-  // });
   return {
     props: {
       posts: body,
       categories: head,
-      // seo: data.page.seo,
     },
   };
 }
