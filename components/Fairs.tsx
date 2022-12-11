@@ -9,11 +9,11 @@ function Fairs() {
                     <Tab
                         _selected={{ color: "#299D8C" }}
                         fontSize={{ base: "14" }}
-                    >INTERZOO</Tab>
+                    >PETZOO</Tab>
                     <Tab
                         _selected={{ color: "#299D8C" }}
                         fontSize={{ base: "14" }}
-                    >PETZOO</Tab>
+                    >INTERZOO</Tab>
                     <Tab
                         _selected={{ color: "#299D8C" }}
                         fontSize={{ base: "14" }}
