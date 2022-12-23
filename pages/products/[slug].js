@@ -18,7 +18,7 @@ import { parseImages } from "../../lib/parseImage";
 
 const NewPage = ({ article, product }) => {
   // const [description, setdescription] = useState("");
-  const images = parseImages(product.content);
+  const images = parseImages(product?.content);
   // useEffect(() => {
   //   setdescription(
   //     product.productfields.description
@@ -113,7 +113,7 @@ export async function getStaticPaths() {
   var { data } = await client.query({
     query: gql`
       query article {
-        articles {
+        articles(first : 1000) {
           nodes {
             slug
           }
