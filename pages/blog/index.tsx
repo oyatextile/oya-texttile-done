@@ -58,6 +58,7 @@ const Blog = ({ posts, categories }: any) => {
               );
             }
           )}
+            {/* <Tab>Types</Tab> */}
           <Tab
            _selected={{ color: "#299D8C" }}
            fontSize={{ base: "14" }}>
@@ -82,7 +83,7 @@ const Blog = ({ posts, categories }: any) => {
 };
 
 export async function getStaticProps() {
-  const head = ["Buying Guide"];//, "News"
+  const head = ["Buying Guide","Types"];//, "News"
   var body: any[][] = [];
 
   var { data } = await client.query({
@@ -93,14 +94,13 @@ export async function getStaticProps() {
   });
   body.push(data.category.posts.nodes);
 
-  // var { data } = await client.query({
-  //   query: getllPostsByCat,
-  //   variables: {
-  //     name: "News",
-  //   },
-  // });
-  // body.push(data.category.posts.nodes);
-
+  var { data } = await client.query({
+    query: getllPostsByCat,
+    variables: {
+      name: "Types",
+    },
+  });
+  body.push(data.category.posts.nodes);
   return {
     props: {
       posts: body,

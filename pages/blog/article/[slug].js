@@ -89,7 +89,27 @@ export async function getStaticPaths() {
       }
     `,
   });
-  const products = data.products.nodes;
+  var products = data.products.nodes;
+  var {data}=await client.query({
+    query: gql`
+      query NewQuery {
+        category(id: "types", idType: NAME) {
+          posts {
+            nodes {
+              slug
+            }
+          }
+        }
+        products(first: 1000) {
+          nodes {
+            slug
+          }
+        }
+      }
+    `,
+  });
+  products = [...products,...data.products.nodes]
+  console.log(products);
   const post = data.category.posts.nodes;
   var { data } = await client.query({
     query: gql`
