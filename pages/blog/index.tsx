@@ -58,10 +58,8 @@ const Blog = ({ posts, categories }: any) => {
               );
             }
           )}
-            {/* <Tab>Types</Tab> */}
-          <Tab
-           _selected={{ color: "#299D8C" }}
-           fontSize={{ base: "14" }}>
+          {/* <Tab>Types</Tab> */}
+          <Tab _selected={{ color: "#299D8C" }} fontSize={{ base: "14" }}>
             News
           </Tab>
         </TabList>
@@ -74,7 +72,7 @@ const Blog = ({ posts, categories }: any) => {
             );
           })}
           <TabPanel>
-            <Fairs/>
+            <Fairs />
           </TabPanel>
         </TabPanels>
       </Tabs>
@@ -83,7 +81,7 @@ const Blog = ({ posts, categories }: any) => {
 };
 
 export async function getStaticProps() {
-  const head = ["Buying Guide","Types"];//, "News"
+  const head = ["Buying Guide", "Tips"]; //, "News"
   var body: any[][] = [];
 
   var { data } = await client.query({
@@ -97,7 +95,7 @@ export async function getStaticProps() {
   var { data } = await client.query({
     query: getllPostsByCat,
     variables: {
-      name: "Types",
+      name: "tips",
     },
   });
   body.push(data.category.posts.nodes);

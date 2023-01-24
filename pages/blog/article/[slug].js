@@ -93,7 +93,7 @@ export async function getStaticPaths() {
   var {data}=await client.query({
     query: gql`
       query NewQuery {
-        category(id: "types", idType: NAME) {
+        category(id: "tips", idType: NAME) {
           posts {
             nodes {
               slug
