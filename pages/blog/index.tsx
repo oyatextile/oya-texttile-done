@@ -60,7 +60,7 @@ const Blog = ({ posts, categories }: any) => {
           )}
           {/* <Tab>Types</Tab> */}
           <Tab _selected={{ color: "#299D8C" }} fontSize={{ base: "14" }}>
-            News
+            Fairs
           </Tab>
         </TabList>
         <TabPanels w="4xl" overflow="hidden">
