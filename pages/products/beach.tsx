@@ -46,7 +46,7 @@ const HeadCat = () => {
         requirements and needs.
         Subscribe to our newsletter 
         <a href="https://www.linkedin.com/newsletters/home-textile-manufacturing-7013520608349024257/">on Linkedin </a> 
-        for further information and clients' experiences with us.
+        for further information and clients&apos; experiences with us.
       </Text>
     </Box>
   );
