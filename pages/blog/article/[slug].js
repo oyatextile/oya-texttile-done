@@ -89,7 +89,7 @@ export async function getStaticPaths() {
       }
     `,
   });
-  var products = data.products.nodes;
+  var products = data.category.posts.nodes;
   var {data}=await client.query({
     query: gql`
       query NewQuery {
