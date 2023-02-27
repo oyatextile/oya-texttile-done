@@ -50,8 +50,8 @@ const HeadCat = () => {
         margin={"auto"}
         maxW="2xl"
       >
-        OYA’s products for bathing are manufactured with standards, in addition
-        to a competitive price to match your country’s market requirements and
+        OYA&apos;s products for bathing are manufactured with standards, in addition
+        to a competitive price to match your country&apos;s market requirements and
         needs.
         Subscribe to our newsletter 
         <a href="https://www.linkedin.com/newsletters/home-textile-manufacturing-7013520608349024257/">on Linkedin </a> 
