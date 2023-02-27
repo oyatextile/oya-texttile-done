@@ -41,8 +41,8 @@ const HeadCat = () => {
         margin={"auto"}
         maxW="4xl"
       >
-        OYA’s Beach collections for vacation are manufactured with standards, in
-        addition to a competitive price to match your country’s market
+        OYA&apos;s Beach collections for vacation are manufactured with standards, in
+        addition to a competitive price to match your country&apos;s market
         requirements and needs.
         Subscribe to our newsletter 
         <a href="https://www.linkedin.com/newsletters/home-textile-manufacturing-7013520608349024257/">on Linkedin </a> 
