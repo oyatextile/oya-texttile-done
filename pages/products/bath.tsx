@@ -63,9 +63,8 @@ const HeadCat = () => {
         margin={"auto"}
         maxW="2xl"
       >
-        Subscribe to our newsletter<a href="https://www.linkedin.com/newsletters/home-textile-manufacturing-7013520608349024257/">&nbsp;
-        <strong> on Linkedin</strong>&nbsp;</a>
-        for further information and clients&apos; experiences with us.
+        Subscribe to our newsletter<a href="https://www.linkedin.com/newsletters/home-textile-manufacturing-7013520608349024257/" target="_blank">&nbsp;
+        <strong> on LINKEDIN </strong>&nbsp;</a> for more information and tips. 
       </Text>
     </Box>
   );
