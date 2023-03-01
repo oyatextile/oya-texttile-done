@@ -55,6 +55,18 @@ const HeadCat = () => {
         standards, in addition to a competitive price to match your country’s
         market requirements and needs.
       </Text>
+      <Text
+        textAlign="center"
+        px="4"
+        py="2"
+        fontSize={"14"}
+        w="fit-content"
+        margin={"auto"}
+        maxW="2xl"
+      >
+        Subscribe to our newsletter<a href="https://www.linkedin.com/newsletters/7024340195214782464/" target="_blank">&nbsp;
+        <strong> on LINKEDIN </strong>&nbsp;</a> for more information and tips. 
+      </Text>
     </Box>
   );
 };
