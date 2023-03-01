@@ -53,10 +53,6 @@ const HeadCat = () => {
         OYA&apos;s products for bathing are manufactured with standards, in addition
         to a competitive price to match your country&apos;s market requirements and
         needs.
-        <br/>
-        Subscribe to our newsletter 
-        <a href="https://www.linkedin.com/newsletters/home-textile-manufacturing-7013520608349024257/"> on Linkedin </a> 
-        for further information and clients&apos; experiences with us.
       </Text>
       <Text
         textAlign="center"
