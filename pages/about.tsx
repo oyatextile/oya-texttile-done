@@ -107,7 +107,7 @@ const About: NextPage = () => {
               –Private label ‘s page
             </Text>
           </Stack>
-          <Image src="/images/about/3.jpg" />
+          <Image src="/images/about/00.jpg" />
         </Stack>
         <hr />
         <Stack
