@@ -45,7 +45,7 @@ const About: NextPage = () => {
     <>
       <VStack bg="white" color="black" w="100%">
         <Head>
-          <title>OYA Textile - Oya Ev Tekstili ve tic.ltd.şti. </title>
+          <title>OYA Textile - Oya Ev Tekstili ve tic.ltd.şti. OYATEXTILE </title>
           <meta
             name="description"
             content="A reputed Turkish manufacturer and exporter of home, hotel, and pet textile with a significant experience in the field of Textile."
